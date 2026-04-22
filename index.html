@@ -64,7 +64,7 @@
         .nav-cta-btn:hover { background: var(--slate-800); color: var(--white); }
 
         /* ===== SECTION TAG ===== */
-        .sec-tag { display: inline-block; font-family: var(--mono); font-size: .7rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+        .sec-tag { display: inline-block; font-family: var(--mono); font-size: 1.15rem; font-weight: 700; letter-spacing: .02em; color: var(--accent); margin-bottom: 12px; }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { font-size: 16px; scroll-behavior: smooth; }
@@ -341,20 +341,12 @@
         .cta-btn:hover { background: var(--accent-600); transform: translateY(-1px); }
 
         /* ===== FOOTER ===== */
-        .impressum { background: var(--slate-100); border-top: 1px solid var(--slate-200); padding: 48px 24px; }
-        .impressum-inner { max-width: 1000px; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
-        .impressum h3 { font-size: .75rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: .08em; color: var(--slate-500); margin-bottom: 10px; }
-        .impressum p, .impressum a { font-size: .82rem; color: var(--slate-600); line-height: 1.7; }
-        .impressum a { color: var(--accent); text-decoration: none; }
-        .impressum a:hover { text-decoration: underline; }
-        .impressum-bottom { max-width: 1000px; margin: 20px auto 0;
-            padding-top: 16px; border-top: 1px solid var(--slate-200);
+        .footer { background: var(--slate-100); border-top: 1px solid var(--slate-200); padding: 24px; }
+        .footer-inner { max-width: 1000px; margin: 0 auto;
             font-size: .75rem; color: var(--slate-400);
             display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-        .impressum-bottom a { color: var(--slate-400); text-decoration: none; }
-        .impressum-bottom a:hover { color: var(--accent); }
+        .footer-inner a { color: var(--slate-400); text-decoration: none; }
+        .footer-inner a:hover { color: var(--accent); }
 
         /* ===== RESPONSIVE ===== */
         .hints-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
@@ -378,8 +370,7 @@
             .step-header { padding: 14px 16px; } .step-body { padding: 16px; }
             .cta-box { padding: 40px 20px; }
             .mehr-box { padding: 28px 20px; }
-            .impressum-inner { grid-template-columns: 1fr; gap: 24px; }
-            .impressum-bottom { flex-direction: column; }
+            .footer-inner { flex-direction: column; }
         }
     </style>
 </head>
@@ -533,7 +524,6 @@
     <div class="section-inner">
         <div class="section-header">
             <div class="sec-tag">01 · Anwendungsfälle</div>
-            <h2>Anwendungsfälle</h2>
             <p>Was Feuerwehren mit brandmeister.ai täglich erledigen können:</p>
         </div>
         <div class="usecases-grid">
@@ -581,8 +571,7 @@
 <section id="vorteile" class="section section-gray">
     <div class="section-inner">
         <div class="section-header">
-            <div class="sec-tag">02 · Vorteile</div>
-            <h2>Vorteile auf einen Blick</h2>
+            <div class="sec-tag">02 · Vorteile auf einen Blick</div>
             <p>Warum brandmeister.ai für die Feuerwehr besser ist als ein LLM ohne Wissensbasis.</p>
         </div>
         <div class="benefits-grid">
@@ -636,8 +625,7 @@
 <section id="vergleich" class="section">
     <div class="section-inner">
         <div class="section-header">
-            <div class="sec-tag">03 · Vergleich</div>
-            <h2>brandmeister.ai vs. LLM ohne Wissensbasis</h2>
+            <div class="sec-tag">03 · brandmeister.ai vs. LLM ohne Wissensbasis</div>
             <p>Was der Unterschied in der Praxis bedeutet – gerade bei sicherheitsrelevanten Vorschriften.</p>
         </div>
         <div class="comp-wrap">
@@ -695,8 +683,7 @@
 <section id="hinweise" class="section section-gray">
     <div class="section-inner">
         <div class="section-header">
-            <div class="sec-tag">04 · Hinweise</div>
-            <h2>Wichtige Hinweise</h2>
+            <div class="sec-tag">04 · Wichtige Hinweise</div>
         </div>
         <div class="hints-grid">
             <div class="setup-hint">
@@ -709,8 +696,8 @@
                 Fragen zum Umfang: <a href="mailto:kontakt@brandmeister.ai">kontakt@brandmeister.ai</a>
             </div>
             <div class="setup-hint">
-                <strong><svg class="icon" aria-hidden="true"><use href="#icon-triangle-alert"/></svg> Kein Ersatz für Einsatzentscheidungen</strong>
-                Im Einsatz gilt: Führungsentscheidungen treffen ausgebildete Führungskräfte – die KI ist nicht mehr als ein Führungsmittel. Alle Angaben ohne Gewähr auf Vollständigkeit.
+                <strong><svg class="icon" aria-hidden="true"><use href="#icon-triangle-alert"/></svg> Kein Ersatz für Profis</strong>
+                Es gilt immer: Die Entscheidungen treffen immer ausgebildete Feuerwehrleute, die wissen, welche Informationen sie verwenden – jede KI ist immer nur ein Hilfsmittel. Alle Angaben ohne Gewähr auf Vollständigkeit.
             </div>
         </div>
     </div>
@@ -720,8 +707,7 @@
 <section id="einrichten" class="section">
     <div class="section-inner">
         <div class="section-header">
-            <div class="sec-tag">05 · Einrichten</div>
-            <h2>In 3 einfachen Schritten einrichten</h2>
+            <div class="sec-tag">05 · In 3 einfachen Schritten einrichten</div>
             <p>Kostenlos. Ohne Registrierung. In 5 Minuten einsatzbereit.</p>
         </div>
         <div class="setup-cards">
@@ -825,8 +811,7 @@
 <section id="so-funktionierts" class="section section-gray">
     <div class="section-inner">
         <div class="section-header">
-            <div class="sec-tag">06 · Technik</div>
-            <h2>So funktioniert's</h2>
+            <div class="sec-tag">06 · So funktioniert's</div>
             <p>Das RAGSource-Prinzip: kuratiertes Wissen direkt im LLM-Kontext.</p>
         </div>
         <div class="hiw-steps">
@@ -875,8 +860,7 @@
 <section id="ueber-uns" class="section section-gray">
     <div class="section-inner">
         <div class="section-header">
-            <div class="sec-tag">07 · Über uns</div>
-            <h2>Über brandmeister.ai</h2>
+            <div class="sec-tag">07 · Über brandmeister.ai</div>
         </div>
         <div class="about-content">
             <div class="about-tag"><svg class="icon" aria-hidden="true"><use href="#icon-lock-open"/></svg> Open-Source-Projekt</div>
@@ -905,7 +889,6 @@
     <div class="section-inner">
         <div class="section-header">
             <div class="sec-tag">08 · Technologie</div>
-            <h2>Technologie</h2>
             <p>brandmeister.ai ist auf <a href="https://ragsource.ai" target="_blank" rel="noopener" class="tech-link">RAGSource</a> aufgebaut –
             einem Open-Source-Framework für agentic Retrieval Augmented Generation.</p>
         </div>
@@ -940,43 +923,9 @@
     </div>
 </section>
 
-<!-- ============================================================ FOOTER / IMPRESSUM -->
-<footer class="impressum" id="impressum">
-    <div class="impressum-inner">
-        <div>
-            <h3>Angaben gem. § 5 TMG</h3>
-            <p>
-                Christian Traub<br>
-                Hauptstraße 71<br>
-                73087 Bad Boll<br><br>
-                E-Mail: <a href="mailto:kontakt@brandmeister.ai">kontakt@brandmeister.ai</a><br>
-                USt-IdNr.: DE459613042
-            </p>
-        </div>
-        <div>
-            <h3>Verantwortlich</h3>
-            <p>
-                Verantwortlich für den Inhalt<br>
-                gem. § 18 Abs. 2 MStV:<br><br>
-                Christian Traub<br>
-                Hauptstraße 71, 73087 Bad Boll
-            </p>
-        </div>
-        <div>
-            <h3>Haftungshinweis</h3>
-            <p>
-                brandmeister.ai stellt Feuerwehrwissen
-                quellensicher bereit. Die Inhalte ersetzen
-                keine Führungsentscheidung im Einsatz
-                und keine rechtliche Fachberatung.<br><br>
-                Technik: <a href="https://ragsource.ai" target="_blank" rel="noopener">RAGSource Open Source</a>
-            </p>
-        </div>
-    </div>
-    <div style="max-width:1000px;margin:0 auto 0;padding:16px 0 0;border-top:1px solid var(--slate-200);font-size:0.78rem;color:var(--slate-600);line-height:1.6;">
-        <strong>Streitbeilegung:</strong> EU-Plattform OS: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener" style="color:var(--accent)">ec.europa.eu/consumers/odr</a> · Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG).
-    </div>
-    <div class="impressum-bottom">
+<!-- ============================================================ FOOTER -->
+<footer class="footer">
+    <div class="footer-inner">
         <span>© 2026 brandmeister.ai · Christian Traub · Hauptstraße 71, 73087 Bad Boll</span>
         <span>
             <a href="/impressum.html">Impressum</a> ·

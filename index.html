@@ -1,364 +1,309 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>brandmeister.ai – Feuerwehrwissen. Rechtssicher. Im Einsatz verfügbar.</title>
-    <meta name="description" content="brandmeister.ai bringt Feuerwehrrecht, geprüftes Praxiswissen und lokale Informationen in jede KI-Lösung – kostenlos, ohne Registrierung, Open Source.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23c41c1c'/><text x='16' y='23' text-anchor='middle' font-family='system-ui,sans-serif' font-size='14' font-weight='800' fill='white'>FW</text></svg>">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://brandmeister.ai">
-    <meta property="og:title" content="brandmeister.ai – Feuerwehrwissen für jede KI">
-    <meta property="og:description" content="Feuerwehrrecht, geprüftes Praxiswissen und lokale Informationen in jeder KI – kostenlos, ohne Registrierung, Open Source.">
-    <meta name="twitter:card" content="summary">
-    <!-- Kein Google Fonts – System-Font-Stack (DSGVO) -->
-    <style>
-        :root {
-            /* Slate (identisch auf allen RAGSource-Sites) */
-            --slate-900: #0f172a; --slate-800: #1e293b; --slate-700: #334155;
-            --slate-600: #475569; --slate-500: #64748b; --slate-400: #94a3b8;
-            --slate-300: #cbd5e1; --slate-200: #e2e8f0; --slate-100: #f1f5f9;
-            --slate-50:  #f8fafc; --white: #ffffff;
-            --green-soft: #16a34a;
-            --red-100: #fee2e2; --red-700: #b91c1c;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>brandmeister.ai – Feuerwehrwissen. Rechtssicher. Im Einsatz verfügbar.</title>
+<meta name="description" content="brandmeister.ai macht Feuerwehrrecht, geprüftes Praxiswissen und lokale Informationen in jeder KI-Lösung zitierfähig verfügbar – kostenlos, ohne Registrierung, Open Source.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon-brandmeister.svg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brandmeister.ai">
+<meta property="og:title" content="brandmeister.ai – Feuerwehrwissen für jede KI">
+<meta property="og:description" content="Feuerwehrrecht, geprüftes Praxiswissen und lokale Informationen in jeder KI – kostenlos, ohne Registrierung, Open Source.">
+<meta name="twitter:card" content="summary">
 
-            /* Brandmeister-Akzent */
-            --accent:        #c41c1c;
-            --accent-dark:   #8b1212;
-            --accent-600:    #b01818;
-            --accent-light:  #fef0f0;
-            --accent-mid:    #e89090;
-            --accent-50:     #fff5f5;
-            --highlight:     #c41c1c;
-            --highlight-bg:  #fef0f0;
-            --highlight-300: #e89090;
-            --navy:          #1a2744;
-            --navy-dark:     #0f1929;
+<!-- Instrument Serif + JetBrains Mono via Bunny Fonts (DSGVO-konform) -->
+<link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+<link href="https://fonts.bunny.net/css?family=instrument-serif:400,400i|jetbrains-mono:400,500&display=swap" rel="stylesheet">
 
-            --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-                    'Helvetica Neue', Arial, sans-serif;
-            --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
-            --shadow-md: 0 4px 12px rgba(0,0,0,.08);
-            --shadow-lg: 0 12px 32px rgba(0,0,0,.10);
-        }
+<style>
+/* ================================================================
+   brandmeister.ai — Design System v2
+   RAGSource Design System · Register: ZEIT-seriös, editorial
+   ================================================================ */
+:root {
+  --ink:       #0f1013;
+  --ink-2:     #272b33;
+  --ink-3:     #555a64;
+  --ink-4:     #8a8f99;
+  --line:      #e5e5e1;
+  --line-2:    #d8d8d2;
+  --paper:     #fbfaf6;
+  --paper-2:   #f3f1e9;
+  --paper-3:   #ecead9;
+  --fw:        #a8201a;
+  --fw-ink:    #721510;
+  --fw-wash:   #fdf2f0;
+  --fw-marker: #ffe55c;
+  --ok:        #116c37;
+  --ok-wash:   #eaf5ee;
+  --err:       #b91c1c;
+  --warn:      #a85c00;
+  --serif: 'Instrument Serif','Iowan Old Style','Apple Garamond',Baskerville,'Times New Roman',Times,serif;
+  --sans:  -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --mono:  'JetBrains Mono','SF Mono','Fira Code',ui-monospace,Menlo,Consolas,monospace;
+  --gutter: 24px;
+  --container: 1120px;
+}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { font-size: 16px; scroll-behavior: smooth; }
-        body { font-family: var(--font); background: var(--white); color: var(--slate-800); -webkit-font-smoothing: antialiased; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 17px; scroll-behavior: smooth; }
+body { font-family: var(--sans); line-height: 1.55; color: var(--ink-2); background: var(--paper); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; background: none; border: 0; padding: 0; color: inherit; }
+.wrap { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+svg.icon { display: inline-block; width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: -0.125em; flex-shrink: 0; }
 
-        svg.icon { display: inline-block; width: 1em; height: 1em; fill: none; stroke: currentColor;
-            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
-            vertical-align: -0.125em; flex-shrink: 0; overflow: visible; }
+/* ── TOPBAR ── */
+.topbar { border-bottom: 1px solid var(--line); background: var(--paper); font-size: 13px; }
+.topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 44px; }
+.topbar-left { display: flex; align-items: center; gap: 20px; color: var(--ink-3); }
+.live { display: inline-flex; align-items: center; gap: 7px; font-weight: 500; color: var(--ok); }
+.live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); animation: blink-dot 2.4s infinite; }
+@keyframes blink-dot { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.55; transform:scale(.92); } }
+.topbar-right { display: flex; align-items: center; gap: 18px; color: var(--ink-3); }
+.topbar-right a:hover { color: var(--fw); }
+@media (max-width:640px) { .hide-s { display: none; } }
 
-        /* ===== NAV ===== */
-        .nav { background: rgba(255,255,255,.95); backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--slate-200); position: sticky; top: 0; z-index: 100; }
-        .nav-inner { max-width: 1000px; margin: 0 auto; padding: 0 24px; height: 60px;
-            display: flex; align-items: center; justify-content: space-between; }
-        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent-dark); }
-        .logo-icon { width: 34px; height: 34px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;
-            font-size: 12px; font-weight: 800; color: white; box-shadow: 0 2px 8px rgba(196,28,28,.3); }
-        .logo-text { font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; }
-        .logo-text span { color: var(--accent); }
-        .nav-center { display: flex; align-items: center; gap: 2px; }
-        .nav-link { font-size: 0.85rem; color: var(--slate-600); text-decoration: none;
-            padding: 6px 12px; border-radius: var(--radius-sm); transition: color .2s, background .2s; }
-        .nav-link:hover { color: var(--accent); background: var(--accent-light); }
-        .nav-right { display: flex; align-items: center; gap: 10px; }
-        .nav-badge { display: inline-flex; align-items: center; gap: 6px;
-            background: rgba(22,163,74,.1); border: 1px solid rgba(22,163,74,.25);
-            color: var(--green-soft); padding: 5px 12px; border-radius: 100px;
-            font-size: .75rem; font-weight: 700; }
-        .nav-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green-soft);
-            animation: pulse 2s infinite; }
-        @keyframes pulse {
-            0%,100% { box-shadow: 0 0 0 2px rgba(22,163,74,.2); }
-            50%      { box-shadow: 0 0 0 5px rgba(22,163,74,.08); }
-        }
+/* ── NAV ── */
+.nav { border-bottom: 1px solid var(--line); background: var(--paper); position: sticky; top: 0; z-index: 40; }
+.nav-inner { height: 72px; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--ink); }
+.brand .fav { font-family: var(--mono); font-weight: 500; font-size: 13px; color: var(--paper); background: var(--fw); padding: 4px 7px; border-radius: 3px; }
+.brand .wm { font-family: var(--sans); font-weight: 600; font-size: 19px; letter-spacing: -0.02em; color: var(--ink); }
+.brand .ai { color: var(--fw); }
+.nav-links { display: flex; gap: 4px; }
+.nav-links a { font-size: 14px; color: var(--ink-3); padding: 8px 14px; border-radius: 4px; transition: color .15s; }
+.nav-links a:hover { color: var(--fw); }
+.nav-cta { font-size: 13px; font-weight: 600; padding: 9px 16px; border: 1px solid var(--ink); color: var(--ink); border-radius: 2px; transition: background .15s, color .15s; }
+.nav-cta:hover { background: var(--ink); color: var(--paper); }
+@media (max-width:820px) { .nav-links { display: none; } }
 
-        /* ===== HERO ===== */
-        .hero { background: linear-gradient(175deg, var(--slate-50) 0%, var(--white) 60%);
-            padding: 80px 24px 68px; text-align: center; }
-        .hero-inner { max-width: 840px; margin: 0 auto; }
-        .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px;
-            background: var(--accent-light); color: var(--accent-dark);
-            padding: 6px 14px; border-radius: 100px;
-            font-size: .8rem; font-weight: 700; margin-bottom: 24px; }
-        .hero h1 { font-size: clamp(1.75rem, 3.8vw, 2.5rem); font-weight: 700; line-height: 1.22;
-            color: var(--navy); letter-spacing: -0.025em; margin-bottom: 20px; }
-        .hero h1 em { font-style: normal; color: var(--accent); position: relative; }
-        .hero h1 em::after { content: ''; position: absolute; bottom: 2px; left: 0; right: 0;
-            height: 5px; background: var(--highlight-300); opacity: .5; border-radius: 3px; z-index: -1; }
-        .hero-sub { font-size: 1.05rem; color: var(--slate-600); font-weight: 500;
-            max-width: 580px; margin: 0 auto 32px; line-height: 1.75; }
-        .hero-cta { display: inline-flex; align-items: center; gap: 8px;
-            background: var(--accent); color: white;
-            padding: 14px 30px; border-radius: var(--radius-md);
-            font-weight: 700; font-size: .97rem; text-decoration: none;
-            box-shadow: 0 4px 16px rgba(196,28,28,.3); transition: all .2s; }
-        .hero-cta:hover { background: var(--accent-600); transform: translateY(-1px);
-            box-shadow: 0 6px 22px rgba(196,28,28,.35); }
+/* ── HERO ── */
+.hero { padding: 88px 0 72px; }
+.hero .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .02em; color: var(--fw); text-transform: uppercase; margin-bottom: 22px; display: flex; align-items: center; gap: 10px; }
+.hero .eyebrow::before { content: ""; width: 20px; height: 1px; background: var(--fw); display: inline-block; }
+.hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px,6.4vw,82px); line-height: 1.02; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 32px; max-width: 14ch; }
+.hero h1 em { font-style: italic; color: var(--fw); }
+.hero .lead { font-size: 20px; line-height: 1.55; color: var(--ink-2); max-width: 54ch; margin: 0 0 40px; }
+.hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: start; }
+@media (max-width:980px) { .hero-grid { grid-template-columns: 1fr; gap: 48px; } }
 
-        /* ===== TRUST BAR ===== */
-        .trust-bar { background: var(--slate-100); border-top: 1px solid var(--slate-200);
-            border-bottom: 1px solid var(--slate-200); }
-        .trust-bar-inner { max-width: 1000px; margin: 0 auto; padding: 0 24px;
-            display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
-        .trust-item { display: flex; align-items: center; gap: 7px; padding: 14px 22px;
-            font-size: .83rem; color: var(--slate-700); font-weight: 600; }
-        .trust-divider { width: 1px; height: 22px; background: var(--slate-300); flex-shrink: 0; }
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; font-size: 15px; font-weight: 500; border-radius: 2px; transition: background .15s, color .15s, transform .15s; border: 1px solid transparent; }
+.btn-primary { background: var(--fw); color: #fff; }
+.btn-primary:hover { background: var(--fw-ink); transform: translateY(-1px); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--paper); }
+.btn .arr { transition: transform .2s; }
+.btn:hover .arr { transform: translateX(3px); }
 
-        /* ===== SECTIONS ===== */
-        .section { padding: 72px 24px; }
-        .section-gray { background: var(--slate-50); }
-        .section-dark { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%); }
-        .section-inner { max-width: 1000px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 48px; }
-        .section-header h2 { font-size: clamp(1.5rem,3vw,2.1rem); font-weight: 700;
-            color: var(--navy); letter-spacing: -0.02em; margin-bottom: 10px; }
-        .section-header p { font-size: .97rem; color: var(--slate-500);
-            max-width: 500px; margin: 0 auto; line-height: 1.7; }
-        .section-header--light h2 { color: var(--white); }
-        .section-header--light p { color: rgba(255,255,255,.7); }
+/* Trust panel */
+.trust-panel { border: 1px solid var(--line); background: var(--paper-2); }
+.trust-panel-head { padding: 12px 20px; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 11px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .06em; }
+.trust-items { list-style: none; }
+.trust-items li { display: flex; align-items: center; gap: 12px; padding: 13px 20px; border-bottom: 1px solid var(--line); font-size: 15px; color: var(--ink-2); }
+.trust-items li:last-child { border-bottom: 0; }
+.trust-items li .t-icon { color: var(--fw); flex-shrink: 0; }
+.trust-items li .t-sub { font-size: 12px; color: var(--ink-3); font-family: var(--mono); margin-left: auto; }
 
-        /* ===== USE CASES ===== */
-        .usecases-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-        .usecase-card { background: var(--white); border: 1px solid var(--slate-200);
-            border-radius: var(--radius-lg); padding: 22px; box-shadow: var(--shadow-sm);
-            transition: box-shadow .2s, transform .2s; }
-        .usecase-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
-        .usecase-icon { font-size: 1.9rem; margin-bottom: 12px;
-            display: flex; align-items: center; justify-content: center; color: var(--accent); }
-        .usecase-title { font-size: .95rem; font-weight: 700; color: var(--navy); margin-bottom: 7px; }
-        .usecase-desc { font-size: .85rem; color: var(--slate-600); line-height: 1.65; margin-bottom: 12px; }
-        .usecase-example { background: var(--slate-50); border: 1px solid var(--slate-200);
-            border-radius: var(--radius-sm); padding: 8px 12px;
-            font-size: .78rem; color: var(--slate-600); line-height: 1.5; font-style: italic; }
+/* ── SECTIONS ── */
+.sec { padding: 104px 0; }
+.sec-alt { background: var(--paper-2); }
+.sec-dark { background: var(--ink); color: var(--paper); }
+@media (max-width:820px) { .sec { padding: 72px 0; } }
+.sec-head { margin-bottom: 64px; display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: end; }
+@media (max-width:820px) { .sec-head { grid-template-columns: 1fr; gap: 16px; } }
+.sec-head .tag { font-family: var(--mono); font-size: 12px; color: var(--ink); text-transform: uppercase; letter-spacing: .04em; border-top: 1px solid var(--ink); padding-top: 12px; }
+.sec-dark .sec-head .tag { color: var(--paper-3); border-top-color: var(--paper-3); }
+.sec-head h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(32px,4.4vw,56px); line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); margin: 0; max-width: 22ch; }
+.sec-head h2 em { font-style: italic; color: var(--fw); }
+.sec-dark .sec-head h2 { color: var(--paper); }
+.sec-dark .sec-head h2 em { color: var(--fw-marker); }
 
-        /* ===== BENEFITS ===== */
-        .benefits-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-        .benefit-item { display: flex; align-items: flex-start; gap: 12px;
-            background: var(--white); border: 1px solid var(--slate-200);
-            border-radius: var(--radius-md); padding: 18px; box-shadow: var(--shadow-sm); }
-        .benefit-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; color: var(--accent); }
-        .benefit-title { font-size: .9rem; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
-        .benefit-desc { font-size: .82rem; color: var(--slate-600); line-height: 1.55; }
+/* ── ANWENDUNGSFÄLLE ── */
+.uc-grid { border-top: 1px solid var(--line); }
+.uc-card { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; padding: 36px 0; border-bottom: 1px solid var(--line); align-items: start; }
+@media (max-width:820px) { .uc-card { grid-template-columns: 1fr; gap: 16px; } }
+.uc-icon { color: var(--fw); font-size: 1.4rem; margin-bottom: 8px; }
+.uc-title { font-family: var(--serif); font-weight: 400; font-size: 22px; color: var(--ink); margin-bottom: 10px; }
+.uc-example { font-family: var(--mono); font-size: 13px; color: var(--ink-2); line-height: 1.6; padding: 14px 18px; border-left: 2px solid var(--fw); background: var(--paper-2); margin-top: 10px; }
+.uc-desc { font-family: var(--serif); font-size: 21px; line-height: 1.5; color: var(--ink); }
 
-        /* ===== COMPARISON ===== */
-        .comp-wrap { overflow-x: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
-        .comp-table { width: 100%; border-collapse: collapse; font-size: .88rem; min-width: 460px; }
-        .comp-table th { background: var(--navy); color: white;
-            padding: 13px 20px; text-align: left; font-weight: 700; font-size: .87rem; }
-        .comp-table th:first-child { width: 44%; }
-        .comp-table td { padding: 12px 20px; border-bottom: 1px solid var(--slate-200);
-            color: var(--slate-700); background: var(--white); }
-        .comp-table tr:nth-child(even) td { background: var(--slate-50); }
-        .comp-table tr:last-child td { border-bottom: none; }
-        .check { color: var(--green-soft); font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
-        .cross { color: var(--red-700); font-weight: 700; }
-        .warn { color: var(--highlight); font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
+/* ── VORTEILE ── */
+.vorteile-list { list-style: none; display: grid; grid-template-columns: repeat(2,1fr); border-top: 1px solid var(--line); }
+@media (max-width:720px) { .vorteile-list { grid-template-columns: 1fr; } }
+.vorteile-list li { padding: 26px 40px 26px 0; border-bottom: 1px solid var(--line); display: flex; align-items: flex-start; gap: 16px; }
+.vorteile-list li:nth-child(even) { padding-left: 32px; padding-right: 0; border-left: 1px solid var(--line); }
+@media (max-width:720px) { .vorteile-list li:nth-child(even) { padding-left: 0; border-left: 0; } }
+.vorteile-icon { color: var(--fw); flex-shrink: 0; margin-top: 3px; font-size: 1.2rem; }
+.vorteile-title { font-weight: 600; font-size: 17px; color: var(--ink); margin-bottom: 4px; }
+.vorteile-desc { font-size: 15px; color: var(--ink-3); line-height: 1.65; }
 
-        /* ===== HINTS ===== */
-        .hints-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-        .setup-hint { padding: 16px 18px; background: var(--slate-50);
-            border: 1px solid var(--slate-200); border-radius: var(--radius-md);
-            font-size: .82rem; color: var(--slate-700); line-height: 1.6; }
-        .setup-hint strong { display: block; margin-bottom: 4px; font-size: .85rem; color: var(--slate-800); }
-        .setup-hint a { color: var(--accent); font-weight: 600; }
+/* ── VERGLEICH ── */
+.comp-wrap { overflow-x: auto; border: 1px solid var(--line); }
+.comp-table { width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 460px; }
+.comp-table th { background: var(--ink); color: var(--paper); padding: 13px 20px; text-align: left; font-weight: 500; font-size: .85rem; font-family: var(--mono); letter-spacing: .02em; }
+.comp-table th:first-child { width: 44%; }
+.comp-table td { padding: 12px 20px; border-bottom: 1px solid var(--line); color: var(--ink-2); background: var(--paper); }
+.comp-table tr:nth-child(even) td { background: var(--paper-2); }
+.comp-table tr:last-child td { border-bottom: none; }
+.check { color: var(--ok); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
+.cross { color: var(--err); font-weight: 600; }
+.warn-cell { color: var(--warn); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
 
-        /* ===== SETUP ===== */
-        .setup-cards { display: flex; flex-direction: column; gap: 18px; }
-        .step-card { background: var(--white); border: 1px solid var(--slate-200);
-            border-radius: var(--radius-lg); box-shadow: var(--shadow-md); overflow: hidden; }
-        .step-header { display: flex; align-items: center; gap: 16px;
-            padding: 18px 24px; border-bottom: 1px solid var(--slate-100); }
-        .step-num { width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            color: white; font-weight: 800; font-size: .95rem;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 3px 10px rgba(196,28,28,.25); }
-        .step-title { font-size: .95rem; font-weight: 700; color: var(--navy); line-height: 1.35; }
-        .step-hint { font-size: .78rem; color: var(--slate-500); margin-top: 2px; }
-        .step-body { padding: 20px 24px; }
-        .url-row { display: flex; gap: 8px; align-items: stretch; }
-        .url-box { flex: 1; background: var(--slate-900); border-radius: var(--radius-sm);
-            padding: 11px 16px; font-family: 'SF Mono','Fira Code','Cascadia Code',monospace;
-            font-size: .78rem; color: #a5f3fc; word-break: break-all; line-height: 1.5; }
-        .copy-btn { padding: 0 18px; background: var(--accent); color: white; border: none;
-            border-radius: var(--radius-sm); font-family: var(--font); font-size: .85rem;
-            font-weight: 600; cursor: pointer; white-space: nowrap; min-width: 130px; transition: all .2s; }
-        .copy-btn:hover { background: var(--accent-600); }
-        .copy-btn.copied { background: var(--green-soft); }
-        .field-label { display: block; margin-bottom: 6px; font-size: .8rem; font-weight: 700;
-            color: var(--slate-600); text-transform: uppercase; letter-spacing: .06em; }
-        .search-tip { margin-top: 10px; font-size: .78rem; color: var(--slate-500);
-            background: var(--slate-50); border: 1px solid var(--slate-200);
-            border-radius: var(--radius-sm); padding: 8px 12px; line-height: 1.55; }
+/* ── HINWEISE ── */
+.hints-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+@media (max-width:820px) { .hints-grid { grid-template-columns: 1fr; } }
+.hint-box { padding: 24px 26px; background: var(--paper-2); }
+.hint-title { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--ink); margin-bottom: 12px; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+.hint-title svg { color: var(--fw); }
+.hint-box p { font-size: 15px; color: var(--ink-3); line-height: 1.7; }
+.hint-box a { color: var(--fw); text-decoration: underline; text-underline-offset: 2px; }
 
-        /* ===== ARS SUCHE ===== */
-        .ars-wrap { position: relative; margin-bottom: 12px; }
-        .ars-input { width: 100%; padding: 11px 16px; border: 1.5px solid var(--slate-300);
-            border-radius: var(--radius-sm); font-family: var(--font); font-size: .92rem;
-            color: var(--slate-800); background: var(--white);
-            transition: border-color .2s, box-shadow .2s; }
-        .ars-input:focus { outline: none; border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(196,28,28,.1); }
-        .ars-input::placeholder { color: var(--slate-400); }
-        .ars-dropdown { display: none; position: absolute; top: calc(100% + 4px); left: 0; right: 0;
-            background: var(--white); border: 1.5px solid var(--accent-mid);
-            border-radius: var(--radius-md); box-shadow: var(--shadow-lg);
-            z-index: 50; overflow: hidden; max-height: 280px; overflow-y: auto; }
-        .ars-dropdown.open { display: block; }
-        .ars-option { display: flex; align-items: center; justify-content: space-between;
-            padding: 10px 14px; cursor: pointer; transition: background .15s; gap: 12px; }
-        .ars-option:hover, .ars-option.active { background: var(--slate-50); }
-        .ars-option-left { display: flex; flex-direction: column; gap: 2px; }
-        .ars-option-name { font-size: .9rem; font-weight: 600; color: var(--slate-800); }
-        .ars-option-level { font-size: .72rem; color: var(--slate-500); }
-        .ars-option-code { font-family: 'SF Mono','Fira Code',monospace; font-size: .75rem;
-            color: var(--accent); background: var(--accent-light); padding: 2px 8px;
-            border-radius: 4px; flex-shrink: 0; white-space: nowrap; }
-        .ars-no-results { padding: 12px 14px; font-size: .85rem; color: var(--slate-500); text-align: center; }
-        .ars-selected { display: none; align-items: center; justify-content: space-between;
-            background: var(--slate-50); border: 1px solid var(--slate-200);
-            border-radius: var(--radius-sm); padding: 8px 14px; margin-top: 8px; gap: 10px; }
-        .ars-selected.show { display: flex; }
-        .ars-selected-text { font-size: .85rem; color: var(--slate-700); font-weight: 500; }
-        .ars-selected-code { font-family: 'SF Mono',monospace; font-size: .78rem;
-            color: var(--accent); background: var(--accent-light); padding: 2px 8px; border-radius: 4px; }
-        .ars-clear { background: none; border: none; color: var(--slate-400); cursor: pointer;
-            font-size: .9rem; padding: 2px 4px; line-height: 1; transition: color .2s; margin-left: auto; }
-        .ars-clear:hover { color: var(--red-700); }
+/* ── SETUP STEPS ── */
+.steps-wrap { border-top: 1px solid var(--line); }
+.step { display: grid; grid-template-columns: 80px 1fr; gap: 28px; padding: 36px 0; border-bottom: 1px solid var(--line); align-items: start; }
+.step:last-child { border-bottom: 0; }
+.step .n { font-family: var(--serif); font-style: italic; font-size: 56px; color: var(--fw); line-height: 1; }
+.step h3 { font-family: var(--serif); font-weight: 400; font-size: 26px; margin: 0 0 8px; color: var(--ink); line-height: 1.2; }
+.step p { margin: 0 0 16px; color: var(--ink-2); font-size: 16px; max-width: 58ch; }
+.step p:last-child { margin-bottom: 0; }
+.field-label { display: block; margin-bottom: 6px; font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--ink-3); text-transform: uppercase; letter-spacing: .06em; }
 
-        /* ===== MASTERPROMPT ===== */
-        .prompt-box { background: var(--slate-50); border: 1px solid var(--slate-200);
-            border-radius: var(--radius-md); padding: 16px; font-size: .82rem;
-            color: var(--slate-700); line-height: 1.7; white-space: pre-wrap;
-            font-family: var(--font); max-height: 280px; overflow-y: auto; margin-bottom: 12px; }
-        .prompt-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-        .copy-prompt-btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px;
-            background: var(--white); color: var(--slate-700);
-            border: 1.5px solid var(--slate-300); border-radius: var(--radius-sm);
-            font-family: var(--font); font-size: .85rem; font-weight: 600;
-            cursor: pointer; transition: all .2s; }
-        .copy-prompt-btn:hover { border-color: var(--accent-mid); color: var(--accent); background: var(--accent-light); }
-        .copy-prompt-btn.copied { background: var(--green-soft); color: white; border-color: var(--green-soft); }
-        .prompt-note { font-size: .78rem; color: var(--slate-400); }
-        .step3-info { font-size: .9rem; color: var(--slate-600); line-height: 1.7; }
-        .step3-example { margin-top: 14px; background: var(--slate-50);
-            border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 14px 16px; }
-        .step3-example-label { font-size: .72rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: .06em; color: var(--accent); margin-bottom: 6px; }
-        .step3-example p { font-size: .88rem; color: var(--slate-700); font-style: italic; line-height: 1.5; }
-        .step3-source { display: inline-flex; align-items: center; gap: 4px;
-            background: rgba(196,28,28,.12); color: var(--accent-dark);
-            padding: 2px 8px; border-radius: 4px; font-size: .72rem; font-weight: 600; margin-top: 6px; }
+/* ARS */
+.ars-wrap { position: relative; margin-bottom: 12px; }
+.ars-input { width: 100%; padding: 11px 16px; border: 1.5px solid var(--line-2); border-radius: 2px; font-family: var(--sans); font-size: .92rem; color: var(--ink-2); background: #fff; transition: border-color .2s, box-shadow .2s; }
+.ars-input:focus { outline: none; border-color: var(--fw); box-shadow: 0 0 0 3px rgba(168,32,26,.1); }
+.ars-input::placeholder { color: var(--ink-4); }
+.ars-dropdown { display: none; position: absolute; top: calc(100% + 4px); left: 0; right: 0; background: #fff; border: 1.5px solid var(--line); border-radius: 2px; z-index: 50; overflow: hidden; max-height: 280px; overflow-y: auto; box-shadow: 0 12px 32px rgba(0,0,0,.1); }
+.ars-dropdown.open { display: block; }
+.ars-option { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; cursor: pointer; transition: background .15s; gap: 12px; }
+.ars-option:hover, .ars-option.active { background: var(--paper-2); }
+.ars-option-left { display: flex; flex-direction: column; gap: 2px; }
+.ars-option-name { font-size: .9rem; font-weight: 600; color: var(--ink-2); }
+.ars-option-level { font-size: .72rem; color: var(--ink-3); }
+.ars-option-code { font-family: var(--mono); font-size: .75rem; color: var(--fw); background: var(--fw-wash); padding: 2px 8px; border-radius: 2px; flex-shrink: 0; }
+.ars-no-results { padding: 12px 14px; font-size: .85rem; color: var(--ink-3); text-align: center; }
+.ars-selected { display: none; align-items: center; justify-content: space-between; background: var(--paper-2); border: 1px solid var(--line); border-radius: 2px; padding: 8px 14px; margin-top: 8px; gap: 10px; }
+.ars-selected.show { display: flex; }
+.ars-selected-text { font-size: .85rem; color: var(--ink-2); font-weight: 500; }
+.ars-selected-code { font-family: var(--mono); font-size: .78rem; color: var(--fw); background: var(--fw-wash); padding: 2px 8px; border-radius: 2px; }
+.ars-clear { background: none; border: none; color: var(--ink-4); cursor: pointer; font-size: .9rem; padding: 2px 4px; transition: color .2s; margin-left: auto; }
+.ars-clear:hover { color: var(--err); }
 
-        /* ===== HOW IT WORKS ===== */
-        .hiw-steps { display: flex; align-items: flex-start; justify-content: center; gap: 0; }
-        .hiw-step { flex: 1; text-align: center; padding: 0 20px; max-width: 260px; }
-        .hiw-icon-wrap { width: 72px; height: 72px; margin: 0 auto 16px;
-            background: var(--slate-100); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 2rem; color: var(--accent); }
-        .hiw-step-num { font-size: .72rem; font-weight: 800; text-transform: uppercase;
-            letter-spacing: .08em; color: var(--slate-400); margin-bottom: 6px; }
-        .hiw-step-title { font-size: .97rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
-        .hiw-step-desc { font-size: .85rem; color: var(--slate-600); line-height: 1.65; }
-        .hiw-arrow { flex-shrink: 0; align-self: center; font-size: 1.6rem;
-            color: var(--slate-300); margin-top: -20px; }
+/* URL + Copy */
+.url-row { display: flex; gap: 6px; align-items: stretch; margin-top: 14px; }
+.url-box { flex: 1; background: var(--ink); color: #cde9ff; padding: 12px 14px; border-radius: 2px; font-family: var(--mono); font-size: .8rem; word-break: break-all; line-height: 1.5; }
+.copy-btn { padding: 0 18px; background: var(--ink); color: var(--paper); border-radius: 2px; font-family: var(--mono); font-size: 12px; font-weight: 500; white-space: nowrap; min-width: 120px; transition: background .15s; border: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+.copy-btn:hover { background: var(--fw); }
+.copy-btn.copied { background: var(--ok); }
+.search-tip { margin-top: 10px; font-size: .82rem; color: var(--ink-3); background: var(--paper-2); border: 1px solid var(--line); border-radius: 2px; padding: 10px 14px; line-height: 1.6; }
 
-        /* ===== MEHR WOLLEN ===== */
-        .mehr-box { background: var(--white); border: 1.5px solid var(--slate-200);
-            border-radius: var(--radius-lg); padding: 40px; text-align: center; box-shadow: var(--shadow-sm); }
-        .mehr-box h3 { font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
-        .mehr-box p { font-size: .95rem; color: var(--slate-600); max-width: 540px; margin: 0 auto 24px; line-height: 1.75; }
-        .mehr-btn { display: inline-flex; align-items: center; gap: 8px;
-            background: var(--accent); color: white; padding: 12px 28px;
-            border-radius: var(--radius-md); font-weight: 700; font-size: .92rem;
-            text-decoration: none; transition: all .2s; }
-        .mehr-btn:hover { background: var(--accent-600); transform: translateY(-1px); }
+/* Masterprompt */
+.prompt-box { background: var(--paper-2); border: 1px solid var(--line); border-radius: 2px; padding: 16px; font-size: .8rem; color: var(--ink-2); line-height: 1.7; white-space: pre-wrap; font-family: var(--mono); max-height: 280px; overflow-y: auto; margin-bottom: 12px; }
+.prompt-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.copy-prompt-btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; background: var(--paper); color: var(--ink-2); border: 1.5px solid var(--line); border-radius: 2px; font-family: var(--mono); font-size: 12px; font-weight: 500; cursor: pointer; transition: all .2s; }
+.copy-prompt-btn:hover { border-color: var(--fw); color: var(--fw); }
+.copy-prompt-btn.copied { background: var(--ok); color: #fff; border-color: var(--ok); }
+.prompt-note { font-size: .78rem; color: var(--ink-4); }
+.step3-info { font-size: 16px; color: var(--ink-2); line-height: 1.7; }
+.step3-example { margin-top: 14px; background: var(--paper-2); border: 1px solid var(--line); border-radius: 2px; padding: 14px 16px; }
+.step3-example-label { font-family: var(--mono); font-size: .72rem; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--fw); margin-bottom: 6px; }
+.step3-example p { font-size: .9rem; color: var(--ink-2); font-style: italic; line-height: 1.55; }
+.step3-source { display: inline-flex; align-items: center; gap: 4px; background: var(--fw-wash); color: var(--fw-ink); padding: 3px 8px; border-radius: 2px; font-family: var(--mono); font-size: .72rem; font-weight: 500; margin-top: 6px; }
+.integrations { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; font-size: 13px; color: var(--ink-3); }
+.integrations a { color: var(--fw); text-decoration: underline; text-underline-offset: 2px; }
 
-        /* ===== ABOUT ===== */
-        .about-content { max-width: 660px; margin: 0 auto; text-align: center; }
-        .about-content p { font-size: .97rem; color: var(--slate-700); line-height: 1.85; margin-bottom: 16px; }
-        .about-tag { display: inline-flex; align-items: center; gap: 8px;
-            background: var(--slate-100); border: 1px solid var(--slate-200);
-            color: var(--slate-700); border-radius: 100px;
-            padding: 5px 14px; font-size: .82rem; font-weight: 600; margin-bottom: 24px; }
+/* ── SO FUNKTIONIERT'S ── */
+.hiw-steps { display: flex; align-items: flex-start; justify-content: center; }
+.hiw-step { flex: 1; text-align: center; padding: 0 20px; max-width: 280px; }
+.hiw-icon-wrap { width: 72px; height: 72px; margin: 0 auto 16px; border: 1px solid var(--line); background: var(--paper-2); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: var(--fw); }
+.hiw-step-num { font-family: var(--mono); font-size: .72rem; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); margin-bottom: 6px; }
+.hiw-step-title { font-family: var(--serif); font-size: 22px; color: var(--ink); margin-bottom: 6px; font-weight: 400; }
+.hiw-step-desc { font-size: .9rem; color: var(--ink-3); line-height: 1.65; }
+.hiw-arrow { flex-shrink: 0; align-self: center; font-size: 1.4rem; color: var(--line-2); margin-top: -20px; }
 
-        /* ===== TECH ===== */
-        .tech-content { text-align: center; }
-        .tech-badge-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 22px 0; }
-        .tech-badge { display: inline-flex; align-items: center; gap: 6px;
-            background: var(--white); border: 1px solid var(--slate-200);
-            border-radius: var(--radius-md); padding: 9px 16px;
-            font-size: .85rem; color: var(--slate-700); font-weight: 500; box-shadow: var(--shadow-sm); }
-        .tech-desc { font-size: .95rem; color: var(--slate-600); max-width: 540px;
-            margin: 0 auto 8px; line-height: 1.75; }
-        .tech-link { color: var(--accent); font-weight: 700; text-decoration: none; }
-        .tech-link:hover { text-decoration: underline; }
+/* ── MANIFEST / HALTUNG ── */
+.nope-list { list-style: none; display: grid; grid-template-columns: repeat(2,1fr); border-top: 1px solid rgba(255,255,255,.1); }
+@media (max-width:720px) { .nope-list { grid-template-columns: 1fr; } }
+.nope-list li { padding: 22px 40px 22px 0; border-bottom: 1px solid rgba(255,255,255,.1); display: flex; align-items: baseline; gap: 16px; font-size: 17px; }
+.nope-list li:nth-child(even) { padding-left: 28px; padding-right: 0; border-left: 1px solid rgba(255,255,255,.1); }
+@media (max-width:720px) { .nope-list li:nth-child(even) { padding-left: 0; border-left: 0; } }
+.nope-list li .no { font-family: var(--serif); font-style: italic; color: var(--fw-marker); font-size: 22px; flex-shrink: 0; }
+.nope-list li b { color: #fff; font-weight: 500; }
+.nope-list li .sub { display: block; color: rgba(255,255,255,.55); font-size: 13px; margin-top: 2px; font-family: var(--mono); }
 
-        /* ===== CTA ===== */
-        .cta-box { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
-            border-radius: var(--radius-lg); padding: 60px 40px; text-align: center;
-            box-shadow: var(--shadow-lg); }
-        .cta-title { font-size: clamp(1.5rem,3vw,2.1rem); font-weight: 800;
-            color: var(--white); margin-bottom: 12px; letter-spacing: -0.02em; }
-        .cta-sub { font-size: 1rem; color: rgba(255,255,255,.75); margin-bottom: 32px;
-            line-height: 1.7; max-width: 460px; margin-left: auto; margin-right: auto; }
-        .cta-btn { display: inline-flex; align-items: center; gap: 8px;
-            background: var(--accent); color: white;
-            padding: 15px 34px; border-radius: var(--radius-md);
-            font-weight: 800; font-size: .97rem; text-decoration: none;
-            box-shadow: 0 4px 16px rgba(196,28,28,.4); transition: all .2s; }
-        .cta-btn:hover { background: var(--accent-600); transform: translateY(-1px); }
+/* ── REST ── */
+.mehr-box { border: 1px solid var(--line); padding: 48px 40px; text-align: center; background: var(--paper-2); }
+.mehr-box h3 { font-family: var(--serif); font-weight: 400; font-size: 32px; color: var(--ink); margin-bottom: 12px; }
+.mehr-box p { font-size: 18px; color: var(--ink-2); max-width: 540px; margin: 0 auto 28px; line-height: 1.75; }
+.mehr-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--fw); color: white; padding: 13px 24px; border-radius: 2px; font-weight: 500; font-size: 15px; transition: background .2s, transform .15s; }
+.mehr-btn:hover { background: var(--fw-ink); transform: translateY(-1px); }
 
-        /* ===== FOOTER ===== */
-        .impressum { background: var(--slate-100); border-top: 1px solid var(--slate-200); padding: 48px 24px; }
-        .impressum-inner { max-width: 1000px; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
-        .impressum h3 { font-size: .75rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: .08em; color: var(--slate-500); margin-bottom: 10px; }
-        .impressum p, .impressum a { font-size: .82rem; color: var(--slate-600); line-height: 1.7; }
-        .impressum a { color: var(--accent); text-decoration: none; }
-        .impressum a:hover { text-decoration: underline; }
-        .impressum-bottom { max-width: 1000px; margin: 20px auto 0;
-            padding-top: 16px; border-top: 1px solid var(--slate-200);
-            font-size: .75rem; color: var(--slate-400);
-            display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-        .impressum-bottom a { color: var(--slate-400); text-decoration: none; }
-        .impressum-bottom a:hover { color: var(--accent); }
+.about-content { max-width: 660px; }
+.about-content p { font-family: var(--serif); font-size: 21px; color: var(--ink-2); line-height: 1.65; margin-bottom: 24px; }
+.about-content p:last-child { margin-bottom: 0; }
+.about-content a { color: var(--fw); text-decoration: underline; text-underline-offset: 2px; }
+.about-tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); border: 1px solid var(--line); border-radius: 2px; padding: 6px 14px; margin-bottom: 32px; }
 
-        /* ===== RESPONSIVE ===== */
-        .hints-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-        @media (max-width:900px) { .benefits-grid { grid-template-columns: repeat(2,1fr); } }
-        @media (max-width:768px) {
-            .usecases-grid { grid-template-columns: repeat(2,1fr); }
-            .hints-grid { grid-template-columns: 1fr; }
-            .hiw-steps { flex-direction: column; align-items: center; gap: 24px; }
-            .hiw-arrow { display: none; }
-            .hiw-step { max-width: 320px; padding: 0 8px; }
-        }
-        @media (max-width:640px) {
-            .section { padding: 48px 16px; } .hero { padding: 48px 16px 40px; }
-            .nav-center { display: none; } .nav-inner { padding: 0 16px; }
-            .usecases-grid { grid-template-columns: 1fr; }
-            .benefits-grid { grid-template-columns: 1fr; }
-            .trust-divider { display: none; }
-            .trust-item { padding: 10px 12px; font-size: .78rem; }
-            .url-row { flex-direction: column; }
-            .copy-btn { width: 100%; padding: 12px; }
-            .step-header { padding: 14px 16px; } .step-body { padding: 16px; }
-            .cta-box { padding: 40px 20px; }
-            .mehr-box { padding: 28px 20px; }
-            .impressum-inner { grid-template-columns: 1fr; gap: 24px; }
-            .impressum-bottom { flex-direction: column; }
-        }
-    </style>
+.tech-badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 20px; }
+.tech-badge { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 2px; padding: 7px 14px; font-family: var(--mono); font-size: .82rem; color: var(--ink-2); background: var(--paper-2); }
+.tech-desc { font-family: var(--serif); font-size: 20px; color: var(--ink-2); line-height: 1.65; max-width: 640px; }
+.tech-link { color: var(--fw); text-decoration: underline; text-underline-offset: 2px; }
+
+.cta-box { background: var(--ink); padding: 72px 40px; text-align: center; }
+.cta-title { font-family: var(--serif); font-weight: 400; font-size: clamp(32px,4vw,54px); color: var(--paper); margin-bottom: 16px; line-height: 1.1; letter-spacing: -0.02em; }
+.cta-title em { font-style: italic; color: var(--fw-marker); }
+.cta-sub { font-size: 18px; color: rgba(255,255,255,.7); margin-bottom: 36px; line-height: 1.7; }
+.cta-sub a { color: var(--fw-marker); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+
+/* ── FOOTER ── */
+.footer { background: var(--paper); border-top: 1px solid var(--line); padding: 56px 0 32px; font-size: 13px; color: var(--ink-3); }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+@media (max-width:820px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
+.footer h4 { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); margin: 0 0 12px; }
+.footer ul { list-style: none; }
+.footer ul li { margin-bottom: 7px; }
+.footer ul li a:hover { color: var(--fw); }
+.footer-blurb { font-size: 14px; color: var(--ink-3); max-width: 32ch; line-height: 1.7; margin: 0; }
+.sig { border-top: 1px solid var(--line); padding-top: 28px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; }
+.sig-text { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--ink-3); max-width: 48ch; line-height: 1.5; }
+.sig-text b { color: var(--ink); font-style: normal; font-weight: 500; }
+.mini-marks { display: flex; gap: 28px; align-items: center; font-family: var(--serif); font-size: 14px; color: var(--ink-4); }
+.mini-marks a:hover { color: var(--fw); }
+.mini-marks .sep { color: var(--line-2); }
+.streit { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; color: var(--ink-4); line-height: 1.6; }
+.streit a { color: var(--fw); }
+.impressum-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; margin-bottom: 28px; }
+@media (max-width:720px) { .impressum-cols { grid-template-columns: 1fr; gap: 20px; } }
+.impressum-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: .75rem; color: var(--ink-4); }
+.impressum-bottom a { color: var(--ink-4); }
+.impressum-bottom a:hover { color: var(--fw); }
+
+/* ── ACCESSIBILITY + REVEALS ── */
+:focus-visible { outline: 2px solid var(--fw); outline-offset: 2px; border-radius: 2px; }
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s, transform .6s; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } .live::before { animation: none; } }
+
+/* ── RESPONSIVE ── */
+@media (max-width:640px) {
+  .hero { padding: 56px 0 48px; }
+  .sec { padding: 56px 0; }
+  .mehr-box { padding: 32px 20px; }
+  .cta-box { padding: 48px 20px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .hiw-steps { flex-direction: column; align-items: center; gap: 24px; }
+  .hiw-arrow { display: none; }
+  .hiw-step { max-width: 320px; padding: 0; }
+  .url-row { flex-direction: column; }
+  .copy-btn { width: 100%; padding: 12px; }
+  .step { grid-template-columns: 60px 1fr; gap: 16px; }
+  .step .n { font-size: 44px; }
+}
+</style>
 </head>
 <body>
 
@@ -447,506 +392,479 @@
   </symbol>
 </svg>
 
-<!-- ============================================================ NAV -->
-<nav class="nav">
-    <div class="nav-inner">
-        <a href="#" class="logo">
-            <div class="logo-icon">FW</div>
-            <div class="logo-text">brandmeister<span>.ai</span></div>
-        </a>
-        <nav class="nav-center">
-            <a href="#anwendungsfaelle" class="nav-link">Anwendungsfälle</a>
-            <a href="#einrichten" class="nav-link">Einrichten</a>
-            <a href="#ueber-uns" class="nav-link">Über brandmeister.ai</a>
-        </nav>
-        <div class="nav-right">
-            <div class="nav-badge">
-                <div class="nav-dot"></div>
-                Server live
-            </div>
-        </div>
+<!-- ══ TOPBAR ══ -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-left">
+      <span class="live">Server erreichbar</span>
+      <span class="hide-s">MCP-API · v0.4.2</span>
     </div>
-</nav>
-
-<!-- ============================================================ HERO -->
-<section class="hero">
-    <div class="hero-inner">
-        <div class="hero-eyebrow"><svg class="icon" aria-hidden="true"><use href="#icon-flame"/></svg> Für die Feuerwehren in Deutschland</div>
-        <h1>KI in der Feuerwehr?<br>Nur wenn die Antworten stimmen.</h1>
-        <p class="hero-sub">
-            brandmeister.ai macht Feuerwehrrecht, geprüftes Praxiswissen und lokale Informationen in Ihrer KI quellensicher verfügbar.
-        </p>
-        <a href="#einrichten" class="hero-cta">Jetzt einrichten →</a>
+    <div class="topbar-right">
+      <a href="https://github.com/ragsource-ai/ragsource-server" target="_blank" rel="noopener" class="hide-s">Quellcode ↗</a>
     </div>
-</section>
-
-<!-- ============================================================ TRUST BAR -->
-<div class="trust-bar">
-    <div class="trust-bar-inner">
-        <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-lock-open"/></svg> Open Source</div>
-        <div class="trust-divider"></div>
-        <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-coins"/></svg> Kostenlos</div>
-        <div class="trust-divider"></div>
-        <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-file-text"/></svg> Quellensicher &amp; zitierfähig</div>
-        <div class="trust-divider"></div>
-        <div class="trust-item"><span>🇩🇪</span> DSGVO-konform</div>
-        <div class="trust-divider"></div>
-        <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-cookie"/></svg> Cookie-frei</div>
-        <div class="trust-divider"></div>
-        <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#icon-lock"/></svg> Kein Login</div>
-    </div>
+  </div>
 </div>
 
-<!-- ============================================================ ANWENDUNGSFÄLLE -->
-<section id="anwendungsfaelle" class="section">
-    <div class="section-inner">
-        <div class="section-header">
-            <h2>Anwendungsfälle</h2>
-            <p>Was Feuerwehren mit brandmeister.ai täglich erledigen können:</p>
-        </div>
-        <div class="usecases-grid">
-                        <div class="usecase-card">
-                <div class="usecase-icon"><svg class="icon" aria-hidden="true"><use href="#icon-book-open"/></svg></div>
-                <div class="usecase-title">Ausbildung</div>
-                <div class="usecase-desc">Übungsvorbereitung, Lernunterlagen, Lernkontrollen und Didaktik direkt aus aktuellen und hochwertigen Quellen.</div>
-                <div class="usecase-example">„Erstelle mir einen Theorieabend und eine praktische Stationsübung zum Thema Selbstretten"</div>
-            </div>
-            <div class="usecase-card">
-                <div class="usecase-icon"><svg class="icon" aria-hidden="true"><use href="#icon-truck"/></svg></div>
-                <div class="usecase-title">Einsatzplanung</div>
-                <div class="usecase-desc">Unterstützung der Bedarfsplanung, Standardeinsatzregeln, Checklisten u.V.m. - direkt erstellt aus der Wissensbasis.</div>
-                <div class="usecase-example">„Erstelle mir eine Checkliste für den Einsatzleiter bei einem BMA-Alarm in der Kurklinik"</div>
-            </div>
-            <div class="usecase-card">
-                <div class="usecase-icon"><svg class="icon" aria-hidden="true"><use href="#icon-clipboard-list"/></svg></div>
-                <div class="usecase-title">Feuerwehrverwaltung</div>
-                <div class="usecase-desc">Dienstpläne, Tagesordnungen, Dokumentenerstellung, u.V.m. - immer basierend auf den gültigen Vorgaben.</div>
-                <div class="usecase-example">„Erstelle mir eine satzungskonforme Tagesordnung für die Hauptversammlung."</div>
-            </div>
-            <div class="usecase-card">
-                <div class="usecase-icon"><svg class="icon" aria-hidden="true"><use href="#icon-shield-alert"/></svg></div>
-                <div class="usecase-title">Vorbeugender Brandschutz</div>
-                <div class="usecase-desc">Brandschutzrechtliche Anforderungen, technische Normen und Begehungsunterlagen für Beratung und Stellungnahmen.</div>
-                <div class="usecase-example">„Welche Anforderungen stellt die LBO BW an den zweiten baulichen Rettungsweg?"</div>
-            </div>
-            <div class="usecase-card">
-                <div class="usecase-icon"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg></div>
-                <div class="usecase-title">Onboarding</div>
-                <div class="usecase-desc">Informationen, Ansprechpartner, Unterweisungen, Checklisten - erstellt aus lokalspezifischen Quellen oder direkt als Chatbot</div>
-                <div class="usecase-example">„Erstelle mir eine Checkliste für den Neueintritt in die Einsatzabteilung."</div>
-            </div>
-            <div class="usecase-card">
-                <div class="usecase-icon"><svg class="icon" aria-hidden="true"><use href="#icon-user-plus"/></svg></div>
-                <div class="usecase-title">Internes Wissensmanagement</div>
-                <div class="usecase-desc">Ihre lokalen Standards und Abläufe - KI-Integration für Ihre Kameradinnen und Kameraden</div>
-                <div class="usecase-example">„Was ist in unseren Standard-Einsatzregeln festgelegt zur Anleiterbereitschaft?"</div>
-            </div>
-        </div>
+<!-- ══ NAV ══ -->
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#" aria-label="brandmeister.ai Startseite">
+      <span class="fav">&gt;rag</span>
+      <span class="wm">brandmeister<span class="ai">.ai</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#anwendungsfaelle">Anwendungsfälle</a>
+      <a href="#einrichten">Einrichten</a>
+      <a href="#ueber-uns">Über brandmeister.ai</a>
     </div>
+    <a class="nav-cta" href="#einrichten">MCP-Link holen</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Für die Feuerwehren in Deutschland</div>
+        <h1>KI in der Feuerwehr? Nur wenn die Antworten <em>stimmen.</em></h1>
+        <p class="lead">brandmeister.ai macht Feuerwehrrecht, geprüftes Praxiswissen und lokale Informationen in Ihrer KI quellensicher verfügbar.</p>
+        <div class="hero-actions">
+          <a href="#einrichten" class="btn btn-primary">Jetzt einrichten <span class="arr">→</span></a>
+          <a href="#anwendungsfaelle" class="btn btn-ghost">Anwendungen sehen</a>
+        </div>
+      </div>
+      <div class="trust-panel reveal">
+        <div class="trust-panel-head">Was brandmeister.ai mitbringt</div>
+        <ul class="trust-items">
+          <li><svg class="icon t-icon" aria-hidden="true"><use href="#icon-lock-open"/></svg> Open Source <span class="t-sub">MIT-Lizenz</span></li>
+          <li><svg class="icon t-icon" aria-hidden="true"><use href="#icon-coins"/></svg> Kostenlos <span class="t-sub">dauerhaft</span></li>
+          <li><svg class="icon t-icon" aria-hidden="true"><use href="#icon-file-text"/></svg> Quellensicher &amp; zitierfähig <span class="t-sub">§-genau</span></li>
+          <li><span>🇩🇪</span> DSGVO-konform <span class="t-sub">keine Datenweitergabe</span></li>
+          <li><svg class="icon t-icon" aria-hidden="true"><use href="#icon-cookie"/></svg> Cookie-frei <span class="t-sub">kein Tracking</span></li>
+          <li><svg class="icon t-icon" aria-hidden="true"><use href="#icon-lock"/></svg> Kein Login <span class="t-sub">keine Registrierung</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- ============================================================ VORTEILE -->
-<section id="vorteile" class="section section-gray">
-    <div class="section-inner">
-        <div class="section-header">
-            <h2>Vorteile auf einen Blick</h2>
-            <p>Warum brandmeister.ai für die Feuerwehr besser ist als ein LLM ohne Wissensbasis.</p>
-        </div>
-        <div class="benefits-grid">
-            <div class="benefit-item">
-                <div class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#icon-shield"/></svg></div>
-                <div>
-                    <div class="benefit-title">Verlässliches Wissen</div>
-                    <div class="benefit-desc">LLMs haben zu viel Phantasie für die Feuerwehr. brandmeister.ai gibt der KI gesicherte Quellen. Auf Wunsch auch ihre lokalen - mit sicherem internen Zugang.</div>
-                </div>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#icon-refresh-cw"/></svg></div>
-                <div>
-                    <div class="benefit-title">Immer aktuelle Vorschriften</div>
-                    <div class="benefit-desc">Feuerwehrgesetze, FwDV und Satzungen werden laufend aktualisiert – kein veraltetes Trainingswissen, sondern aktuelle Normtexte.</div>
-                </div>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#icon-link-2"/></svg></div>
-                <div>
-                    <div class="benefit-title">Zitierfähige Antworten</div>
-                    <div class="benefit-desc">Jede Antwort enthält die genaue Paragraphen- oder Vorschriftennummer – prüfbar, dokumentierbar und im Dienstbetrieb verwendbar.</div>
-                </div>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#icon-coins"/></svg></div>
-                <div>
-                    <div class="benefit-title">Kostenlos nutzbar</div>
-                    <div class="benefit-desc">brandmeister.ai ist für alle Feuerwehren kostenlos zugänglich – Anbindung von lokalem Wissen auf Wunsch individuell möglich.</div>
-                </div>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#icon-lock-open"/></svg></div>
-                <div>
-                    <div class="benefit-title">Open Source</div>
-                    <div class="benefit-desc">Die gesamte Technologie ist quelloffen. Keine proprietäre Black Box – jeder kann prüfen, wie brandmeister.ai arbeitet.</div>
-                </div>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#icon-plug"/></svg></div>
-                <div>
-                    <div class="benefit-title">Für jede KI-Lösung</div>
-                    <div class="benefit-desc">Claude, ChatGPT, Langdock und alle weiteren MCP-fähigen Tools werden unterstützt – Ihre Feuerwehr bleibt anbieterunabhängig.</div>
-                </div>
-            </div>
-        </div>
+<!-- ══ ANWENDUNGSFÄLLE ══ -->
+<section id="anwendungsfaelle" class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">01 · Anwendungsfälle</div>
+      <h2>Was Feuerwehren mit brandmeister.ai täglich <em>erledigen</em> können.</h2>
     </div>
+    <div class="uc-grid reveal">
+      <div class="uc-card">
+        <div class="uc-left">
+          <div class="uc-icon"><svg class="icon" aria-hidden="true"><use href="#icon-book-open"/></svg></div>
+          <div class="uc-title">Ausbildung</div>
+          <div class="uc-example">› „Erstelle mir einen Theorieabend und eine praktische Stationsübung zum Thema Selbstretten"</div>
+        </div>
+        <div class="uc-desc">Übungsvorbereitung, Lernunterlagen, Lernkontrollen und Didaktik direkt aus aktuellen und hochwertigen Quellen.</div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-left">
+          <div class="uc-icon"><svg class="icon" aria-hidden="true"><use href="#icon-truck"/></svg></div>
+          <div class="uc-title">Einsatzplanung</div>
+          <div class="uc-example">› „Erstelle mir eine Checkliste für den Einsatzleiter bei einem BMA-Alarm in der Kurklinik"</div>
+        </div>
+        <div class="uc-desc">Unterstützung der Bedarfsplanung, Standardeinsatzregeln, Checklisten u.v.m. – direkt erstellt aus der Wissensbasis.</div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-left">
+          <div class="uc-icon"><svg class="icon" aria-hidden="true"><use href="#icon-clipboard-list"/></svg></div>
+          <div class="uc-title">Feuerwehrverwaltung</div>
+          <div class="uc-example">› „Erstelle mir eine satzungskonforme Tagesordnung für die Hauptversammlung."</div>
+        </div>
+        <div class="uc-desc">Dienstpläne, Tagesordnungen, Dokumentenerstellung u.v.m. – immer basierend auf den gültigen Vorgaben.</div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-left">
+          <div class="uc-icon"><svg class="icon" aria-hidden="true"><use href="#icon-shield-alert"/></svg></div>
+          <div class="uc-title">Vorbeugender Brandschutz</div>
+          <div class="uc-example">› „Welche Anforderungen stellt die LBO BW an den zweiten baulichen Rettungsweg?"</div>
+        </div>
+        <div class="uc-desc">Brandschutzrechtliche Anforderungen, technische Normen und Begehungsunterlagen für Beratung und Stellungnahmen.</div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-left">
+          <div class="uc-icon"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg></div>
+          <div class="uc-title">Onboarding</div>
+          <div class="uc-example">› „Erstelle mir eine Checkliste für den Neueintritt in die Einsatzabteilung."</div>
+        </div>
+        <div class="uc-desc">Informationen, Ansprechpartner, Unterweisungen, Checklisten – erstellt aus lokalspezifischen Quellen oder direkt als Chatbot.</div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-left">
+          <div class="uc-icon"><svg class="icon" aria-hidden="true"><use href="#icon-user-plus"/></svg></div>
+          <div class="uc-title">Internes Wissensmanagement</div>
+          <div class="uc-example">› „Was ist in unseren Standard-Einsatzregeln festgelegt zur Anleiterbereitschaft?"</div>
+        </div>
+        <div class="uc-desc">Ihre lokalen Standards und Abläufe – KI-Integration für Ihre Kameradinnen und Kameraden.</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- ============================================================ VERGLEICH -->
-<section id="vergleich" class="section">
-    <div class="section-inner">
-        <div class="section-header">
-            <h2>brandmeister.ai vs. LLM ohne Wissensbasis</h2>
-            <p>Was der Unterschied in der Praxis bedeutet – gerade bei sicherheitsrelevanten Vorschriften.</p>
-        </div>
-        <div class="comp-wrap">
-            <table class="comp-table">
-                <thead>
-                    <tr>
-                        <th>Merkmal</th>
-                        <th>brandmeister.ai</th>
-                        <th>LLM ohne brandmeister.ai</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Aktuelle Landesfeuerwehrgesetze</td>
-                        <td><span class="check"><svg class="icon" aria-hidden="true"><use href="#icon-circle-check"/></svg></span> Stets aktuell gepflegt</td>
-                        <td><span class="cross">❌</span> Veraltetes Trainingswissen</td>
-                    </tr>
-                    <tr>
-                        <td>Feuerwehrdienstvorschriften (FwDV)</td>
-                        <td><span class="check"><svg class="icon" aria-hidden="true"><use href="#icon-circle-check"/></svg></span> Vollständig hinterlegt</td>
-                        <td><span class="cross">❌</span> Nicht zuverlässig verfügbar</td>
-                    </tr>
-                    <tr>
-                        <td>Zitierfähige Quellenangaben</td>
-                        <td><span class="check"><svg class="icon" aria-hidden="true"><use href="#icon-circle-check"/></svg></span> Paragraphen- und Abschnittsgenau</td>
-                        <td><span class="cross">❌</span> Keine verlässlichen Quellenangaben</td>
-                    </tr>
-                    <tr>
-                        <td>Sicherheitsrelevante Vorschriften</td>
-                        <td><span class="check"><svg class="icon" aria-hidden="true"><use href="#icon-circle-check"/></svg></span> Aus Normtext, kein Halluzinationsrisiko</td>
-                        <td><span class="cross">❌</span> Hohes Halluzinationsrisiko</td>
-                    </tr>
-                    <tr>
-                        <td>Kostenfrei nutzbar</td>
-                        <td><span class="check"><svg class="icon" aria-hidden="true"><use href="#icon-circle-check"/></svg></span> Ja</td>
-                        <td><span class="warn"><svg class="icon" aria-hidden="true"><use href="#icon-triangle-alert"/></svg></span> Je nach Anbieter</td>
-                    </tr>
-                    <tr>
-                        <td>DSGVO-konform*</td>
-                        <td><span class="check"><svg class="icon" aria-hidden="true"><use href="#icon-circle-check"/></svg></span> Keine Datenweitergabe</td>
-                        <td><span class="warn"><svg class="icon" aria-hidden="true"><use href="#icon-triangle-alert"/></svg></span> Je nach Anbieter</td>
-                    </tr>
-                    <tr>
-                        <td>Lizenz</td>
-                        <td><span class="check"><svg class="icon" aria-hidden="true"><use href="#icon-circle-check"/></svg></span> Open Source</td>
-                        <td><span class="warn"><svg class="icon" aria-hidden="true"><use href="#icon-triangle-alert"/></svg></span> Je nach Anbieter</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<!-- ══ VORTEILE ══ -->
+<section id="vorteile" class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">02 · Vorteile</div>
+      <h2>Warum brandmeister.ai besser ist als ein LLM <em>ohne</em> Wissensbasis.</h2>
     </div>
-</section>
-
-<!-- ============================================================ HINWEISE -->
-<section id="hinweise" class="section section-gray">
-    <div class="section-inner">
-        <div class="section-header">
-            <h2>Wichtige Hinweise</h2>
-        </div>
-        <div class="hints-grid">
-            <div class="setup-hint">
-                <strong><svg class="icon" aria-hidden="true"><use href="#icon-shield"/></svg> Hinweis zur DSGVO-Konformität</strong>
-                brandmeister.ai überträgt ausschließlich Rechts- und Vorschriftentexte an das anfragende Sprachmodell. Einsatzdaten, Objektpläne und personenbezogene Informationen verlassen Ihre KI-Umgebung nicht und werden nicht an brandmeister.ai übermittelt.
-            </div>
-            <div class="setup-hint">
-                <strong><svg class="icon" aria-hidden="true"><use href="#icon-info"/></svg> Hinweis zum Umfang</strong>
-                brandmeister.ai befindet sich im Aufbau – Landesfeuerwehrgesetze, FwDV und kommunales Recht wachsen laufend. Bundesrecht und Dienstvorschriften sind bereits vollständig hinterlegt.<br><br>
-                Fragen zum Umfang: <a href="mailto:kontakt@brandmeister.ai">kontakt@brandmeister.ai</a>
-            </div>
-            <div class="setup-hint">
-                <strong><svg class="icon" aria-hidden="true"><use href="#icon-triangle-alert"/></svg> Kein Ersatz für Einsatzentscheidungen</strong>
-                Im Einsatz gilt: Führungsentscheidungen treffen ausgebildete Führungskräfte – die KI ist nicht mehr als ein Führungsmittel. Alle Angaben ohne Gewähr auf Vollständigkeit.
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================================ EINRICHTEN -->
-<section id="einrichten" class="section">
-    <div class="section-inner">
-        <div class="section-header">
-            <h2>In 3 einfachen Schritten einrichten</h2>
-            <p>Kostenlos. Ohne Registrierung. In 5 Minuten einsatzbereit.</p>
-        </div>
-        <div class="setup-cards">
-
-            <!-- SCHRITT 1 -->
-            <div class="step-card">
-                <div class="step-header">
-                    <div class="step-num">1</div>
-                    <div>
-                        <div class="step-title">MCP-Server-Link generieren und in Ihrem KI-Tool eintragen</div>
-                        <div class="step-hint">Als Integration bzw. Konnektor in Claude, Langdock und anderen MCP-fähigen KI-Tools</div>
-                    </div>
-                </div>
-                <div class="step-body">
-                    <span class="field-label">Ihr Landkreis oder Ihre Gemeinde (optional)</span>
-                    <div class="ars-wrap" id="arsWrap">
-                        <input
-                            type="text"
-                            id="arsSearchInput"
-                            class="ars-input"
-                            placeholder='Landkreis oder Gemeinde suchen, z. B. „Göppingen", „Ulm"…'
-                            autocomplete="off"
-                            oninput="onArsInput()"
-                            onkeydown="onArsKeydown(event)"
-                            onfocus="onArsFocus()"
-                        >
-                        <div class="ars-dropdown" id="arsDropdown"></div>
-                    </div>
-                    <div class="ars-selected" id="arsSelected">
-                        <div>
-                            <span class="ars-selected-text" id="arsSelectedName">—</span>
-                            <span class="ars-selected-code" id="arsSelectedCode">—</span>
-                        </div>
-                        <button class="ars-clear" onclick="clearArs()" title="Auswahl aufheben">✕</button>
-                    </div>
-                    <span class="field-label" style="display:block; margin-top:16px; margin-bottom:6px">Ihr MCP-Server-Link</span>
-                    <div class="url-row">
-                        <div class="url-box" id="generatedUrl">https://mcp.brandmeister.ai/mcp</div>
-                        <button class="copy-btn" id="copyBtn" onclick="copyUrl()"><svg class="icon" aria-hidden="true"><use href="#icon-clipboard-list"/></svg> <span id="copyBtnText">Link kopieren</span></button>
-                    </div>
-                    <div class="search-tip" style="margin-top:12px">
-                        <svg class="icon" aria-hidden="true"><use href="#icon-lightbulb"/></svg>
-                        <strong>Wie binde ich den MCP-Server an meine KI an?</strong>
-                        Suchen Sie im Internet nach „<em>[Ihr KI-Tool] MCP Server einrichten</em>" – Anleitungen gibt es für alle gängigen Tools. Eigene Schritt-für-Schritt-Anleitungen für Claude und Langdock folgen in Kürze.
-                    </div>
-                </div>
-            </div>
-
-            <!-- SCHRITT 2 -->
-            <div class="step-card">
-                <div class="step-header">
-                    <div class="step-num">2</div>
-                    <div>
-                        <div class="step-title">Masterprompt in Ihren Assistenten oder Ihr Projekt einfügen</div>
-                        <div class="step-hint">Claude: Projekt-Systemanweisung · Langdock: Assistent-Systemprompt · ChatGPT: Custom Instructions</div>
-                    </div>
-                </div>
-                <div class="step-body">
-                    <div class="prompt-box" id="promptBox"></div>
-                    <div class="prompt-actions">
-                        <button class="copy-prompt-btn" id="copyPromptBtn" onclick="copyPrompt()">
-                            <span id="cpIcon"><svg class="icon" aria-hidden="true"><use href="#icon-clipboard-list"/></svg></span>
-                            <span id="cpText">Masterprompt kopieren</span>
-                        </button>
-                        <span class="prompt-note">
-                            Als Systemprompt eintragen: Claude → Projekt-Systemanweisung · ChatGPT → Custom Instructions · Langdock → Assistenten-Systemprompt
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SCHRITT 3 -->
-            <div class="step-card">
-                <div class="step-header">
-                    <div class="step-num">3</div>
-                    <div>
-                        <div class="step-title">Loslegen – einfach wie gewohnt chatten</div>
-                        <div class="step-hint">Die KI greift automatisch auf Feuerwehrrecht und Dienstvorschriften zu</div>
-                    </div>
-                </div>
-                <div class="step-body">
-                    <p class="step3-info">
-                        Starten Sie einen Chat in Ihrem konfigurierten Assistenten.
-                        Die KI erkennt automatisch, wann sie auf Feuerwehrwissen zugreifen muss –
-                        und liefert zitierfähige Antworten mit Paragraphen- oder Vorschriftennummer.
-                        Kein spezieller Befehl nötig.
-                    </p>
-                    <div class="step3-example">
-                        <div class="step3-example-label">Beispiel-Anfrage</div>
-                        <p>„Welche Aufgaben hat der Feuerwehrkommandant?"</p>
-                        <div class="step3-source"><svg class="icon" aria-hidden="true"><use href="#icon-file-text"/></svg> Antwort mit Quellen: §§ 8 und 9 FwG BW, §11 der Feuerwehrsatzung</div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- ============================================================ SO FUNKTIONIERT'S -->
-<section id="so-funktionierts" class="section section-gray">
-    <div class="section-inner">
-        <div class="section-header">
-            <h2>So funktioniert's</h2>
-            <p>Das RAGSource-Prinzip: kuratiertes Wissen direkt im LLM-Kontext.</p>
-        </div>
-        <div class="hiw-steps">
-            <div class="hiw-step">
-                <div class="hiw-icon-wrap"><svg class="icon" style="font-size:2rem" aria-hidden="true"><use href="#icon-file-text"/></svg></div>
-                <div class="hiw-step-num">Schritt 1</div>
-                <div class="hiw-step-title">Kuratierte Rechtsquellen</div>
-                <div class="hiw-step-desc">Feuerwehrgesetze, FwDV und Dienstvorschriften – paragrafengenau aufbereitet und laufend aktualisiert.</div>
-            </div>
-            <div class="hiw-arrow">→</div>
-            <div class="hiw-step">
-                <div class="hiw-icon-wrap"><svg class="icon" style="font-size:2rem" aria-hidden="true"><use href="#icon-layers"/></svg></div>
-                <div class="hiw-step-num">Schritt 2</div>
-                <div class="hiw-step-title">RAGSource MCP-Server</div>
-                <div class="hiw-step-desc">Die Quellen werden über den offenen MCP-Standard für jede KI-Lösung zugänglich – ohne Datenweitergabe.</div>
-            </div>
-            <div class="hiw-arrow">→</div>
-            <div class="hiw-step">
-                <div class="hiw-icon-wrap"><svg class="icon" style="font-size:2rem" aria-hidden="true"><use href="#icon-plug"/></svg></div>
-                <div class="hiw-step-num">Schritt 3</div>
-                <div class="hiw-step-title">Ihr KI-Assistent</div>
-                <div class="hiw-step-desc">Claude, ChatGPT, Langdock – einmal eingerichtet, immer mit aktuellem Feuerwehrwissen im Kontext.</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================================ MEHR WOLLEN -->
-<section class="section">
-    <div class="section-inner">
-        <div class="mehr-box">
-            <h3>Mehr als der öffentliche Wissensstand?</h3>
-            <p>
-                Sie möchten Ihre eigenen Dokumente, Unterlagen und Materialien einbinden?
-                Wir helfen beim Aufbau einer eigenen Instanz - mit gesichertem Zugang nur für Sie.
-            </p>
-            <a href="mailto:kontakt@brandmeister.ai" class="mehr-btn">
-                <svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>
-                Kontakt aufnehmen
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================================ ÜBER UNS -->
-<section id="ueber-uns" class="section section-gray">
-    <div class="section-inner">
-        <div class="section-header">
-            <h2>Über brandmeister.ai</h2>
-        </div>
-        <div class="about-content">
-            <div class="about-tag"><svg class="icon" aria-hidden="true"><use href="#icon-lock-open"/></svg> Open-Source-Projekt</div>
-            <p>
-                brandmeister.ai ist aus der Praxis entstanden: Die Idee, Feuerwehrwissen und
-                Vorschriften verlässlich in KI-Assistenten zu bringen, kam direkt aus dem
-                ehrenamtlichen Feuerwehrdienst – wo schnelle und quellengesicherte KI-Nutzung
-                nicht nur die Arbeit erleichtern, sondern auch viel Zeit spart.
-            </p>
-            <p>
-                Entwickelt von Christian Traub, Feuerwehrkommandant und KI-Praktiker mit
-                mehr als 15 Jahren Erfahrung. Das Projekt ist Open Source und wächst mit
-                Unterstützung der Feuerwehr-Community.
-            </p>
-            <p>
-                Für die kommunale Verwaltung gibt es das Schwesterprojekt
-                <a href="https://amtsschimmel.ai" style="color:var(--accent); font-weight:600;">amtsschimmel.ai</a> –
-                mit dem gleichen Ansatz für Gemeinderecht, Satzungen, Verwaltungsvorschriften und lokales Wissen.
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================================ TECHNOLOGIE -->
-<section id="technologie" class="section">
-    <div class="section-inner">
-        <div class="section-header">
-            <h2>Technologie</h2>
-            <p>brandmeister.ai ist auf <a href="https://ragsource.ai" target="_blank" rel="noopener" class="tech-link">RAGSource</a> aufgebaut –
-            einem Open-Source-Framework für agentic Retrieval Augmented Generation.</p>
-        </div>
-        <div class="tech-content">
-            <div class="tech-badge-row">
-                <div class="tech-badge"><svg class="icon" aria-hidden="true"><use href="#icon-layers"/></svg> Hierarchisches Context Retrieval</div>
-                <div class="tech-badge">🇩🇪 Made in Germany</div>
-                <div class="tech-badge"><svg class="icon" aria-hidden="true"><use href="#icon-lock-open"/></svg> Open Source – MIT-Lizenz</div>
-                <div class="tech-badge"><svg class="icon" aria-hidden="true"><use href="#icon-plug"/></svg> Jede KI via MCP-Standard</div>
-            </div>
-            <p class="tech-desc">
-                RAGSource kommuniziert via <strong>MCP</strong> direkt mit Ihrem KI-Tool – ohne Middleware,
-                ohne Datenweitergabe. Als Framework navigiert RAGSource eigenständig durch Wissenshierarchien:
-                vom Überblick bis zum exakten Paragraphen.
-                → <a href="https://ragsource.ai" target="_blank" rel="noopener" class="tech-link">ragsource.ai</a>
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================================ CTA -->
-<section id="jetzt-loslegen" class="section">
-    <div class="section-inner">
-        <div class="cta-box">
-            <div class="cta-title">Bereit für rechtssicheres Feuerwehrwissen?</div>
-            <p class="cta-sub">
-                Kostenlos. Ohne Registrierung. In 5 Minuten einsatzbereit.<br>
-                Fragen? <a href="mailto:kontakt@brandmeister.ai" style="color:var(--highlight); font-weight:600;">kontakt@brandmeister.ai</a>
-            </p>
-            <a href="#einrichten" class="cta-btn">Jetzt einrichten →</a>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================================ FOOTER / IMPRESSUM -->
-<footer class="impressum" id="impressum">
-    <div class="impressum-inner">
+    <ul class="vorteile-list reveal">
+      <li>
+        <div class="vorteile-icon"><svg class="icon" aria-hidden="true"><use href="#icon-shield"/></svg></div>
         <div>
-            <h3>Angaben gem. § 5 TMG</h3>
-            <p>
-                Christian Traub<br>
-                Hauptstraße 71<br>
-                73087 Bad Boll<br><br>
-                E-Mail: <a href="mailto:kontakt@brandmeister.ai">kontakt@brandmeister.ai</a><br>
-                USt-IdNr.: DE459613042
-            </p>
+          <div class="vorteile-title">Verlässliches Wissen</div>
+          <div class="vorteile-desc">LLMs haben zu viel Phantasie für die Feuerwehr. brandmeister.ai gibt der KI gesicherte Quellen. Auf Wunsch auch Ihre lokalen – mit sicherem internen Zugang.</div>
         </div>
+      </li>
+      <li>
+        <div class="vorteile-icon"><svg class="icon" aria-hidden="true"><use href="#icon-refresh-cw"/></svg></div>
         <div>
-            <h3>Verantwortlich</h3>
-            <p>
-                Verantwortlich für den Inhalt<br>
-                gem. § 18 Abs. 2 MStV:<br><br>
-                Christian Traub<br>
-                Hauptstraße 71, 73087 Bad Boll
-            </p>
+          <div class="vorteile-title">Immer aktuelle Vorschriften</div>
+          <div class="vorteile-desc">Feuerwehrgesetze, FwDV und Satzungen werden laufend aktualisiert – kein veraltetes Trainingswissen, sondern aktuelle Normtexte.</div>
         </div>
+      </li>
+      <li>
+        <div class="vorteile-icon"><svg class="icon" aria-hidden="true"><use href="#icon-link-2"/></svg></div>
         <div>
-            <h3>Haftungshinweis</h3>
-            <p>
-                brandmeister.ai stellt Feuerwehrwissen
-                quellensicher bereit. Die Inhalte ersetzen
-                keine Führungsentscheidung im Einsatz
-                und keine rechtliche Fachberatung.<br><br>
-                Technik: <a href="https://ragsource.ai" target="_blank" rel="noopener">RAGSource Open Source</a>
-            </p>
+          <div class="vorteile-title">Zitierfähige Antworten</div>
+          <div class="vorteile-desc">Jede Antwort enthält die genaue Paragraphen- oder Vorschriftennummer – prüfbar, dokumentierbar und im Dienstbetrieb verwendbar.</div>
         </div>
+      </li>
+      <li>
+        <div class="vorteile-icon"><svg class="icon" aria-hidden="true"><use href="#icon-coins"/></svg></div>
+        <div>
+          <div class="vorteile-title">Kostenlos nutzbar</div>
+          <div class="vorteile-desc">brandmeister.ai ist für alle Feuerwehren kostenlos zugänglich – Anbindung von lokalem Wissen auf Wunsch individuell möglich.</div>
+        </div>
+      </li>
+      <li>
+        <div class="vorteile-icon"><svg class="icon" aria-hidden="true"><use href="#icon-lock-open"/></svg></div>
+        <div>
+          <div class="vorteile-title">Open Source</div>
+          <div class="vorteile-desc">Die gesamte Technologie ist quelloffen. Keine proprietäre Black Box – jeder kann prüfen, wie brandmeister.ai arbeitet.</div>
+        </div>
+      </li>
+      <li>
+        <div class="vorteile-icon"><svg class="icon" aria-hidden="true"><use href="#icon-plug"/></svg></div>
+        <div>
+          <div class="vorteile-title">Für jede KI-Lösung</div>
+          <div class="vorteile-desc">Claude, ChatGPT, Langdock und alle weiteren MCP-fähigen Tools werden unterstützt – Ihre Feuerwehr bleibt anbieterunabhängig.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ HALTUNG (dark) ══ -->
+<section class="sec sec-dark">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">03 · Haltung</div>
+      <h2>Was diese Seite <em>nicht tut.</em></h2>
     </div>
-    <div style="max-width:1000px;margin:0 auto 0;padding:16px 0 0;border-top:1px solid var(--slate-200);font-size:0.78rem;color:var(--slate-600);line-height:1.6;">
-        <strong>Streitbeilegung:</strong> EU-Plattform OS: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener" style="color:var(--accent)">ec.europa.eu/consumers/odr</a> · Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG).
+    <ul class="nope-list reveal">
+      <li><span class="no">§</span><div><b>Kein Cookie-Banner</b><span class="sub">weil keine Cookies gesetzt werden</span></div></li>
+      <li><span class="no">§</span><div><b>Kein Google Analytics</b><span class="sub">weil wir euer Verhalten nichts angeht</span></div></li>
+      <li><span class="no">§</span><div><b>Kein Login, keine Registrierung</b><span class="sub">die KI bleibt euer vertragliches Verhältnis</span></div></li>
+      <li><span class="no">§</span><div><b>Kein Tracking-Pixel</b><span class="sub">keine Facebook-, LinkedIn- oder X-Pixel</span></div></li>
+      <li><span class="no">§</span><div><b>Kein Newsletter-Popup</b><span class="sub">Änderungen unten dokumentiert</span></div></li>
+      <li><span class="no">§</span><div><b>Keine Datenweitergabe</b><span class="sub">MCP-Calls laufen direkt — wir sehen sie nicht</span></div></li>
+      <li><span class="no">§</span><div><b>Kein Lock-in</b><span class="sub">alles MIT · CC BY — selbst hosten jederzeit</span></div></li>
+      <li><span class="no">§</span><div><b>Keine Abo-Falle</b><span class="sub">dauerhaft kostenfrei, als Gemeingut finanziert</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ VERGLEICH ══ -->
+<section id="vergleich" class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">04 · Vergleich</div>
+      <h2>brandmeister.ai vs. LLM <em>ohne</em> Wissensbasis.</h2>
     </div>
-    <div class="impressum-bottom">
-        <span>© 2026 brandmeister.ai · Christian Traub · Hauptstraße 71, 73087 Bad Boll</span>
-        <span>
-            <a href="#impressum">Impressum</a> ·
-            <a href="/datenschutz.html">Datenschutz</a> ·
-            <a href="mailto:kontakt@brandmeister.ai">Kontakt</a> ·
-            Powered by <a href="https://ragsource.ai" target="_blank" rel="noopener">RAGSource</a> ·
-            Für Kommunen: <a href="https://amtsschimmel.ai" target="_blank" rel="noopener">amtsschimmel.ai</a>
-        </span>
+    <div class="comp-wrap reveal">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Merkmal</th>
+            <th>brandmeister.ai</th>
+            <th>LLM ohne brandmeister.ai</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Aktuelle Landesfeuerwehrgesetze</td>
+            <td><span class="check"><svg class="icon" aria-hidden="true"><use href="#icon-circle-check"/></svg></span> Stets aktuell gepflegt</td>
+            <td><span class="cross">❌</span> Veraltetes Trainingswissen</td>
+          </tr>
+          <tr>
+            <td>Feuerwehrdienstvorschriften (FwDV)</td>
+            <td><span class="check"><svg class="icon" aria-hidden="true"><use href="#icon-circle-check"/></svg></span> Vollständig hinterlegt</td>
+            <td><span class="cross">❌</span> Nicht zuverlässig verfügbar</td>
+          </tr>
+          <tr>
+            <td>Zitierfähige Quellenangaben</td>
+            <td><span class="check"><svg class="icon" aria-hidden="true"><use href="#icon-circle-check"/></svg></span> Paragraphen- und Abschnittsgenau</td>
+            <td><span class="cross">❌</span> Keine verlässlichen Quellenangaben</td>
+          </tr>
+          <tr>
+            <td>Sicherheitsrelevante Vorschriften</td>
+            <td><span class="check"><svg class="icon" aria-hidden="true"><use href="#icon-circle-check"/></svg></span> Aus Normtext, kein Halluzinationsrisiko</td>
+            <td><span class="cross">❌</span> Hohes Halluzinationsrisiko</td>
+          </tr>
+          <tr>
+            <td>Kostenfrei nutzbar</td>
+            <td><span class="check"><svg class="icon" aria-hidden="true"><use href="#icon-circle-check"/></svg></span> Ja</td>
+            <td><span class="warn-cell"><svg class="icon" aria-hidden="true"><use href="#icon-triangle-alert"/></svg></span> Je nach Anbieter</td>
+          </tr>
+          <tr>
+            <td>DSGVO-konform*</td>
+            <td><span class="check"><svg class="icon" aria-hidden="true"><use href="#icon-circle-check"/></svg></span> Keine Datenweitergabe</td>
+            <td><span class="warn-cell"><svg class="icon" aria-hidden="true"><use href="#icon-triangle-alert"/></svg></span> Je nach Anbieter</td>
+          </tr>
+          <tr>
+            <td>Lizenz</td>
+            <td><span class="check"><svg class="icon" aria-hidden="true"><use href="#icon-circle-check"/></svg></span> Open Source</td>
+            <td><span class="warn-cell"><svg class="icon" aria-hidden="true"><use href="#icon-triangle-alert"/></svg></span> Je nach Anbieter</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
+</section>
+
+<!-- ══ HINWEISE ══ -->
+<section id="hinweise" class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">05 · Hinweise</div>
+      <h2>Wichtige <em>Hinweise</em> zur Nutzung.</h2>
+    </div>
+    <div class="hints-grid reveal">
+      <div class="hint-box">
+        <div class="hint-title"><svg class="icon" aria-hidden="true"><use href="#icon-shield"/></svg> DSGVO-Konformität</div>
+        <p>brandmeister.ai überträgt ausschließlich Rechts- und Vorschriftentexte an das anfragende Sprachmodell. Einsatzdaten, Objektpläne und personenbezogene Informationen verlassen Ihre KI-Umgebung nicht und werden nicht an brandmeister.ai übermittelt.</p>
+      </div>
+      <div class="hint-box">
+        <div class="hint-title"><svg class="icon" aria-hidden="true"><use href="#icon-info"/></svg> Umfang</div>
+        <p>brandmeister.ai befindet sich im Aufbau – Landesfeuerwehrgesetze, FwDV und kommunales Recht wachsen laufend. Bundesrecht und Dienstvorschriften sind bereits vollständig hinterlegt.<br><br>Fragen zum Umfang: <a href="mailto:kontakt@brandmeister.ai">kontakt@brandmeister.ai</a></p>
+      </div>
+      <div class="hint-box">
+        <div class="hint-title"><svg class="icon" aria-hidden="true"><use href="#icon-triangle-alert"/></svg> Kein Ersatz für Einsatzentscheidungen</div>
+        <p>Im Einsatz gilt: Führungsentscheidungen treffen ausgebildete Führungskräfte – die KI ist nicht mehr als ein Führungsmittel. Alle Angaben ohne Gewähr auf Vollständigkeit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EINRICHTEN ══ -->
+<section id="einrichten" class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">06 · Einrichten</div>
+      <h2>In <em>drei Schritten</em> einsatzbereit.</h2>
+    </div>
+    <div class="steps-wrap reveal">
+
+      <div class="step">
+        <div class="n">1</div>
+        <div>
+          <h3>MCP-Server-Link generieren und in Ihrem KI-Tool eintragen.</h3>
+          <p>Als Integration bzw. Konnektor in Claude, Langdock und anderen MCP-fähigen KI-Tools. Kein Konto, keine E-Mail.</p>
+          <label class="field-label" for="arsSearchInput">Ihr Landkreis oder Ihre Gemeinde (optional)</label>
+          <div class="ars-wrap" id="arsWrap">
+            <input type="text" id="arsSearchInput" class="ars-input"
+              placeholder='Landkreis oder Gemeinde suchen, z. B. „Göppingen", „Ulm"…'
+              autocomplete="off" oninput="onArsInput()" onkeydown="onArsKeydown(event)" onfocus="onArsFocus()">
+            <div class="ars-dropdown" id="arsDropdown"></div>
+          </div>
+          <div class="ars-selected" id="arsSelected">
+            <div>
+              <span class="ars-selected-text" id="arsSelectedName">—</span>
+              <span class="ars-selected-code" id="arsSelectedCode">—</span>
+            </div>
+            <button class="ars-clear" onclick="clearArs()" title="Auswahl aufheben">✕</button>
+          </div>
+          <label class="field-label" for="generatedUrl" style="margin-top:16px">Ihr MCP-Server-Link</label>
+          <div class="url-row">
+            <div class="url-box" id="generatedUrl">https://mcp.brandmeister.ai/mcp</div>
+            <button class="copy-btn" id="copyBtn" onclick="copyUrl()">
+              <svg class="icon" aria-hidden="true"><use href="#icon-clipboard-list"/></svg>
+              <span id="copyBtnText">Link kopieren</span>
+            </button>
+          </div>
+          <div class="search-tip">
+            <svg class="icon" aria-hidden="true"><use href="#icon-lightbulb"/></svg>
+            <strong>Wie binde ich den MCP-Server an meine KI an?</strong>
+            Suchen Sie im Internet nach „<em>[Ihr KI-Tool] MCP Server einrichten</em>" – Anleitungen gibt es für alle gängigen Tools. Eigene Schritt-für-Schritt-Anleitungen für Claude und Langdock folgen in Kürze.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="n">2</div>
+        <div>
+          <h3>Masterprompt in Ihren Assistenten einfügen.</h3>
+          <p>Claude: Projekt-Systemanweisung · Langdock: Assistent-Systemprompt · ChatGPT: Custom Instructions</p>
+          <div class="prompt-box" id="promptBox"></div>
+          <div class="prompt-actions">
+            <button class="copy-prompt-btn" id="copyPromptBtn" onclick="copyPrompt()">
+              <span id="cpIcon"><svg class="icon" aria-hidden="true"><use href="#icon-clipboard-list"/></svg></span>
+              <span id="cpText">Masterprompt kopieren</span>
+            </button>
+            <span class="prompt-note">Als Systemprompt eintragen: Claude → Projekt-Systemanweisung · ChatGPT → Custom Instructions · Langdock → Assistenten-Systemprompt</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="n">3</div>
+        <div>
+          <h3>Loslegen – einfach wie gewohnt chatten.</h3>
+          <p class="step3-info">Starten Sie einen Chat in Ihrem konfigurierten Assistenten. Die KI erkennt automatisch, wann sie auf Feuerwehrwissen zugreifen muss – und liefert zitierfähige Antworten mit Paragraphen- oder Vorschriftennummer. Kein spezieller Befehl nötig.</p>
+          <div class="step3-example">
+            <div class="step3-example-label">Beispiel-Anfrage</div>
+            <p>„Welche Aufgaben hat der Feuerwehrkommandant?"</p>
+            <div class="step3-source"><svg class="icon" aria-hidden="true"><use href="#icon-file-text"/></svg> Antwort mit Quellen: §§ 8 und 9 FwG BW, §11 der Feuerwehrsatzung</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ SO FUNKTIONIERT'S ══ -->
+<section id="so-funktionierts" class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">07 · Technik</div>
+      <h2>Das RAGSource-Prinzip: kuriertes Wissen direkt im <em>LLM-Kontext.</em></h2>
+    </div>
+    <div class="hiw-steps reveal">
+      <div class="hiw-step">
+        <div class="hiw-icon-wrap"><svg class="icon" aria-hidden="true"><use href="#icon-file-text"/></svg></div>
+        <div class="hiw-step-num">Schritt 1</div>
+        <div class="hiw-step-title">Kuratierte Rechtsquellen</div>
+        <div class="hiw-step-desc">Feuerwehrgesetze, FwDV und Dienstvorschriften – paragrafengenau aufbereitet und laufend aktualisiert.</div>
+      </div>
+      <div class="hiw-arrow">→</div>
+      <div class="hiw-step">
+        <div class="hiw-icon-wrap"><svg class="icon" aria-hidden="true"><use href="#icon-layers"/></svg></div>
+        <div class="hiw-step-num">Schritt 2</div>
+        <div class="hiw-step-title">RAGSource MCP-Server</div>
+        <div class="hiw-step-desc">Die Quellen werden über den offenen MCP-Standard für jede KI-Lösung zugänglich – ohne Datenweitergabe.</div>
+      </div>
+      <div class="hiw-arrow">→</div>
+      <div class="hiw-step">
+        <div class="hiw-icon-wrap"><svg class="icon" aria-hidden="true"><use href="#icon-plug"/></svg></div>
+        <div class="hiw-step-num">Schritt 3</div>
+        <div class="hiw-step-title">Ihr KI-Assistent</div>
+        <div class="hiw-step-desc">Claude, ChatGPT, Langdock – einmal eingerichtet, immer mit aktuellem Feuerwehrwissen im Kontext.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MEHR WOLLEN ══ -->
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="mehr-box reveal">
+      <h3>Mehr als der öffentliche Wissensstand?</h3>
+      <p>Sie möchten Ihre eigenen Dokumente, Unterlagen und Materialien einbinden? Wir helfen beim Aufbau einer eigenen Instanz – mit gesichertem Zugang nur für Sie.</p>
+      <a href="mailto:kontakt@brandmeister.ai" class="mehr-btn">
+        <svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>
+        Kontakt aufnehmen
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ÜBER UNS ══ -->
+<section id="ueber-uns" class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">08 · Über brandmeister.ai</div>
+      <h2>Aus der Praxis. Für die <em>Praxis.</em></h2>
+    </div>
+    <div class="about-content reveal">
+      <div class="about-tag"><svg class="icon" aria-hidden="true"><use href="#icon-lock-open"/></svg> Open-Source-Projekt</div>
+      <p>brandmeister.ai ist aus der Praxis entstanden: Die Idee, Feuerwehrwissen und Vorschriften verlässlich in KI-Assistenten zu bringen, kam direkt aus dem ehrenamtlichen Feuerwehrdienst – wo schnelle und quellengesicherte KI-Nutzung nicht nur die Arbeit erleichtern, sondern auch viel Zeit spart.</p>
+      <p>Entwickelt von Christian Traub, Feuerwehrkommandant und KI-Praktiker mit mehr als 15 Jahren Erfahrung. Das Projekt ist Open Source und wächst mit Unterstützung der Feuerwehr-Community.</p>
+      <p>Für die kommunale Verwaltung gibt es das Schwesterprojekt <a href="https://amtsschimmel.ai">amtsschimmel.ai</a> – mit dem gleichen Ansatz für Gemeinderecht, Satzungen, Verwaltungsvorschriften und lokales Wissen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TECHNOLOGIE ══ -->
+<section id="technologie" class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">09 · Technologie</div>
+      <h2>Aufgebaut auf <em>RAGSource</em> — Open Source.</h2>
+    </div>
+    <div class="reveal">
+      <div class="tech-badge-row">
+        <div class="tech-badge"><svg class="icon" aria-hidden="true"><use href="#icon-layers"/></svg> Hierarchisches Context Retrieval</div>
+        <div class="tech-badge">🇩🇪 Made in Germany</div>
+        <div class="tech-badge"><svg class="icon" aria-hidden="true"><use href="#icon-lock-open"/></svg> Open Source – MIT-Lizenz</div>
+        <div class="tech-badge"><svg class="icon" aria-hidden="true"><use href="#icon-plug"/></svg> Jede KI via MCP-Standard</div>
+      </div>
+      <p class="tech-desc">RAGSource kommuniziert via <strong>MCP</strong> direkt mit Ihrem KI-Tool – ohne Middleware, ohne Datenweitergabe. Als Framework navigiert RAGSource eigenständig durch Wissenshierarchien: vom Überblick bis zum exakten Paragraphen. → <a href="https://ragsource.ai" target="_blank" rel="noopener" class="tech-link">ragsource.ai</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section id="jetzt-loslegen" class="sec">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <div class="cta-title">Bereit für <em>rechtssicheres</em> Feuerwehrwissen?</div>
+      <p class="cta-sub">Kostenlos. Ohne Registrierung. In 5 Minuten einsatzbereit.<br>Fragen? <a href="mailto:kontakt@brandmeister.ai">kontakt@brandmeister.ai</a></p>
+      <a href="#einrichten" class="btn btn-primary" style="font-size:16px;padding:14px 28px">Jetzt einrichten <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer" id="impressum">
+  <div class="wrap">
+    <div class="impressum-cols">
+      <div>
+        <h4>Angaben gem. § 5 TMG</h4>
+        <p>Christian Traub<br>Hauptstraße 71<br>73087 Bad Boll<br><br>E-Mail: <a href="mailto:kontakt@brandmeister.ai" style="color:var(--fw)">kontakt@brandmeister.ai</a><br>USt-IdNr.: DE459613042</p>
+      </div>
+      <div>
+        <h4>Verantwortlich</h4>
+        <p>Verantwortlich für den Inhalt<br>gem. § 18 Abs. 2 MStV:<br><br>Christian Traub<br>Hauptstraße 71, 73087 Bad Boll</p>
+      </div>
+      <div>
+        <h4>Haftungshinweis</h4>
+        <p>brandmeister.ai stellt Feuerwehrwissen quellensicher bereit. Die Inhalte ersetzen keine Führungsentscheidung im Einsatz und keine rechtliche Fachberatung.<br><br>Technik: <a href="https://ragsource.ai" target="_blank" rel="noopener" style="color:var(--fw)">RAGSource Open Source</a></p>
+      </div>
+    </div>
+    <div class="streit">
+      <strong>Streitbeilegung:</strong> EU-Plattform OS: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a> · Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG).
+    </div>
+    <div class="impressum-bottom" style="margin-top:16px;padding-top:16px;border-top:1px solid var(--line)">
+      <span>© 2026 brandmeister.ai · Christian Traub · Hauptstraße 71, 73087 Bad Boll</span>
+      <span>
+        <a href="#impressum">Impressum</a> ·
+        <a href="/datenschutz.html">Datenschutz</a> ·
+        <a href="mailto:kontakt@brandmeister.ai">Kontakt</a> ·
+        Powered by <a href="https://ragsource.ai" target="_blank" rel="noopener">RAGSource</a> ·
+        Für Kommunen: <a href="https://amtsschimmel.ai" target="_blank" rel="noopener">amtsschimmel.ai</a>
+      </span>
+    </div>
+  </div>
 </footer>
 
 <script>
@@ -1134,7 +1052,6 @@ function onArsFocus() {
     onArsInput();
 }
 
-// Daten frühzeitig laden – sobald die Seite fertig ist
 window.addEventListener('load', () => setTimeout(() => ensureArsData(), 600));
 
 // ============================================================
@@ -1280,6 +1197,14 @@ function copyPrompt() {
         }, 2500);
     });
 }
+
+// ============================================================
+// SCROLL REVEALS
+// ============================================================
+const revIo = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revIo.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => revIo.observe(el));
 </script>
 
 </body>

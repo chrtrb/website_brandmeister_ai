@@ -991,6 +991,7 @@ Routing-Logik und Limits beim Verbindungsaufbau laden und befolgen.
 
 | Tool | Wann |
 |---|---|
+| ToolSearch | **Vor allem anderen**, falls RAGSource-Tools als „deferred" gelistet sind: query exakt `select:RAGSource_catalog,RAGSource_toc,RAGSource_get,RAGSource_query,RAGSource_db_query` |
 | RAGSource_catalog | Pflicht bei jeder Anfrage — Skills + Quellen laden |
 | RAGSource_toc | Vor get für M/L-Quellen |
 | RAGSource_get | Nach catalog (S direkt) oder nach toc (M/L) — bündeln |
@@ -1000,6 +1001,11 @@ Routing-Logik und Limits beim Verbindungsaufbau laden und befolgen.
 ---
 
 ## WORKFLOW
+
+### Schritt 0 — Tool-Initialisierung (nur bei deferred Tools)
+Falls RAGSource-Tools in der Session als „deferred" gelistet sind, **zuerst** ToolSearch aufrufen:
+Query: `select:RAGSource_catalog,RAGSource_toc,RAGSource_get,RAGSource_query,RAGSource_db_query`
+Danach direkt weiter mit Schritt 2 — kein keyword-basiertes ToolSearch, kein anderer Schritt davor.
 
 ### Schritt 1 — Kontext erfassen
 Modus bestimmen (Einsatz / Rückwärtiger Bereich). Relevante Rechtsgebiete

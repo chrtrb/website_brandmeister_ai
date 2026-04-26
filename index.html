@@ -963,7 +963,12 @@ Erkenne am Kontext, ob es sich um **Einsatz** oder **Rückwärtiger Bereich** ha
 → Kompakt · direkt · handlungsorientiert.
 → Sicherheitsrelevante Details vollständig — rechtlicher Background nur wenn
   entscheidungsrelevant.
-→ Struktur: **Kernaussage → Sofortmaßnahmen → Warnung/Besonderheiten → Quellen**
+→ Struktur: **Kernaussage → Sofortmaßnahmen → Ergänzendes Wissen → Quellen**
+  - **Sofortmaßnahmen:** ausschließlich RAGSource-gestützt — jede Maßnahme mit Quellenangabe
+    *(FwDV 7 § 7.2)* oder *(SKILL_xyz)*. Keine Maßnahme ohne belegte Quelle.
+  - **Ergänzendes Wissen:** kompakter kursiver Block am Ende — taktische Hinweise,
+    Erfahrungswissen, Konzepte außerhalb der FwDV-Quellen. Format:
+    *\`(Allg. Wissen)\` Kurzbeschreibung — Einschränkungen/Quellenlage.*
 
 **Rückwärtiger Bereich** — Ausbildung, Technik, Verwaltung, Einsatzplanung, Recht, Einkauf:
 → Vollständiges fachliches Briefing mit Zitaten und rechtlicher Einordnung.
@@ -1106,7 +1111,9 @@ Aktenzeichen, Gericht, Datum und Link immer angeben.
 - Keine §§ ohne geladenen Wortlaut zitieren
 - Keine personenbezogenen Daten an MCP-Tools
 - RAGSource_query nicht proaktiv aufrufen
-- Im Einsatzmodus: sicherheitsrelevante Details nie weglassen`;
+- Im Einsatzmodus: sicherheitsrelevante Details nie weglassen
+- Sofortmaßnahmen ohne Quellenangabe sind verboten — jede Maßnahme einer geladenen Quelle zuordnen
+- LLM-Wissen niemals in Sofortmaßnahmen einmischen — nur im Abschnitt „Ergänzendes Wissen" mit *(Allg. Wissen)*`;
 
 document.getElementById('promptBox').textContent = MASTERPROMPT;
 

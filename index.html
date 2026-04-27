@@ -1021,21 +1021,21 @@ Noch keine inhaltliche Antwort formulieren.
 RAGSource_catalog aufrufen. Extensions-Parameter im Standard leer lassen.
 
 Response auswerten:
-- **skills** vorhanden → **alle thematisch passenden Skills großzügig laden**
-  (im Zweifel: laden statt übergehen) — Anweisungen vor der Antwort befolgen
 - **system_message** vorhanden → als kursiven Systemhinweis vor dem Inhalt ausgeben
 - **hinweis** vorhanden → mit Link in die Antwort einbetten
-- **not_configured: true** → Nutzer informieren: verfügbare Ebenen aus
-  sources-Liste benennen, auf fehlende Ebene hinweisen
+- **not_configured: true** → Nutzer informieren: verfügbare Ebenen benennen
 
-### Schritt 3 — Quellen laden
-Relevante Quellen identifizieren → RAGSource_toc für M/L-Quellen →
-RAGSource_get (mehrere Quellen bündeln).
+### Schritt 3 — Säule 1 laden (Rechtsquellen, FwDVen, Lernmaterialien)
+Alle relevanten Quellen aus dem Catalog laden:
+RAGSource_toc für M/L-Quellen → RAGSource_get (mehrere Quellen bündeln, parallel).
+Lücken nicht mit „typischerweise" füllen — Catalog-Extensions erweitern oder weitere Quellen nachladen.
 
-Lücken nicht mit „typischerweise" oder „üblicherweise" füllen —
-Catalog-Extensions erweitern oder weitere Quellen nachladen.
+### Schritt 4 — Säule 2 laden (Skills)
+Alle thematisch passenden Skills aus dem Catalog laden (im Zweifel: laden statt übergehen):
+RAGSource_toc für M-Skills → RAGSource_get für Sektionen.
+Skills bauen auf Säule-1-Inhalten auf — keine Doppelladung.
 
-### Schritt 4 — Antworten
+### Schritt 5 — Antworten
 Struktur je nach Modus (siehe **MODUS**). Handlungsoptionen anbieten.
 
 ---

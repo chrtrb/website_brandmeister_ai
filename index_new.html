@@ -91,6 +91,7 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
 .imgband{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:repeating-linear-gradient(45deg,#fafaf7,#fafaf7 14px,#f3f1e9 14px,#f3f1e9 28px);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:var(--ink-4);text-align:center;padding:48px 24px;min-height:230px;}
 .imgband .big{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink-3);}
 .imgband .sm{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.04em;}
+.photo{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:4px;}
 
 /* CARDS */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);}
@@ -332,10 +333,10 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
 
 <!-- HERO -->
 <section class="hero"><div class="wrap">
-  <div class="eyebrow">KI für Feuerwehren in Deutschland</div>
+  <div class="eyebrow">KI für die Feuerwehren in Deutschland</div>
   <div class="hero-top">
     <div class="hero-head">
-      <h1>Die KI, die Ihre Feuerwehr einsetzen <em>darf.</em><br>Mit <em>vorschriftengenauen</em> Antworten.</h1>
+      <h1>Die KI, die Feuerwehr versteht.<br>Und die wir einsetzen <em>dürfen.</em></h1>
     </div>
     <div class="hero-visual">
       <picture>
@@ -345,7 +346,7 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
     </div>
   </div>
   <div class="hero-below">
-    <p class="lead">Ihre moderne, offene und erweiterbare KI-Plattform — so vertraut wie ChatGPT, gebaut für den Feuerwehrdienst. Rechtssicher, europäisch, digital souverän. Direkt integriert: Feuerwehrrecht, Dienstvorschriften und Ihr lokales Wissen — von der Ausbildung bis zur Einsatznachbereitung.</p>
+    <p class="lead">Eine moderne, offene und erweiterbare KI-Plattform — so vertraut wie ChatGPT, gebaut für den Feuerwehrdienst. Rechtssicher, europäisch, digital souverän. Direkt integriert: Feuerwehrrecht, Dienstvorschriften und Ihr lokales Wissen — von der Ausbildung bis zur Einsatznachbereitung. Mit dem paragrafengenauen Retrieval von RAGSource.</p>
     <div class="hero-actions">
       <a href="mailto:kontakt@brandmeister.ai?subject=Demo%20brandmeister.ai" class="btn btn-primary">Demo vereinbaren <span class="arr">→</span></a>
     </div>
@@ -370,15 +371,12 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
     <p class="sub">In vielen Feuerwehren wird längst mit KI gearbeitet — Kameradinnen und Kameraden nutzen private Accounts für Übungsvorbereitung, Checklisten oder die Nachbereitung. Genau die vier Hürden dabei nehmen wir Ihnen ab.</p></div>
   </div>
   <div class="cards two reveal">
-    <div class="card"><div class="k">Problem 1 · Antwortqualität</div><h3>Antworten, die nicht stimmen</h3><p>KI, die halluziniert und veraltete oder falsche Vorschriften ausgibt, ist im Einsatz- und Ausbildungsdienst nicht nur unbrauchbar, sondern riskant — von der Gefahrenmatrix bis zum Kostenersatz. brandmeister.ai lädt zu jeder Frage den exakten, aktuellen Wortlaut aus FwG, FwDV und Satzung mit Fundstelle. Wortlaut statt Wahrscheinlichkeit.</p></div>
-    <div class="card"><div class="k">Problem 2 · Datenschutz</div><h3>Dürfen wir das mit Einsatzdaten überhaupt nutzen?</h3><p>Einsatzberichte und Alarmierungsdaten sind teils Gesundheitsdaten nach Art. 9 DSGVO. ChatGPT &amp; Co. laufen typischerweise über US-Anbieter — zusätzlicher Prüfaufwand. brandmeister.ai läuft auf Servern in Deutschland, mit EU-Modellen für sensible Daten, DSGVO und AVV im Paket.</p></div>
+    <div class="card"><div class="k">Problem 1 · Antwortqualität</div><h3>Antworten, die nicht stimmen</h3><p>KI, die halluziniert und veraltetes oder falsches Wissen ausgibt, ist im Einsatz- und Ausbildungsdienst nicht nur unbrauchbar, sondern riskant. brandmeister.ai lädt zu jeder Frage den exakten, aktuellen Wortlaut aus Feuerwehrgesetzen, Feuerwehrdienstvorschriften und Ihren lokalen Satzungen, mit Fundstelle. Wortlaut statt Wahrscheinlichkeit.</p></div>
+    <div class="card"><div class="k">Problem 2 · Datenschutz</div><h3>Dürfen wir ChatGPT und Co. bei der Feuerwehr überhaupt nutzen?</h3><p>Einsatzberichte, Urkunden, Bescheinigungen, Dienstpläne und mehr enthalten personenbezogene Daten. Unsere Komplettlösung läuft ausschließlich auf Servern in der EU von Anbietern aus der EU. Bezüglich der Compliance mit DSGVO, EU AI Act und US CLOUD Act sind Sie mit uns auf der sicheren Seite.</p></div>
     <div class="card"><div class="k">Problem 3 · Schatten-IT</div><h3>Die Risiken der Schatten-IT</h3><p>Fehlt das offizielle Werkzeug, ist die Gefahr groß, dass private ChatGPT-Accounts genutzt werden — mit Einsatzberichten, ohne Vertrag und ohne Kontrolle. brandmeister.ai ist so vertraut und gut bedienbar, dass es genutzt wird — die beste Versicherung dagegen.</p></div>
-    <div class="card"><div class="k">Problem 4 · Technologieoffenheit</div><h3>Welche KI passt zu einer ehrenamtlichen Struktur?</h3><p>Unzählige Angebote, keine eigene IT-Abteilung und die Angst, sich falsch festzulegen. brandmeister.ai baut modular auf etablierter Open-Source, ist transparent im Tech-Stack und lässt sich mit dem Kreisfeuerwehrverband oder Ihrem IT-Dienstleister betreuen. Kein Lock-in.</p></div>
+    <div class="card"><div class="k">Problem 4 · Technologieoffenheit</div><h3>Oh nein, noch eine Feuerwehrsoftware?</h3><p>brandmeister.ai ist modular aufgebaut und setzt auf etablierte Open-Source-Software. Wir sind transparent im Tech-Stack und können uns nahtlos in Ihre bestehende Softwarewelt einfügen — auf Wunsch auch unter der Haube in Ihre bestehenden Softwarelösungen integriert. Kein Lock-in.</p></div>
   </div>
-  <div class="imgband reveal" style="margin-top:38px">
-    <div class="big">Feuerwehr im Alltag</div>
-    <div class="sm">brandmeister.ai auf Tablet im Gerätehaus</div>
-  </div>
+  <img class="photo reveal" style="margin-top:38px" src="assets/img-geraetehaus.jpg" alt="brandmeister.ai im Feuerwehralltag — die Mannschaft im Gerätehaus mit Tablet, Wärmebildkamera-Auswertung und dem brandmeister-Maskottchen" loading="lazy">
 </div></section>
 
 <!-- 02 ANTWORTQUALITÄT -->
@@ -386,7 +384,7 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
   <div class="sec-head reveal">
     <div class="tag">02 · Antwortqualität</div>
     <div><h2>Warum die Antworten mit brandmeister.ai <em>besser</em> sind.</h2>
-    <p class="sub">Den Unterschied macht nicht die Verpackung, sondern die Qualität der Antworten — und die entscheidet sich am exakten, aktuellen Vorschriftentext.</p></div>
+    <p class="sub">Den Unterschied macht nicht die Verpackung, sondern die Qualität der Antworten — und die entscheidet sich daran, dass der KI präzise das Wissen zur Verfügung steht, das sie für die Aufgabe braucht.</p></div>
   </div>
   <div class="vs-lead reveal">Dieselbe Feuerwehrfrage — zwei Ansätze:</div>
   <div class="vs reveal">
@@ -398,7 +396,7 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
     <div class="col us">
       <div class="lbl">brandmeister.ai</div>
       <h3>Lädt den exakten Vorschriftentext. Immer aktuell.</h3>
-      <p>Über das paragrafengenaue Kontextmanagement von RAGSource kommt zu jeder Frage der originale, aktuelle Text in den Kontext — mit Fundstelle, von der FwDV über das Landes-Feuerwehrgesetz bis zur Ortssatzung. Dazu kuratierte Praxis-Skills für Einsatztaktik, Ausbildung und Gefahrenabwehr. <b>Gebaut für Führungs- und Verantwortungsaufgaben in der Feuerwehr — Wortlaut statt Wahrscheinlichkeit.</b></p>
+      <p>Über das paragrafengenaue Kontextmanagement von RAGSource kommt zu jeder Frage der originale, aktuelle Text in den Kontext — mit Fundstelle, von der FwDV über das Landes-Feuerwehrgesetz bis zur Ortssatzung. Dazu kuratierte Praxis-Skills für Einsatztaktik, Ausbildung und Gefahrenabwehr. <b>Gebaut für Aufgaben in der Feuerwehr — Wortlaut statt Wahrscheinlichkeit.</b></p>
     </div>
   </div>
 
@@ -509,12 +507,9 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
 
   </div>
 
-  <p class="vs-note reveal">Sie bekommen damit <b>dreierlei in einem</b>: ein <b>wertvolles Arbeitswerkzeug</b> für Führungs- und Verantwortungsaufgaben, eine <b>KI-Plattform</b> für Ausbildung und internen Dienst, und die <b>Rechtsquellen-Tiefe</b> von FwDV über Landes-FwG bis zur Ortssatzung — EU-souverän, in einem System.</p>
+  <p class="vs-note reveal">Sie bekommen damit <b>dreierlei in einem</b>: ein <b>wertvolles Arbeitswerkzeug</b> für Ihre Kameradinnen und Kameraden, eine <b>KI-Plattform</b> zum Einbinden in andere Softwarelösungen und interne Abläufe, und die <b>Quellentiefe</b>, die Sie mit herkömmlichen Ansätzen gar nicht oder nur mit sehr viel Aufwand erreichen würden — EU-souverän, in einem System.</p>
 
-  <div class="imgband reveal" style="margin-top:48px">
-    <div class="big">Paragrafengenaues Retrieval</div>
-    <div class="sm">brandmeister.ai zwischen FwDV, FwG und Ortssatzung</div>
-  </div>
+  <img class="photo reveal" style="margin-top:48px" src="assets/img-einsatz.jpg" alt="Paragrafengenaues Retrieval im Einsatz — das brandmeister-Maskottchen mit Tablet an der Einsatzstelle" loading="lazy">
 </div></section>
 
 <!-- 03 SICHERHEIT (P2 · nach Antwortqualität) -->
@@ -522,20 +517,17 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
   <div class="sec-head reveal">
     <div class="tag">03 · Sicherheit &amp; Souveränität</div>
     <div><h2>Sicherheit ist bei uns <em>kein Zusatzfeature.</em></h2>
-    <p class="sub">brandmeister.ai wurde von Grund auf auf Compliance, Rechtssicherheit und Qualität gebaut — basierend auf handfester Praxiserfahrung im Feuerwehrdienst.</p></div>
+    <p class="sub">brandmeister.ai ist das Schwesterprojekt von <a href="https://amtsschimmel.ai" target="_blank" rel="noopener">amtsschimmel.ai</a> und wurde von Anfang an auf Compliance, Rechtssicherheit und Qualität für die öffentliche Verwaltung gebaut — davon profitieren Sie auch im Feuerwehrdienst.</p></div>
   </div>
   <div class="tiles reveal">
     <div class="tile"><div class="lbl">Datensouveränität</div><h3>Daten bleiben in Deutschland</h3><p>Plattform und Ihre Daten laufen auf Servern in Deutschland. Die Modell-Verarbeitung findet in der EU statt; Drittlandtransfers werden vermieden und, wo unvermeidbar, per AVV und EU-Standardvertragsklauseln abgesichert.</p></div>
     <div class="tile"><div class="lbl">Zweckbindung</div><h3>Kein Training mit Ihren Daten</h3><p>Ihre Eingaben werden ausschließlich zur Beantwortung Ihrer Anfrage verarbeitet, nicht zum Training der Modelle — vertraglich mit den Modellbetreibern abgesichert.</p></div>
     <div class="tile"><div class="lbl">EU-Compliance</div><h3>Auf den EU AI Act ausgelegt</h3><p>Klare Zweckbestimmung als Assistenzwerkzeug, Transparenzhinweis nach EU AI Act, dokumentierte Schulung Ihrer Mannschaft — von uns vorbereitet, nicht Ihr Problem.</p></div>
     <div class="tile"><div class="lbl">DSGVO</div><h3>Höchste Datenschutzstandards</h3><p>Einsatzdaten sind teils Gesundheitsdaten nach Art. 9 DSGVO. DSGVO-konforme Verarbeitung mit AVV, klare Zweckbindung und Dokumentation — auf die besonderen Anforderungen des Feuerwehrdienstes ausgelegt.</p></div>
-    <div class="tile"><div class="lbl">Mitbestimmung</div><h3>Kommandantschaft &amp; Hauptversammlung</h3><p>Muster und Begleitung für die Einführung — abgestimmt mit Kommandant und Vorstand, transparent in der Hauptversammlung vorgestellt.</p></div>
-    <div class="tile"><div class="lbl">Offener Tech-Stack</div><h3>Etablierte Open-Source-Bausteine</h3><p>Bausteine wie Open WebUI und Docker, gehostet bei Hetzner in Deutschland. Prüfbar, modular und anbieterunabhängig.</p></div>
+    <div class="tile"><div class="lbl">Transparenz</div><h3>Wir nehmen die Mannschaft mit</h3><p>Sorgen um die eigene Datenverarbeitung sind berechtigt und verdienen eine klare Antwort. Wehrführung und Ausschuss bekommen von uns fertige Vorlagen zur Information der Mannschaft — verständlich, rechtlich abgesichert, einsatzbereit für die nächste Dienstbesprechung oder Hauptversammlung.</p></div>
+    <div class="tile"><div class="lbl">Offener Tech-Stack</div><h3>Etablierte Open-Source-Bausteine</h3><p>Bausteine wie Open WebUI und Docker, gehostet bei Hetzner in Deutschland — modell-agnostisch, prüfbar, modular und anbieterunabhängig.</p></div>
   </div>
-  <div class="imgband reveal" style="margin-top:32px">
-    <div class="big">EU-souveränes Hosting</div>
-    <div class="sm">Rechenzentrum in Deutschland — kein US-Cloud-Zugriff</div>
-  </div>
+  <img class="photo reveal" style="margin-top:32px" src="assets/img-alarmraum.jpg" alt="brandmeister.ai in der Alarmierungszentrale — Leitstelle mit Funk, Bildschirmen und dem brandmeister-Maskottchen" loading="lazy">
 </div></section>
 
 <!-- 04 PRODUKT-SHOT -->
@@ -587,11 +579,13 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
   <div class="sol reveal">
     <div class="sol-item"><span class="s">01</span><div><b>Eigene Instanz in Deutschland</b><span class="t">Dediziert für Ihre Feuerwehr, auf deutschen Servern. Keine geteilten Datenbanken für Ihre Einsatz- und Personaldaten.</span></div></div>
     <div class="sol-item"><span class="s">02</span><div><b>Führende Modelle, sicher eingesetzt</b><span class="t">Die stärksten KI-Modelle. Für sensible Vorgänge führende europäische Modelle, durch unser Kontextmanagement leistungsgesteigert; freie Hochleistungsmodelle für nicht-sensible Daten. Rechtssicher und im Preis inbegriffen.</span></div></div>
-    <div class="sol-item"><span class="s">03</span><div><b>Kuratiertes Feuerwehrrecht &amp; Praxiswissen</b><span class="t">Bundesrecht (FwDV), Landes-Feuerwehrgesetz, Kreis- und Ortsrecht (Feuerwehr- und Kostenersatzsatzung), paragrafengenau und aktuell — dazu kuratierte Praxis-Skills für Einsatztaktik, Gefahrenabwehr und Ausbildung. Für die Gemeindeverwaltung gibt es zusätzlich <a href="https://amtsschimmel.ai" target="_blank" rel="noopener">amtsschimmel.ai</a> — im gebündelten Bezug mit der Gemeinde inklusive.</span></div></div>
+    <div class="sol-item"><span class="s">03</span><div><b>Kuratiertes Feuerwehrrecht &amp; Praxiswissen</b><span class="t">Bundesrecht (FwDV), Landes-Feuerwehrgesetz, Kreis- und Ortsrecht (Feuerwehr- und Kostenersatzsatzung), paragrafengenau und aktuell — dazu kuratierte Praxis-Skills für Einsatztaktik, Gefahrenabwehr und Ausbildung.</span></div></div>
     <div class="sol-item"><span class="s">04</span><div><b>Compliance-Paket</b><span class="t">Komplettpaket für Ihre Datenschutz-Folgenabschätzung: geprüfter AVV, technische Verarbeitungsdokumentation (Datenflüsse, Löschfristen, Unterauftragsverarbeiter, TOMs) sowie Muster für Verarbeitungsverzeichnis, Nutzungsrichtlinie und die Vorstellung in Kommandantschaft und Hauptversammlung.</span></div></div>
     <div class="sol-item"><span class="s">05</span><div><b>Betrieb &amp; Pflege</b><span class="t">Laufende Aktualisierung der Rechtsquellen — eine Satzungsänderung wird direkt eingepflegt. Dazu regelmäßige Produktupdates und neue Features sowie hochverfügbarer Serverbetrieb auf deutscher Infrastruktur mit Backups.</span></div></div>
     <div class="sol-item"><span class="s">06</span><div><b>Zukunftsfähig &amp; anbieterunabhängig</b><span class="t">Etablierte, offene Technologie, modular aufgebaut — eine Plattform, die mit Ihren Anforderungen wächst. Kein Vendor-Lock-in: Sie verbauen sich nichts. Support-Modell über den Kreisfeuerwehrverband oder Ihren IT-Dienstleister möglich.</span></div></div>
   </div>
+  <p class="vs-note reveal" style="margin-top:32px"><b>Teil der amtsschimmel.ai-Familie:</b> Nutzt Ihre Gemeinde bereits <a href="https://amtsschimmel.ai" target="_blank" rel="noopener">amtsschimmel.ai</a>, bekommt Ihre Feuerwehr brandmeister.ai automatisch und kostenlos als eigene, getrennte Instanz dazu. Ohne Gemeinde-Anbindung ist brandmeister.ai auch separat für Ihre Feuerwehr buchbar — zu vergleichbaren Konditionen.</p>
+  <p class="vs-note reveal" style="margin-top:16px;font-size:15px"><b>Schneller Testzugang:</b> Für den ersten Eindruck lässt sich brandmeister.ai auch über einen offenen MCP-Zugang direkt in Ihre eigene ChatGPT- oder Claude-Umgebung einbinden — ohne Einrichtung. Gut zum Ausprobieren, aber kein Ersatz für die betreute Instanz: ohne laufende Pflege der Modell-Anbindung und ohne die volle Prompt- und Skill-Tiefe.</p>
 </div></section>
 
 <!-- WHITE PAPER -->

@@ -4,8 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.bunny.net; font-src https://fonts.bunny.net; img-src 'self' data:; media-src 'self'; connect-src 'self'; form-action 'self' mailto:; base-uri 'self'; object-src 'none'; frame-ancestors 'self'">
-<title>brandmeister.ai — Die KI, die Ihre Feuerwehr einsetzen darf</title>
+<title>brandmeister.ai — Die Feuerwehr-KI</title>
 <meta name="description" content="brandmeister.ai: die rechtssichere KI für Feuerwehren in Deutschland. Führende Modelle, vorschriftengenaues Feuerwehrrecht, Compliance im Paket. Eine moderne, skalierbare Plattform für KI im Feuerwehrdienst.">
+<link rel="canonical" href="https://brandmeister.ai/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brandmeister.ai/">
+<meta property="og:site_name" content="brandmeister.ai">
+<meta property="og:title" content="brandmeister.ai — Die Feuerwehr-KI">
+<meta property="og:description" content="Integriertes Feuerwehrwissen · rechtssicher mit dem Standard der öffentlichen Verwaltung · so benutzerfreundlich wie privat gewohnt. EU-souverän, als betreute Instanz.">
+<meta property="og:image" content="https://brandmeister.ai/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="brandmeister.ai — Die Feuerwehr-KI">
+<meta name="twitter:description" content="Integriertes Feuerwehrwissen · rechtssicher mit dem Standard der öffentlichen Verwaltung · so benutzerfreundlich wie privat gewohnt. EU-souverän, als betreute Instanz.">
+<meta name="twitter:image" content="https://brandmeister.ai/assets/og-image.png">
 <link rel="icon" type="image/svg+xml" href="assets/favicon-brandmeister.svg">
 <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
 <link href="https://fonts.bunny.net/css?family=instrument-serif:400,400i|jetbrains-mono:400,500&display=swap" rel="stylesheet">
@@ -42,7 +56,7 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
 .nav-cta:hover{background:var(--acc);color:#fff;}
 .nav-burger{display:none;background:none;border:0;cursor:pointer;padding:8px;margin-left:4px;}
 .nav-burger span{display:block;width:22px;height:2px;background:var(--ink);margin:4px 0;border-radius:2px;}
-@media(max-width:920px){
+@media(max-width:1020px){
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);flex-direction:column;gap:0;padding:6px 24px 14px;box-shadow:0 10px 26px -14px rgba(15,16,19,.15);}
   .nav-links.open{display:flex;}
   .nav-links a{padding:12px 2px;font-size:16px;border-bottom:1px solid var(--line);}
@@ -68,6 +82,11 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
 .hero h1 em{font-style:italic;color:var(--acc);}
 .hero .lead{font-size:19px;line-height:1.55;color:var(--ink-2);max-width:none;margin:0 0 28px;text-align:center;}
 .hero-actions{display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;}
+.hero-note{margin-top:14px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--ink-4);text-align:center;}
+.hero-points{list-style:none;margin:28px 0 0;padding:0;}
+.hero-points li{display:flex;gap:11px;align-items:baseline;font-size:17.5px;line-height:1.5;color:var(--ink-3);margin-bottom:13px;}
+.hero-points li b{color:var(--ink);font-weight:600;}
+.hero-points .pk{font-family:var(--mono);color:var(--acc);flex-shrink:0;}
 
 /* TRUST STRIP */
 .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2);}
@@ -118,6 +137,11 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
 .dia{width:100%;height:auto;display:block;}
 .photo{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:4px;}
 .hero-img{width:100%;max-width:720px;height:auto;display:block;}
+/* FAMILIEN-BAND (amtsschimmel-Automatik) */
+.fam-band{background:var(--acc-wash);border-bottom:1px solid var(--line);}
+.fam-inner{padding:15px 24px;text-align:center;font-size:14.5px;color:var(--ink-2);line-height:1.5;}
+.fam-inner .k{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--acc);margin-right:10px;white-space:nowrap;}
+.fam-inner a{color:var(--acc);text-decoration:underline;text-underline-offset:2px;}
 .midcta{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
 .midcta-inner{padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
 .midcta-inner .t{font-size:17px;color:var(--ink-2);} .midcta-inner .t b{color:var(--ink);}
@@ -265,7 +289,7 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
 .step p{margin:0;color:var(--ink-2);font-size:16px;max-width:62ch;}
 
 /* ÜBER UNS */
-.about-grid{display:grid;grid-template-columns:2.3fr 1fr;gap:48px;align-items:center;}
+.about-grid{display:grid;grid-template-columns:1fr 2.3fr;gap:48px;align-items:center;}
 @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:28px;}}
 .portrait{aspect-ratio:4/5;border:1px solid var(--line);border-radius:4px;overflow:hidden;}
 .portrait picture{display:contents;}
@@ -325,9 +349,10 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
     <a href="#unterschied">Antwortqualität</a>
     <a href="#sicherheit">Sicherheit</a>
     <a href="#loesung">Leistungen</a>
+    <a href="#ueber">Über uns</a>
     <a href="#kontakt">Kontakt</a>
   </div>
-  <a class="nav-cta" href="mailto:kontakt@brandmeister.ai?subject=Demo%20brandmeister.ai">Demo vereinbaren</a>
+  <a class="nav-cta" href="https://meet.brevo.com/christian-traub/30-minutige-live-demo" target="_blank" rel="noopener">Demo vereinbaren</a>
   <button class="nav-burger" id="navBurger" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></nav>
 
@@ -336,7 +361,12 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
   <div class="eyebrow">KI für die Feuerwehren in Deutschland</div>
   <div class="hero-top">
     <div class="hero-head">
-      <h1>Die KI, die Feuerwehr versteht.<br>Und die wir einsetzen <em>dürfen.</em></h1>
+      <h1>Die <em>Feuerwehr-KI</em>:</h1>
+      <ul class="hero-points">
+        <li><span class="pk">›</span><span><b>Integriertes Feuerwehrwissen</b> — für Antworten, mit denen Sie etwas anfangen können.</span></li>
+        <li><span class="pk">›</span><span><b>Rechtssicher</b> — mit dem gleichen Standard wie für die öffentliche Verwaltung.</span></li>
+        <li><span class="pk">›</span><span><b>Mobil oder am PC</b> — so benutzerfreundlich, wie Sie es aus dem privaten Alltag kennen.</span></li>
+      </ul>
     </div>
     <div class="hero-visual">
       <picture>
@@ -346,10 +376,11 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
     </div>
   </div>
   <div class="hero-below">
-    <p class="lead">Eine moderne, offene und erweiterbare KI-Plattform — so vertraut wie ChatGPT, gebaut für den Feuerwehrdienst. Rechtssicher, europäisch, digital souverän. Direkt integriert: Feuerwehrrecht, Dienstvorschriften und Ihr lokales Wissen — von der Ausbildung bis zur Einsatznachbereitung. Mit dem paragrafengenauen Retrieval von RAGSource.</p>
+    <p class="lead">Eine moderne, offene und erweiterbare KI-Plattform, gebaut für den Feuerwehrdienst — europäisch, digital souverän, mit dem paragrafengenauen Retrieval von RAGSource. Von der Ausbildung über die Organisation bis zur Einsatznachbereitung.</p>
     <div class="hero-actions">
-      <a href="mailto:kontakt@brandmeister.ai?subject=Demo%20brandmeister.ai" class="btn btn-primary">Demo vereinbaren <span class="arr">→</span></a>
+      <a href="https://meet.brevo.com/christian-traub/30-minutige-live-demo" target="_blank" rel="noopener" class="btn btn-primary">Demo vereinbaren <span class="arr">→</span></a>
     </div>
+    <div class="hero-note">30 Minuten · an Ihren eigenen Fragen · kostenlos und unverbindlich</div>
   </div>
 </div>
 </section>
@@ -363,6 +394,11 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
   <div class="trust-item"><svg class="ti"><use href="#i-book"/></svg> Feuerwehrrecht &amp; Dienstvorschriften aktuell</div>
 </div></div>
 
+<!-- FAMILIEN-BAND -->
+<div class="fam-band"><div class="wrap fam-inner">
+  <span class="k">Schon dabei?</span>Ihre Gemeinde nutzt bereits <a href="https://amtsschimmel.ai" target="_blank" rel="noopener">amtsschimmel.ai</a>? Dann ist Ihre eigene brandmeister.ai-Instanz schon integriert — <a href="#loesung">mehr dazu ↓</a>
+</div></div>
+
 <!-- 01 PROBLEME, DIE WIR LÖSEN -->
 <section class="sec" id="problem"><div class="wrap">
   <div class="sec-head reveal">
@@ -371,10 +407,10 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
     <p class="sub">In vielen Feuerwehren wird längst mit KI gearbeitet — Kameradinnen und Kameraden nutzen private Accounts für Übungsvorbereitung, Checklisten oder die Nachbereitung. Genau die vier Hürden dabei nehmen wir Ihnen ab.</p></div>
   </div>
   <div class="cards two reveal">
-    <div class="card"><div class="k">Problem 1 · Antwortqualität</div><h3>Antworten, die nicht stimmen</h3><p>KI, die halluziniert und veraltetes oder falsches Wissen ausgibt, ist im Einsatz- und Ausbildungsdienst nicht nur unbrauchbar, sondern riskant. brandmeister.ai lädt zu jeder Frage den exakten, aktuellen Wortlaut aus Feuerwehrgesetzen, Feuerwehrdienstvorschriften und Ihren lokalen Satzungen, mit Fundstelle. Wortlaut statt Wahrscheinlichkeit.</p></div>
-    <div class="card"><div class="k">Problem 2 · Datenschutz</div><h3>Dürfen wir ChatGPT und Co. bei der Feuerwehr überhaupt nutzen?</h3><p>Einsatzberichte, Urkunden, Bescheinigungen, Dienstpläne und mehr enthalten personenbezogene Daten. Unsere Komplettlösung läuft ausschließlich auf Servern in der EU von Anbietern aus der EU. Bezüglich der Compliance mit DSGVO, EU AI Act und US CLOUD Act sind Sie mit uns auf der sicheren Seite.</p></div>
-    <div class="card"><div class="k">Problem 3 · Schatten-IT</div><h3>Die Risiken der Schatten-IT</h3><p>Fehlt das offizielle Werkzeug, ist die Gefahr groß, dass private ChatGPT-Accounts genutzt werden — mit Einsatzberichten, ohne Vertrag und ohne Kontrolle. brandmeister.ai ist so vertraut und gut bedienbar, dass es genutzt wird — die beste Versicherung dagegen.</p></div>
-    <div class="card"><div class="k">Problem 4 · Technologieoffenheit</div><h3>Oh nein, noch eine Feuerwehrsoftware?</h3><p>brandmeister.ai ist modular aufgebaut und setzt auf etablierte Open-Source-Software. Wir sind transparent im Tech-Stack und können uns nahtlos in Ihre bestehende Softwarewelt einfügen — auf Wunsch auch unter der Haube in Ihre bestehenden Softwarelösungen integriert. Kein Lock-in.</p></div>
+    <div class="card"><div class="k">Problem 1 · Antwortqualität</div><h3>„Das stimmt doch nicht!"</h3><p>KI, die halluziniert und veraltetes oder falsches Wissen ausgibt, ist im Einsatz- und Ausbildungsdienst nicht nur unbrauchbar, sondern riskant. brandmeister.ai lädt zu jeder Frage den exakten, aktuellen Wortlaut aus Feuerwehrgesetzen, Feuerwehrdienstvorschriften und Ihren lokalen Satzungen, mit Fundstelle. Wortlaut statt Wahrscheinlichkeit.</p></div>
+    <div class="card"><div class="k">Problem 2 · Datenschutz</div><h3>„Dürfen wir ChatGPT und Co. bei der Feuerwehr nutzen?"</h3><p>Einsatzberichte, Urkunden, Bescheinigungen, Dienstpläne und mehr enthalten personenbezogene Daten. Unsere Komplettlösung läuft ausschließlich auf Servern in der EU von Anbietern aus der EU — und erkennt personenbezogene Daten automatisch: Sensible Anfragen beantworten EU-Modelle. Bezüglich der Compliance mit DSGVO, EU AI Act und US CLOUD Act sind Sie mit uns auf der sicheren Seite.</p></div>
+    <div class="card"><div class="k">Problem 3 · Schatten-IT</div><h3>„Ich nutze mein privates Claude!"</h3><p>Fehlt das offizielle Werkzeug, ist die Gefahr groß, dass private ChatGPT-Accounts genutzt werden — mit Einsatzberichten, ohne Vertrag und ohne Kontrolle. brandmeister.ai ist so vertraut und gut bedienbar, dass es genutzt wird — die beste Versicherung dagegen.</p></div>
+    <div class="card"><div class="k">Problem 4 · Technologieoffenheit</div><h3>„Oh nein, noch eine Feuerwehrsoftware?"</h3><p>brandmeister.ai ist modular aufgebaut und setzt auf etablierte Open-Source-Software. Wir sind transparent im Tech-Stack und können uns nahtlos in Ihre bestehende Softwarewelt einfügen — auf Wunsch auch unter der Haube in Ihre bestehenden Softwarelösungen integriert. Kein Lock-in.</p></div>
   </div>
   <img class="photo reveal" style="margin-top:38px" src="assets/img-geraetehaus.jpg" alt="brandmeister.ai im Feuerwehralltag — die Mannschaft im Gerätehaus mit Tablet, Wärmebildkamera-Auswertung und dem brandmeister-Maskottchen" loading="lazy">
 </div></section>
@@ -389,9 +425,9 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
   <div class="vs-lead reveal">Dieselbe Feuerwehrfrage — zwei Ansätze:</div>
   <div class="vs reveal">
     <div class="col them">
-      <div class="lbl">Klassischer Feuerwehr-Chatbot</div>
-      <h3>Generisches Modellwissen, ohne Fundstelle.</h3>
-      <p>Allgemeine Assistenten erschließen ihr Wissen aus dem, was im Training kursierte — solide für Allgemeinfragen. Beim exakten, aktuellen Vorschriftentext aus FwG, FwDV oder Ortssatzung stößt dieser Ansatz an seine Grenze: Er paraphrasiert, was er zu wissen glaubt — und ergänzt notfalls aus unscharfem Modellwissen. Bei sicherheitsrelevanten Angaben ein echtes Risiko.</p>
+      <div class="lbl">Herkömmliche KI-Systeme</div>
+      <h3>Generisches Modellwissen und „flache Dokumentensuche" — ohne Fundstelle.</h3>
+      <p>Allgemeine Assistenten antworten aus ihrem breiten Modellwissen, der Websuche oder dem, was Sie als Dokument angehängt haben — das bringt oft 80 %. Aber für die kritischen Punkte fehlen Nachvollziehbarkeit, Genauigkeit und Disziplin: Beim exakten, aktuellen Vorschriftentext aus Feuerwehrgesetz, Feuerwehrdienstvorschrift oder Ortssatzung stößt dieser Ansatz an seine Grenzen. Bei sicherheitsrelevanten Aufgaben ein echtes Risiko.</p>
     </div>
     <div class="col us">
       <div class="lbl">brandmeister.ai</div>
@@ -521,9 +557,9 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
   </div>
   <div class="tiles reveal">
     <div class="tile"><div class="lbl">Datensouveränität</div><h3>Daten bleiben in Deutschland</h3><p>Plattform und Ihre Daten laufen auf Servern in Deutschland. Die Modell-Verarbeitung findet in der EU statt; Drittlandtransfers werden vermieden und, wo unvermeidbar, per AVV und EU-Standardvertragsklauseln abgesichert.</p></div>
-    <div class="tile"><div class="lbl">Zweckbindung</div><h3>Kein Training mit Ihren Daten</h3><p>Ihre Eingaben werden ausschließlich zur Beantwortung Ihrer Anfrage verarbeitet, nicht zum Training der Modelle — vertraglich mit den Modellbetreibern abgesichert.</p></div>
+    <div class="tile"><div class="lbl">Zweckbindung</div><h3>Kein Training mit Ihren Daten</h3><p>Ihre Eingaben werden ausschließlich zur Beantwortung Ihrer Anfrage verarbeitet, nicht zum Training der Modelle — vertraglich mit den Modellbetreibern abgesichert. Dazu integrierte Löschfristen: Was ablaufen muss, löscht die Plattform automatisch.</p></div>
     <div class="tile"><div class="lbl">EU-Compliance</div><h3>Auf den EU AI Act ausgelegt</h3><p>Klare Zweckbestimmung als Assistenzwerkzeug, Transparenzhinweis nach EU AI Act, dokumentierte Schulung Ihrer Mannschaft — von uns vorbereitet, nicht Ihr Problem.</p></div>
-    <div class="tile"><div class="lbl">DSGVO</div><h3>Höchste Datenschutzstandards</h3><p>Einsatzdaten sind teils Gesundheitsdaten nach Art. 9 DSGVO. DSGVO-konforme Verarbeitung mit AVV, klare Zweckbindung und Dokumentation — auf die besonderen Anforderungen des Feuerwehrdienstes ausgelegt.</p></div>
+    <div class="tile"><div class="lbl">Modell-Routing</div><h3>Smartes Routing sensibler Daten</h3><p>Einsatzberichte, Mitgliederlisten, Dienstpläne — im Feuerwehrdienst stecken überall personenbezogene Daten. Jede Anfrage wird deshalb automatisch geprüft: Enthält sie welche, antwortet ein führendes europäisches Modell in der EU — sonst das beste Modell für die Aufgabe. Ohne dass im Gerätehaus jemand daran denken muss.</p></div>
     <div class="tile"><div class="lbl">Transparenz</div><h3>Wir nehmen die Mannschaft mit</h3><p>Sorgen um die eigene Datenverarbeitung sind berechtigt und verdienen eine klare Antwort. Wehrführung und Ausschuss bekommen von uns fertige Vorlagen zur Information der Mannschaft — verständlich, rechtlich abgesichert, einsatzbereit für die nächste Dienstbesprechung oder Hauptversammlung.</p></div>
     <div class="tile"><div class="lbl">Offener Tech-Stack</div><h3>Etablierte Open-Source-Bausteine</h3><p>Bausteine wie Open WebUI und Docker, gehostet bei Hetzner in Deutschland — modell-agnostisch, prüfbar, modular und anbieterunabhängig.</p></div>
   </div>
@@ -535,7 +571,7 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
   <div class="sec-head reveal">
     <div class="tag">04 · So sieht es aus</div>
     <div><h2>Vertraute Benutzeroberfläche — <em>rechtssicher und einsatztauglich.</em></h2>
-    <p class="sub">So sieht Ihre Instanz im Alltag aus: eine vertraute, aufgeräumte Oberfläche, die Ihre Mannschaft am ersten Tag bedient — denn nur ein Werkzeug, das wirklich genutzt wird, gewinnt gegen die Schatten-IT.</p></div>
+    <p class="sub">So sieht Ihre Instanz im Alltag aus: eine vertraute, aufgeräumte Oberfläche, die Ihre Mannschaft am ersten Tag bedient — und Antworten, die so schnell und flüssig kommen, wie man es privat gewohnt ist. Denn nur ein Werkzeug, das wirklich genutzt wird, gewinnt gegen die Schatten-IT.</p></div>
   </div>
   <div style="max-width:980px;margin:0 auto" class="reveal">
     <div class="shot-frame">
@@ -551,21 +587,21 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
 <!-- MID-CTA -->
 <div class="midcta reveal"><div class="wrap midcta-inner">
   <div class="t">Genug gelesen? <b>Lernen Sie brandmeister.ai an Ihren eigenen Fragen kennen</b> — im kostenlosen Erstgespräch.</div>
-  <a href="mailto:kontakt@brandmeister.ai?subject=Demo%20brandmeister.ai" class="btn btn-primary">Demo vereinbaren →</a>
+  <a href="https://meet.brevo.com/christian-traub/30-minutige-live-demo" target="_blank" rel="noopener" class="btn btn-primary">Demo vereinbaren →</a>
 </div></div>
 
 <!-- 05 MITWACHSEND (P4) -->
 <section class="sec" id="mitwachsend"><div class="wrap">
   <div class="sec-head reveal">
-    <div class="tag">05 · Mitwachsend</div>
-    <div><h2>Eine Plattform, die mit Ihren <em>Aufgaben wächst.</em></h2>
-    <p class="sub">Das Tempo der KI ist enorm. Entscheidend ist, nachhaltig offen für Innovationen zu bleiben. Ihre Plattform nimmt neue Entwicklungen und Features auf und bindet neue Systeme an. Sie starten klar umrissen und bauen aus, wenn es trägt.</p></div>
+    <div class="tag">05 · Im Dienst</div>
+    <div><h2>Entlastung, wo der Dienst <em>Zeit frisst.</em></h2>
+    <p class="sub">Ausbildung, Organisation, Einsatz — die drei Felder, in denen brandmeister.ai Ihrer Wehr Arbeit abnimmt und Professionalität dazugibt. Sie starten klar umrissen und bauen aus, wenn es trägt.</p></div>
   </div>
   <div class="cards two reveal">
-    <div class="card"><div class="k">Ausbildung</div><h3>Übungsvorbereitung &amp; Nachwuchs</h3><p>Theorieabende, Stationsübungen und Lernkontrollen direkt aus aktuellen Quellen — ebenso für die Jugendfeuerwehr: Onboarding-Checklisten und Ausbildungsunterlagen.</p></div>
-    <div class="card"><div class="k">Automatisierung</div><h3>Interne Workflows</h3><p>Wiederkehrende Aufgaben schneller erledigen — Alarm- und Ausrückeordnung fortschreiben, satzungskonforme Tagesordnungen vorformulieren, Dienstpläne prüfen. Weniger Verwaltung, mehr Zeit für den Dienst.</p></div>
-    <div class="card"><div class="k">Wissen</div><h3>Wissensmanagement</h3><p>Anbindung bestehender Wissens- und Dokumentensysteme — Standard-Einsatzregeln, Alarm- und Ausrückeordnung, lokale Objektpläne — rollen- und zweckscharf, als sauberer Projektbaustein.</p></div>
-    <div class="card"><div class="k">Integration</div><h3>Anbindung an bestehende Systeme</h3><p>Unsere paragrafengenaue Rechtsquellen-Tiefe kann auch per API/MCP in Ihre bestehende Infrastruktur eingebunden werden — etwa beim Kreisfeuerwehrverband.</p></div>
+    <div class="card"><div class="k">Ausbildung</div><h3>Übungsvorbereitung &amp; Jugendarbeit</h3><p>Theorieabende, Stationsausbildung und Lernkontrollen direkt aus FwDV, Lehrunterlagen und aktuellen Quellen — ebenso für die Jugendfeuerwehr: Onboarding-Checklisten und Ausbildungsunterlagen. Bessere Qualität mit weniger Zeitaufwand.</p></div>
+    <div class="card"><div class="k">Organisation</div><h3>Der Papierkram, der keiner sein muss</h3><p>Alarm- und Ausrückeordnung fortschreiben, satzungskonforme Tagesordnungen und Einladungen für Ausschuss und Hauptversammlung, Dienstpläne, Auswertungen und Berichte an die Gemeinde. Weniger Verwaltung, mehr Zeit für den Dienst.</p></div>
+    <div class="card"><div class="k">Einsatz</div><h3>Vor- und Nachbereitung mit Substanz</h3><p>Einsatzberichte sauber formulieren, Einsatzchecklisten, Rechercheunterstützung im Einsatz — inklusive integrierter Gefahrstoffdatenbank —, Kostenersatz direkt an Satzung und Feuerwehrgesetz prüfen. Die Erfahrung Ihrer Wehr, professionell dokumentiert.</p></div>
+    <div class="card"><div class="k">Integration</div><h3>Anbindung an bestehende Systeme</h3><p>Wissens- und Dokumentensysteme anbinden (Standard-Einsatzregeln, AAO, Objektpläne) — und unsere paragrafengenaue Rechtsquellen-Tiefe per API/MCP in Ihre eigene Infrastruktur holen.</p></div>
   </div>
 </div></section>
 
@@ -574,18 +610,17 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
   <div class="sec-head reveal">
     <div class="tag">06 · Was Sie bekommen</div>
     <div><h2>Ihre eigene, betreute Instanz — <em>europäisch und digital souverän.</em></h2>
-    <p class="sub">Alles eingerichtet, gepflegt und begleitet. Ihre Mannschaft arbeitet, wir halten es sauber.</p></div>
+    <p class="sub">Alles eingerichtet, gepflegt und begleitet. Sie arbeiten damit, wir halten es sauber.</p></div>
   </div>
   <div class="sol reveal">
     <div class="sol-item"><span class="s">01</span><div><b>Eigene Instanz in Deutschland</b><span class="t">Dediziert für Ihre Feuerwehr, auf deutschen Servern. Keine geteilten Datenbanken für Ihre Einsatz- und Personaldaten.</span></div></div>
-    <div class="sol-item"><span class="s">02</span><div><b>Führende Modelle, sicher eingesetzt</b><span class="t">Die stärksten KI-Modelle. Für sensible Vorgänge führende europäische Modelle, durch unser Kontextmanagement leistungsgesteigert; freie Hochleistungsmodelle für nicht-sensible Daten. Rechtssicher und im Preis inbegriffen.</span></div></div>
-    <div class="sol-item"><span class="s">03</span><div><b>Kuratiertes Feuerwehrrecht &amp; Praxiswissen</b><span class="t">Bundesrecht (FwDV), Landes-Feuerwehrgesetz, Kreis- und Ortsrecht (Feuerwehr- und Kostenersatzsatzung), paragrafengenau und aktuell — dazu kuratierte Praxis-Skills für Einsatztaktik, Gefahrenabwehr und Ausbildung.</span></div></div>
+    <div class="sol-item"><span class="s">02</span><div><b>Führende Modelle, intelligent geroutet</b><span class="t">Immer das beste Modell für die Aufgabe: Die Plattform erkennt personenbezogene Daten automatisch — vom Einsatzbericht bis zur Dienstliste — und routet sensible Anfragen an führende europäische Modelle in der EU. Durch unser Kontextmanagement leistungsgesteigert, rechtssicher und im Preis inbegriffen.</span></div></div>
+    <div class="sol-item"><span class="s">03</span><div><b>Kuratiertes Feuerwehrrecht &amp; Praxiswissen</b><span class="t">Bundesrecht (FwDV), Landes-Feuerwehrgesetz, Kreis- und Ortsrecht (Feuerwehr- und Kostenersatzsatzung), paragrafengenau und aktuell — dazu kuratierte Praxis-Skills für Einsatztaktik, Gefahrenabwehr und Ausbildung sowie eine integrierte Gefahrstoffdatenbank.</span></div></div>
     <div class="sol-item"><span class="s">04</span><div><b>Compliance-Paket</b><span class="t">Komplettpaket für Ihre Datenschutz-Folgenabschätzung: geprüfter AVV, technische Verarbeitungsdokumentation (Datenflüsse, Löschfristen, Unterauftragsverarbeiter, TOMs) sowie Muster für Verarbeitungsverzeichnis, Nutzungsrichtlinie und die Vorstellung in Kommandantschaft und Hauptversammlung.</span></div></div>
     <div class="sol-item"><span class="s">05</span><div><b>Betrieb &amp; Pflege</b><span class="t">Laufende Aktualisierung der Rechtsquellen — eine Satzungsänderung wird direkt eingepflegt. Dazu regelmäßige Produktupdates und neue Features sowie hochverfügbarer Serverbetrieb auf deutscher Infrastruktur mit Backups.</span></div></div>
     <div class="sol-item"><span class="s">06</span><div><b>Zukunftsfähig &amp; anbieterunabhängig</b><span class="t">Etablierte, offene Technologie, modular aufgebaut — eine Plattform, die mit Ihren Anforderungen wächst. Kein Vendor-Lock-in: Sie verbauen sich nichts. Support-Modell über den Kreisfeuerwehrverband oder Ihren IT-Dienstleister möglich.</span></div></div>
   </div>
-  <p class="vs-note reveal" style="margin-top:32px"><b>Teil der amtsschimmel.ai-Familie:</b> Nutzt Ihre Gemeinde bereits <a href="https://amtsschimmel.ai" target="_blank" rel="noopener">amtsschimmel.ai</a>, bekommt Ihre Feuerwehr brandmeister.ai automatisch und kostenlos als eigene, getrennte Instanz dazu. Ohne Gemeinde-Anbindung ist brandmeister.ai auch separat für Ihre Feuerwehr buchbar — zu vergleichbaren Konditionen.</p>
-  <p class="vs-note reveal" style="margin-top:16px;font-size:15px"><b>Schneller Testzugang:</b> Für den ersten Eindruck lässt sich brandmeister.ai auch über einen offenen MCP-Zugang direkt in Ihre eigene ChatGPT- oder Claude-Umgebung einbinden — ohne Einrichtung. Gut zum Ausprobieren, aber kein Ersatz für die betreute Instanz: ohne laufende Pflege der Modell-Anbindung und ohne die volle Prompt- und Skill-Tiefe.</p>
+  <p class="vs-note reveal" style="margin-top:32px"><b>Teil der amtsschimmel.ai-Familie:</b> Nutzt Ihre Gemeinde bereits <a href="https://amtsschimmel.ai" target="_blank" rel="noopener">amtsschimmel.ai</a>, bekommt Ihre Feuerwehr brandmeister.ai automatisch als eigene, getrennte Instanz dazu. Ohne Gemeinde-Anbindung ist brandmeister.ai auch separat für Ihre Feuerwehr buchbar — zu vergleichbaren Konditionen.</p>
 </div></section>
 
 <!-- WHITE PAPER -->
@@ -627,26 +662,27 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
     <div><h2>Aus der Praxis — <em>nicht aus dem Pitch.</em></h2></div>
   </div>
   <div class="about-grid reveal">
-    <div class="about">
-      <p>brandmeister.ai ist aus dem <b>ehrenamtlichen Feuerwehrdienst</b> entstanden — als Werkzeug für Kameradinnen und Kameraden, die mit KI rechtssicher arbeiten müssen und verlässliche Antworten brauchen. Nicht als Produkt auf der Suche nach einem Markt.</p>
-      <p>Dahinter steht <b>RAGSource</b> — ein Anbieter, der sich auf rechtssichere, skalierbare und modulare KI-Systeme spezialisiert hat: KI-Governance, KI-Readiness, Wissens- und Kontextmanagement. Gründer ist <b>Christian Traub</b>, Feuerwehrkommandant und Ingenieur mit über 15 Jahren Governance-, Compliance- und Audit-Erfahrung in KI- und Digitalisierungsprozessen. Kein Start-up, das fancy klingt — sondern Substanz, die Sie vor der Hauptversammlung vertreten können.</p>
-    </div>
     <div class="portrait">
       <picture>
         <source srcset="assets/portrait.webp" type="image/webp">
-        <img src="assets/portrait.jpg" alt="Christian Traub — Gründer von RAGSource und brandmeister.ai" loading="lazy" width="820" height="1094">
+        <img src="assets/portrait.jpg" alt="Christian Traub in Feuerwehr-Einsatzkleidung — Feuerwehrkommandant und Gründer von RAGSource und brandmeister.ai" loading="lazy" width="820" height="1094">
       </picture>
+    </div>
+    <div class="about">
+      <p>brandmeister.ai ist aus dem <b>ehrenamtlichen Feuerwehrdienst</b> entstanden — als Werkzeug für Kameradinnen und Kameraden, die mit KI rechtssicher arbeiten müssen und verlässliche Antworten brauchen. Nicht als Produkt auf der Suche nach einem Markt.</p>
+      <p>Dahinter steht <b>RAGSource</b> — ein Anbieter, der sich auf rechtssichere, skalierbare und modulare KI-Systeme spezialisiert hat: KI-Governance, KI-Readiness, Wissens- und Kontextmanagement. Gründer ist <b>Christian Traub</b>, Feuerwehrkommandant und Ingenieur mit über 15 Jahren Governance-, Compliance- und Audit-Erfahrung in KI- und Digitalisierungsprozessen. Kein Start-up, das fancy klingt — sondern Substanz, auf die Sie sich verlassen können.</p>
     </div>
   </div>
 </div></section>
 
 <!-- CTA -->
 <section class="cta" id="kontakt"><div class="wrap cta-inner reveal">
-  <h2>Reden wir über Ihre Feuerwehr.</h2>
-  <p>Testen Sie brandmeister.ai selbst in einer kostenlosen Demo, unverbindlich.</p>
+  <h2>Bereit, Ihren Feuerwehralltag mit KI zu <em>entlasten?</em></h2>
+  <p>Lernen Sie brandmeister.ai in einer kostenlosen Demo kennen — 30 Minuten, an Ihren eigenen Fragen, unverbindlich.</p>
   <div class="cta-actions">
-    <a href="mailto:kontakt@brandmeister.ai?subject=Erstberatung%20%26%20Demo%20brandmeister.ai" class="btn btn-light">Demo vereinbaren →</a>
+    <a href="https://meet.brevo.com/christian-traub/30-minutige-live-demo" target="_blank" rel="noopener" class="btn btn-light">Demo vereinbaren →</a>
   </div>
+  <p style="margin-top:18px;font-size:14px;color:rgba(255,255,255,.6)">Lieber per E-Mail? <a href="mailto:kontakt@brandmeister.ai" style="color:rgba(255,255,255,.85);text-decoration:underline">kontakt@brandmeister.ai</a></p>
   <!-- Kontaktformular entfernt (kein Backend); nur mailto aktiv. Reaktivieren erst mit /api/contact + EU-Mailer. -->
 </div></section>
 
@@ -655,13 +691,13 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
   <div class="footer-grid">
     <div><h4>brandmeister.ai</h4><p style="margin:0;color:var(--ink-3);max-width:40ch">Die rechtssichere KI für Feuerwehren in Deutschland. Eine RAGSource-Lösung.</p></div>
     <div><h4>Lösung</h4><ul><li><a href="#loesung">Was Sie bekommen</a></li><li><a href="#unterschied">Antwortqualität</a></li><li><a href="#sicherheit">Sicherheit</a></li></ul></div>
-    <div><h4>Familie</h4><ul><li><a href="https://www.linkedin.com/in/christiantraub/">RAGSource</a></li><li><a href="https://amtsschimmel.ai">amtsschimmel.ai</a></li></ul></div>
+    <div><h4>Familie</h4><ul><li><a href="https://ragsource.ai" target="_blank" rel="noopener">RAGSource</a></li><li><a href="https://amtsschimmel.ai">amtsschimmel.ai</a></li></ul></div>
     <div><h4>Rechtliches</h4><ul><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li><li><a href="#kontakt">Kontakt</a></li></ul></div>
   </div>
   <div class="sig">
     <div class="sig-text">Gebaut von <b>Christian Traub</b> — Feuerwehrkommandant, Prozess- und Governance-Mensch — weil der Feuerwehrdienst verlässliche Werkzeuge verdient.</div>
     <div class="mini-marks">
-      <a href="https://www.linkedin.com/in/christiantraub/">RAGSource</a><span class="sep">·</span>
+      <a href="https://ragsource.ai" target="_blank" rel="noopener">RAGSource</a><span class="sep">·</span>
       <a href="https://amtsschimmel.ai">amtsschimmel</a><span class="sep">·</span>
       <span class="here">brandmeister</span>
     </div>

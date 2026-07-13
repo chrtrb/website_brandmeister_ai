@@ -28,7 +28,7 @@
   --ink:#0f1013;--ink-2:#272b33;--ink-3:#555a64;--ink-4:#8a8f99;
   --line:#e5e5e1;--line-2:#d8d8d2;
   --paper:#fbfaf6;--paper-2:#f3f1e9;--paper-3:#ecead9;
-  --acc:#a8201a;--acc-ink:#711510;--acc-wash:#faeceb;
+  --acc:#a72920;--acc-ink:#711510;--acc-wash:#faeceb;
   --ok:#116c37;
   --serif:'Instrument Serif','Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;
   --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
@@ -71,27 +71,27 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
 .btn .arr{transition:transform .2s;} .btn:hover .arr{transform:translateX(3px);}
 
 /* HERO */
-.hero{padding:84px 0 56px;}
+.hero{padding:96px 0 64px;}
 .hero-top{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;}
 @media(max-width:900px){.hero-top{grid-template-columns:1fr;gap:20px;}}
 .hero-visual{display:flex;justify-content:center;align-items:center;}
-.hero-below{margin-top:40px;}
-.hero .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--acc);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+.hero-below{margin-top:48px;}
+.hero .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--acc);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:10px;}
 .hero .eyebrow::before{content:"";width:20px;height:1px;background:var(--acc);display:inline-block;}
 .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4.4vw,52px);line-height:1.04;letter-spacing:-0.02em;color:var(--ink);margin:0;max-width:none;}
-.hero h1 em{font-style:italic;color:var(--acc);}
-.hero .lead{font-size:19px;line-height:1.55;color:var(--ink-2);max-width:none;margin:0 0 28px;text-align:center;}
+.hero h1 em{font-style:normal;color:var(--ink);}
+.hero .lead{font-size:19px;line-height:1.65;color:var(--ink-2);max-width:none;margin:0 0 30px;text-align:center;}
 .hero-actions{display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;}
 .hero-note{margin-top:14px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--ink-4);text-align:center;}
-.hero-points{list-style:none;margin:28px 0 0;padding:0;}
-.hero-points li{display:flex;gap:11px;align-items:baseline;font-size:17.5px;line-height:1.5;color:var(--ink-3);margin-bottom:13px;}
+.hero-points{list-style:none;margin:32px 0 0;padding:0;}
+.hero-points li{display:flex;gap:11px;align-items:baseline;font-size:17.5px;line-height:1.62;color:var(--ink-3);margin-bottom:16px;}
 .hero-points li b{color:var(--ink);font-weight:600;}
 .hero-points .pk{font-family:var(--mono);color:var(--acc);flex-shrink:0;}
 
 /* TRUST STRIP */
 .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2);}
 .trust-inner{display:flex;flex-wrap:wrap;justify-content:center;}
-.trust-item{display:flex;align-items:center;gap:7px;padding:13px 12px;font-size:13px;color:var(--ink-2);font-weight:500;white-space:nowrap;}
+.trust-item{display:flex;align-items:center;gap:6px;padding:13px 9px;font-size:12.5px;color:var(--ink-2);font-weight:500;white-space:nowrap;}
 .trust-item .ck{color:var(--acc);font-family:var(--serif);font-style:italic;}
 .trust-item svg.ti{width:15px;height:15px;stroke:var(--acc);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
 .trust-sep{width:1px;align-self:center;height:20px;background:var(--line-2);}
@@ -138,7 +138,7 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
 .photo{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:4px;}
 .hero-img{width:100%;max-width:720px;height:auto;display:block;}
 /* FAMILIEN-BAND (amtsschimmel-Automatik) */
-.fam-band{background:var(--acc-wash);border-bottom:1px solid var(--line);}
+.fam-band{background:#e9eaec;border-bottom:1px solid var(--line);}
 .fam-inner{padding:15px 24px;text-align:center;font-size:14.5px;color:var(--ink-2);line-height:1.5;}
 .fam-inner .k{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--acc);margin-right:10px;white-space:nowrap;}
 .fam-inner a{color:var(--acc);text-decoration:underline;text-underline-offset:2px;}
@@ -364,7 +364,7 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
       <h1>Die <em>Feuerwehr-KI</em>:</h1>
       <ul class="hero-points">
         <li><span class="pk">›</span><span><b>Integriertes Feuerwehrwissen</b> — für Antworten, mit denen Sie etwas anfangen können.</span></li>
-        <li><span class="pk">›</span><span><b>Rechtssicher</b> — mit dem gleichen Standard wie für die öffentliche Verwaltung.</span></li>
+        <li><span class="pk">›</span><span><b>Rechtssicher</b> — erfüllt alle Compliance-Anforderungen für die öffentliche Verwaltung in Deutschland.</span></li>
         <li><span class="pk">›</span><span><b>Mobil oder am PC</b> — so benutzerfreundlich, wie Sie es aus dem privaten Alltag kennen.</span></li>
       </ul>
     </div>
@@ -391,12 +391,12 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
   <div class="trust-item"><svg class="ti"><use href="#i-server"/></svg> In Deutschland gehostet</div><div class="trust-sep"></div>
   <div class="trust-item"><svg class="ti"><use href="#i-file"/></svg> DSGVO &amp; AVV inklusive</div><div class="trust-sep"></div>
   <div class="trust-item"><svg class="ti"><use href="#i-cpu"/></svg> Führende Modelle, rechtssicher</div><div class="trust-sep"></div>
-  <div class="trust-item"><svg class="ti"><use href="#i-book"/></svg> Feuerwehrrecht &amp; Dienstvorschriften aktuell</div>
+  <div class="trust-item"><svg class="ti"><use href="#i-book"/></svg> Feuerwehrrecht, Dienstvorschriften &amp; Gefahrstoffdatenbank</div>
 </div></div>
 
 <!-- FAMILIEN-BAND -->
 <div class="fam-band"><div class="wrap fam-inner">
-  <span class="k">Schon dabei?</span>Ihre Gemeinde nutzt bereits <a href="https://amtsschimmel.ai" target="_blank" rel="noopener">amtsschimmel.ai</a>? Dann ist Ihre eigene brandmeister.ai-Instanz schon integriert — <a href="#loesung">mehr dazu ↓</a>
+  <span class="k">Schon dabei?</span>Ihre Gemeinde nutzt bereits <a href="https://amtsschimmel.ai" target="_blank" rel="noopener">amtsschimmel.ai</a>? Dann ist Ihre eigene brandmeister.ai-Instanz schon einsatzbereit — <a href="#loesung">mehr dazu ↓</a>
 </div></div>
 
 <!-- 01 PROBLEME, DIE WIR LÖSEN -->
@@ -404,12 +404,12 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
   <div class="sec-head reveal">
     <div class="tag">01 · Was wir lösen</div>
     <div><h2>Die vier Probleme, die brandmeister.ai <em>löst.</em></h2>
-    <p class="sub">In vielen Feuerwehren wird längst mit KI gearbeitet — Kameradinnen und Kameraden nutzen private Accounts für Übungsvorbereitung, Checklisten oder die Nachbereitung. Genau die vier Hürden dabei nehmen wir Ihnen ab.</p></div>
+    <p class="sub">In vielen Feuerwehren wird längst mit KI gearbeitet — häufig nutzen Kameradinnen und Kameraden ihre privaten Accounts, mit allen Folgeproblemen für Datenschutz und Antwortqualität. Diese Probleme lösen wir für Sie:</p></div>
   </div>
   <div class="cards two reveal">
     <div class="card"><div class="k">Problem 1 · Antwortqualität</div><h3>„Das stimmt doch nicht!"</h3><p>KI, die halluziniert und veraltetes oder falsches Wissen ausgibt, ist im Einsatz- und Ausbildungsdienst nicht nur unbrauchbar, sondern riskant. brandmeister.ai lädt zu jeder Frage den exakten, aktuellen Wortlaut aus Feuerwehrgesetzen, Feuerwehrdienstvorschriften und Ihren lokalen Satzungen, mit Fundstelle. Wortlaut statt Wahrscheinlichkeit.</p></div>
-    <div class="card"><div class="k">Problem 2 · Datenschutz</div><h3>„Dürfen wir ChatGPT und Co. bei der Feuerwehr nutzen?"</h3><p>Einsatzberichte, Urkunden, Bescheinigungen, Dienstpläne und mehr enthalten personenbezogene Daten. Unsere Komplettlösung läuft ausschließlich auf Servern in der EU von Anbietern aus der EU — und erkennt personenbezogene Daten automatisch: Sensible Anfragen beantworten EU-Modelle. Bezüglich der Compliance mit DSGVO, EU AI Act und US CLOUD Act sind Sie mit uns auf der sicheren Seite.</p></div>
-    <div class="card"><div class="k">Problem 3 · Schatten-IT</div><h3>„Ich nutze mein privates Claude!"</h3><p>Fehlt das offizielle Werkzeug, ist die Gefahr groß, dass private ChatGPT-Accounts genutzt werden — mit Einsatzberichten, ohne Vertrag und ohne Kontrolle. brandmeister.ai ist so vertraut und gut bedienbar, dass es genutzt wird — die beste Versicherung dagegen.</p></div>
+    <div class="card"><div class="k">Problem 2 · Datenschutz</div><h3>„Dürfen wir ChatGPT und Co. bei der Feuerwehr nutzen?"</h3><p>Einsatzberichte, Urkunden, Bescheinigungen, Dienstpläne und mehr enthalten personenbezogene Daten. Unsere Komplettlösung erkennt personenbezogene Daten automatisch und verarbeitet sie ausschließlich auf Servern in der EU von Anbietern aus der EU: Sensible Anfragen beantworten EU-Modelle. Bezüglich der Compliance mit DSGVO, EU AI Act und US CLOUD Act sind Sie mit uns auf der sicheren Seite.</p></div>
+    <div class="card"><div class="k">Problem 3 · Schatten-IT</div><h3>„Ich nutze mein privates Claude!"</h3><p>Fehlt das offizielle Werkzeug, ist die Gefahr groß, dass private KI-Accounts genutzt werden — mit Einsatzberichten, ohne Vertrag und ohne Kontrolle. brandmeister.ai ist so vertraut und gut bedienbar, dass es genutzt wird — die beste Versicherung dagegen.</p></div>
     <div class="card"><div class="k">Problem 4 · Technologieoffenheit</div><h3>„Oh nein, noch eine Feuerwehrsoftware?"</h3><p>brandmeister.ai ist modular aufgebaut und setzt auf etablierte Open-Source-Software. Wir sind transparent im Tech-Stack und können uns nahtlos in Ihre bestehende Softwarewelt einfügen — auf Wunsch auch unter der Haube in Ihre bestehenden Softwarelösungen integriert. Kein Lock-in.</p></div>
   </div>
   <img class="photo reveal" style="margin-top:38px" src="assets/img-geraetehaus.jpg" alt="brandmeister.ai im Feuerwehralltag — die Mannschaft im Gerätehaus mit Tablet, Wärmebildkamera-Auswertung und dem brandmeister-Maskottchen" loading="lazy">
@@ -431,47 +431,45 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
     </div>
     <div class="col us">
       <div class="lbl">brandmeister.ai</div>
-      <h3>Lädt den exakten Vorschriftentext. Immer aktuell.</h3>
-      <p>Über das paragrafengenaue Kontextmanagement von RAGSource kommt zu jeder Frage der originale, aktuelle Text in den Kontext — mit Fundstelle, von der FwDV über das Landes-Feuerwehrgesetz bis zur Ortssatzung. Dazu kuratierte Praxis-Skills für Einsatztaktik, Ausbildung und Gefahrenabwehr. <b>Gebaut für Aufgaben in der Feuerwehr — Wortlaut statt Wahrscheinlichkeit.</b></p>
+      <h3>Lädt die exakten Quellen. Immer aktuell.</h3>
+      <p>Über das paragrafengenaue Kontextmanagement von RAGSource kommt zu jeder Frage der originale, aktuelle Text in den Kontext — mit Fundstelle, von der FwDV über das Landes-Feuerwehrgesetz bis zur Ortssatzung. Dazu kuratierte Praxis-Skills für Einsatztaktik und Ausbildung sowie eine umfassende Gefahrstoffdatenbank. <b>Gebaut für Aufgaben in der Feuerwehr — Wortlaut statt Wahrscheinlichkeit.</b></p>
     </div>
   </div>
 
   <div class="ex-label reveal">Drei echte Anfragen — Frage antippen, Antwort aufklappen:</div>
   <div class="qa-list reveal">
 
-    <!-- BEISPIEL 1 — BMA-Alarm (Ausbildung + Einsatz + Kostenersatz) -->
+    <!-- BEISPIEL 1 — Einsatzübung Gefahrgut (Übung + Gefahrstoff-DB + FwDV 500) -->
     <details class="qa">
-      <summary><span class="q-ic"></span><span><span class="q-text">Die Brandmeldeanlage im Pflegeheim hat ausgelöst — wie läuft der Einsatz ab, und wer trägt am Ende die Kosten?</span><span class="q-tags"><span>Einsatz</span><span>Ausbildung</span><span>Kostenersatz</span></span></span></summary>
+      <summary><span class="q-ic"></span><span><span class="q-text">Dienstag üben wir: Transporter mit Kaliumpermanganat-Fässern im Graben, vier davon beschädigt, es regnet. Worauf achten — und womit simulieren wir den Stoff?</span><span class="q-tags"><span>Übung</span><span>Gefahrstoff</span><span>ABC-Einsatz</span></span></span></summary>
       <div class="qa-answer">
-        <div class="qa-src"><span class="dot"></span>brandmeister.ai · Antwort mit Fundstelle · Praxis-Skill + 2 Rechtsquellen im Wortlaut geladen</div>
-        <h4>BMA-Alarm — Ablauf und Kostenersatz</h4>
-        <p>Automatische Brandmeldeanlagen (BMA) lösen bundesweit weit überwiegend Fehlalarme aus — in Pflegeheimen und Kliniken gilt trotzdem: volle Anfahrtsordnung, keine Abkürzung wegen „vermutlich nur BMA".</p>
+        <div class="qa-src"><span class="dot"></span>brandmeister.ai · Antwort mit Fundstelle · Gefahrstoff-DB + 2 Praxis-Skills + FwDV 500 im Wortlaut geladen</div>
+        <h4>Einsatzübung „Gefahrguttransport" — Gefahren, Aufbau, Simulation</h4>
+        <p>Ein starkes Übungsszenario — gerade weil der Stoff unspektakulär aussieht. Kaliumpermanganat ist ein Oxidationsmittel, und die Wetterlage macht aus dem rieselnden Granulat einen Gefahrstoffeinsatz. Zuerst der Blick in die Stoffdatenbank:</p>
 
-        <h5>1 · Am Feuerwehr-Bedienfeld (FBF)</h5>
-        <p>Das FBF nach <span class="ref">DIN 14661</span> zeigt am Feuerwehr-Anzeigetableau (FAT) die auslösende Meldergruppe. Zugang zum Objekt läuft über das Feuerwehrschlüsseldepot (FSD) — je nach Risikoklasse der DIN 14675 in drei Stufen:</p>
-        <table class="qa-tbl plain"><thead><tr><th>FSD-Klasse</th><th>Risiko</th><th>Beispiel</th></tr></thead><tbody>
-          <tr><td>1</td><td>Niedrig — Einzelschlüssel, keine ÜE-Verbindung</td><td>Kleines Objekt</td></tr>
-          <tr><td>2</td><td>Mittel — mehrere Schlüssel, ÜE-Verbindung</td><td>Bürogebäude, Schule</td></tr>
-          <tr><td>3</td><td>Hoch — mit Generalschlüssel</td><td>Pflegeheim, Krankenhaus, Industrie</td></tr>
-        </tbody></table>
-        <div class="qa-note"><b>Wichtig für die Ausbildung:</b> FAT-Foto-Dokumentation vor Quittierung, Sicherheitstrupp parallel zum Angriffstrupp stellen, BMA niemals selbst durch die Feuerwehr zurücksetzen.</div>
-
-        <h5>2 · Kostenersatz bei Fehlalarm — wer zahlt?</h5>
-        <p>Maßgeblich ist <span class="ref">§ 34 Abs. 1 S. 2 Nr. 6 FwG BW</span> — Kostenersatz wird verlangt:</p>
-        <p class="qa-quote">„vom Betreiber, wenn der Einsatz durch einen Alarm einer Brandmeldeanlage oder einer anderen technischen Anlage zur Erkennung von Bränden oder zur Warnung bei Bränden mit automatischer Übertragung des Alarms an eine ständig besetzte Stelle ausgelöst wurde, ohne dass ein Schadenfeuer vorlag." (§ 34 Abs. 1 S. 2 Nr. 6 FwG BW)</p>
-        <p>Die Gemeinde-Kostenersatzsatzung übernimmt diesen Tatbestand wortgleich (<span class="ref">§ 3 Abs. 1 S. 2 Nr. 6</span>) und legt die Sätze im Kostenersatzverzeichnis fest — beispielhaft:</p>
-        <table class="qa-tbl fees"><thead><tr><th>Position</th><th>Satz je Stunde</th></tr></thead><tbody>
-          <tr><td>Feuerwehrangehörige (Personalkosten)</td><td>26,00 €</td></tr>
-          <tr><td>Löschgruppenfahrzeug LF 16/12</td><td>198,00 €</td></tr>
-          <tr><td>Tanklöschfahrzeug TLF 16/25</td><td>172,00 €</td></tr>
+        <h5>1 · Der Stoff — aus der Gefahrstoffdatenbank</h5>
+        <table class="qa-tbl plain"><tbody>
+          <tr><td>Transport</td><td><b>UN 1490</b> · ADR-Klasse <b>5.1</b> (entzündend/oxidierend wirkend) · Verpackungsgruppe II · Gefahrnummer 50</td></tr>
+          <tr><td>Wasser</td><td><b>WGK 3</b> — stark wassergefährdend (UBA/Rigoletto)</td></tr>
+          <tr><td>GHS</td><td>Signalwort „Danger" — u.&nbsp;a. H272 (kann Brand verstärken), H314 (schwere Verätzungen), H373 (Organschäden bei längerer Exposition), H400/410 (sehr giftig für Wasserorganismen)</td></tr>
         </tbody></table>
 
-        <h5>3 · Mutwillige Auslösung</h5>
-        <p>Wurde die Anlage vorsätzlich oder grob fahrlässig ausgelöst, greift zusätzlich <span class="ref">§ 34 Abs. 1 S. 2 Nr. 5 FwG BW</span> (Alarmierung ohne Schadensereignis) — und strafrechtlich <span class="ref">§ 145 StGB</span> (Missbrauch von Notrufen).</p>
+        <h5>2 · Die besonderen Gefahren im Szenario</h5>
+        <p><b>Oxidationsmittel trifft Brennbares:</b> Klasse 5.1 heißt: Kontakt mit Kraftstoff, Hydrauliköl oder Laub im Graben kann einen Brand auslösen oder heftig verstärken (H272). Auslaufende Betriebsstoffe des Transporters getrennt binden, Zündquellen fernhalten.</p>
+        <p><b>Der Regen ist hier der Hauptgegner:</b> Das Granulat löst sich zu einer intensiv violetten, ätzenden Lösung — bei WGK 3 zählt jeder Liter, der Richtung Graben oder Kanal läuft. Die FwDV 500 ist eindeutig:</p>
+        <p class="qa-quote">„Besteht der Verdacht, dass abfließendes Wasser (z. B. Löschwasser) mit ABC-Gefahrstoffen kontaminiert ist, so müssen Maßnahmen zur Verhinderung einer Ausbreitung (Löschwasserrückhaltung) getroffen werden." (FwDV 500, Abschn. 1.5.3.4)</p>
+        <p><b>Einteilung und Schutz:</b> Verpackungsgruppe II → Gefahrengruppe <span class="ref">IIC</span> (FwDV 500, Abschn. 4.1). Erstmaßnahmen nach der <span class="ref">GAMS-Regel</span>, Gefahrenbereich ca. 50 m / Absperrbereich ca. 100 m — nach Erkundung anpassbar (Abschn. 1.5.3.5). PSA: Form 2 reicht beim festen Stoff ohne Gaskontakt. Der Standard-Dekon-Platz ist bei jedem ABC-Einsatz unter Schutzausrüstung Pflicht — betriebsbereit spätestens 15 Minuten nach dem ersten Anlegen der PSA.</p>
 
-        <p class="qa-result"><b>Kurz:</b> Anfahrt immer nach Vollalarm-Ordnung, unabhängig vom Fehlalarm-Verdacht. Kostenpflichtig ist der Anlagenbetreiber, wenn kein Schadenfeuer vorlag — die genauen Sätze stehen im Kostenersatzverzeichnis der Gemeinde; bei unbilliger Härte kann nach § 34 Abs. 3 FwG BW auf den Ersatz verzichtet werden.</p>
+        <h5>3 · Umwelt und Übergabe — auch das gehört in die Übung</h5>
+        <p>Aus der Übergabe-Matrix (WGK 3 × Klasse 5.1): <b>keine Freigabe in die Kanalisation</b>, aufgenommenes Material an den Fachentsorger (AVV 16&nbsp;09&nbsp;01), <b>untere Wasserbehörde</b> und Leitstelle benachrichtigen — bei WGK 3 ohne Mengenschwelle. Die Übergabe an die Behörde als eigene Übungsstation durchspielen: Der Gefahrenbereich wird nicht von der Feuerwehr freigegeben.</p>
 
-        <div class="qa-foot">✓ <b>quellengestützt</b> — Praxis-Skill „Brandmeldeanlage" (Säule 2) plus FwG BW und Feuerwehr-Kostenersatzsatzung im Wortlaut geladen.</div>
+        <h5>4 · Simulation — Vorschlag für den Übungsaufbau</h5>
+        <p>Kein echtes Kaliumpermanganat verwenden, auch nicht „nur eine Handvoll" — es färbt hartnäckig, ätzt und ist stark wassergefährdend. Stattdessen: <b>dunkler Splitt oder Deko-Kies (1–3 mm)</b> als Riesel-Granulat in leeren 20-l-Gebinden mit Übungs-Gefahrzettel „5.1 / UN 1490" — dann muss der Angriffstrupp die Stoffidentifikation wirklich erarbeiten. Die charakteristische Violettfärbung von Pfützen lässt sich mit Lebensmittelfarbe darstellen.</p>
+        <div class="qa-note"><b>Übungsorganisation:</b> Dienstbuch-Eintrag <b>vor</b> Übungsbeginn und benannter Übungsleiter (Versicherungsschutz!), Abbruchsignal vereinbaren, Beobachtungspunkte vorab festlegen — und mindestens 20 % der Übungszeit für die Auswertung reservieren.</div>
+
+        <p class="qa-result"><b>Kurz:</b> Den Transporter wie einen echten IIC-Einsatz behandeln: GAMS, 50/100-m-Bereiche, Form 2, Dekon-Platz. Und den Regen zum Übungsthema machen — Granulat trocken abdecken, ablaufendes Wasser stauen, Übergabe an die Wasserbehörde durchspielen. Simuliert wird mit dunklem Splitt aus original gekennzeichneten Leergebinden.</p>
+
+        <div class="qa-foot">✓ <b>quellengestützt</b> — Gefahrstoffdatenbank (BAM · UBA · PubChem), Praxis-Skills „Gefahrstoff-Einsatz" und „Feuerwehr-Didaktik" (Säule 2) plus FwDV 500 im Wortlaut geladen.</div>
       </div>
     </details>
 
@@ -553,15 +551,15 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
   <div class="sec-head reveal">
     <div class="tag">03 · Sicherheit &amp; Souveränität</div>
     <div><h2>Sicherheit ist bei uns <em>kein Zusatzfeature.</em></h2>
-    <p class="sub">brandmeister.ai ist das Schwesterprojekt von <a href="https://amtsschimmel.ai" target="_blank" rel="noopener">amtsschimmel.ai</a> und wurde von Anfang an auf Compliance, Rechtssicherheit und Qualität für die öffentliche Verwaltung gebaut — davon profitieren Sie auch im Feuerwehrdienst.</p></div>
+    <p class="sub">brandmeister.ai ist das Schwesterprojekt von <a href="https://amtsschimmel.ai" target="_blank" rel="noopener">amtsschimmel.ai</a> und wurde von Anfang an auf Datenschutz, Rechtssicherheit und Qualität für die öffentliche Verwaltung gebaut — davon profitieren Sie auch im Feuerwehrdienst.</p></div>
   </div>
   <div class="tiles reveal">
-    <div class="tile"><div class="lbl">Datensouveränität</div><h3>Daten bleiben in Deutschland</h3><p>Plattform und Ihre Daten laufen auf Servern in Deutschland. Die Modell-Verarbeitung findet in der EU statt; Drittlandtransfers werden vermieden und, wo unvermeidbar, per AVV und EU-Standardvertragsklauseln abgesichert.</p></div>
+    <div class="tile"><div class="lbl">Datensouveränität</div><h3>Gehostet in Deutschland, verarbeitet in der EU</h3><p>Plattform und Ihre Daten laufen auf Servern in Deutschland. Die Modell-Verarbeitung findet in der EU statt; Drittlandtransfers werden vermieden und, wo unvermeidbar, per AVV und EU-Standardvertragsklauseln abgesichert.</p></div>
     <div class="tile"><div class="lbl">Zweckbindung</div><h3>Kein Training mit Ihren Daten</h3><p>Ihre Eingaben werden ausschließlich zur Beantwortung Ihrer Anfrage verarbeitet, nicht zum Training der Modelle — vertraglich mit den Modellbetreibern abgesichert. Dazu integrierte Löschfristen: Was ablaufen muss, löscht die Plattform automatisch.</p></div>
     <div class="tile"><div class="lbl">EU-Compliance</div><h3>Auf den EU AI Act ausgelegt</h3><p>Klare Zweckbestimmung als Assistenzwerkzeug, Transparenzhinweis nach EU AI Act, dokumentierte Schulung Ihrer Mannschaft — von uns vorbereitet, nicht Ihr Problem.</p></div>
     <div class="tile"><div class="lbl">Modell-Routing</div><h3>Smartes Routing sensibler Daten</h3><p>Einsatzberichte, Mitgliederlisten, Dienstpläne — im Feuerwehrdienst stecken überall personenbezogene Daten. Jede Anfrage wird deshalb automatisch geprüft: Enthält sie welche, antwortet ein führendes europäisches Modell in der EU — sonst das beste Modell für die Aufgabe. Ohne dass im Gerätehaus jemand daran denken muss.</p></div>
     <div class="tile"><div class="lbl">Transparenz</div><h3>Wir nehmen die Mannschaft mit</h3><p>Sorgen um die eigene Datenverarbeitung sind berechtigt und verdienen eine klare Antwort. Wehrführung und Ausschuss bekommen von uns fertige Vorlagen zur Information der Mannschaft — verständlich, rechtlich abgesichert, einsatzbereit für die nächste Dienstbesprechung oder Hauptversammlung.</p></div>
-    <div class="tile"><div class="lbl">Offener Tech-Stack</div><h3>Etablierte Open-Source-Bausteine</h3><p>Bausteine wie Open WebUI und Docker, gehostet bei Hetzner in Deutschland — modell-agnostisch, prüfbar, modular und anbieterunabhängig.</p></div>
+    <div class="tile"><div class="lbl">Offener Tech-Stack</div><h3>Etablierte Open-Source-Technologie</h3><p>Gehostet bei Hetzner in Deutschland — modell-agnostisch, modular und anbieterunabhängig. Prüfbar statt Blackbox: Den vollständigen Tech-Stack legen wir im Gespräch und in der Compliance-Dokumentation offen.</p></div>
   </div>
   <img class="photo reveal" style="margin-top:32px" src="assets/img-alarmraum.jpg" alt="brandmeister.ai in der Alarmierungszentrale — Leitstelle mit Funk, Bildschirmen und dem brandmeister-Maskottchen" loading="lazy">
 </div></section>
@@ -571,15 +569,16 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
   <div class="sec-head reveal">
     <div class="tag">04 · So sieht es aus</div>
     <div><h2>Vertraute Benutzeroberfläche — <em>rechtssicher und einsatztauglich.</em></h2>
-    <p class="sub">So sieht Ihre Instanz im Alltag aus: eine vertraute, aufgeräumte Oberfläche, die Ihre Mannschaft am ersten Tag bedient — und Antworten, die so schnell und flüssig kommen, wie man es privat gewohnt ist. Denn nur ein Werkzeug, das wirklich genutzt wird, gewinnt gegen die Schatten-IT.</p></div>
+    <p class="sub">So sieht Ihre Instanz im Alltag aus: eine vertraute, aufgeräumte Oberfläche, die Ihre Mannschaft am ersten Tag bedienen kann — und Antworten, die so schnell und flüssig kommen, wie man es privat gewohnt ist. Denn nur ein Werkzeug, das wirklich genutzt wird, gewinnt gegen die Schatten-IT.</p></div>
   </div>
   <div style="max-width:980px;margin:0 auto" class="reveal">
     <div class="shot-frame">
-      <div class="shot-bar">brandmeister.ai · Ihre Instanz</div>
-      <div class="shot-ph">
-        <div class="big">Produkt-Screenshot folgt</div>
-        <div class="sm">UI-Screenshot · brandmeister.ai</div>
-      </div>
+      <div class="shot-bar">Demo-Instanz · brandmeister.ai als Assistent — Ihre Instanz: dieselbe Oberfläche</div>
+      <!-- Interim: Screenshot der Demo-Instanz (brandmeister.ai-Assistent); später ersetzen durch Produkt-Video -->
+      <picture>
+        <source srcset="assets/ui-screenshot.webp" type="image/webp">
+        <img src="assets/ui-screenshot.png" alt="Die vertraute Chat-Oberfläche: brandmeister.ai als Assistent mit EU-Kennzeichnung, Eingabefeld und Feuerwehr-Chatverläufen in der Seitenleiste" loading="lazy" style="width:100%;height:auto;display:block">
+      </picture>
     </div>
   </div>
 </div></section>
@@ -594,14 +593,14 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
 <section class="sec" id="mitwachsend"><div class="wrap">
   <div class="sec-head reveal">
     <div class="tag">05 · Im Dienst</div>
-    <div><h2>Entlastung, wo der Dienst <em>Zeit frisst.</em></h2>
-    <p class="sub">Ausbildung, Organisation, Einsatz — die drei Felder, in denen brandmeister.ai Ihrer Wehr Arbeit abnimmt und Professionalität dazugibt. Sie starten klar umrissen und bauen aus, wenn es trägt.</p></div>
+    <div><h2>Endlich mehr Zeit für <em>das Wesentliche.</em></h2>
+    <p class="sub">Nur rund 5&nbsp;% der geleisteten Feuerwehrstunden entfallen auf Einsätze — der Rest fließt in Aus- und Fortbildung, Organisation, Verwaltung und Technik. Und gerade dort wachsen die Anforderungen von Jahr zu Jahr. Unser Ziel: Sie so zu entlasten, dass Ihre wertvolle Zeit wieder in die wirklich wichtigen Aufgaben fließt.</p></div>
   </div>
   <div class="cards two reveal">
-    <div class="card"><div class="k">Ausbildung</div><h3>Übungsvorbereitung &amp; Jugendarbeit</h3><p>Theorieabende, Stationsausbildung und Lernkontrollen direkt aus FwDV, Lehrunterlagen und aktuellen Quellen — ebenso für die Jugendfeuerwehr: Onboarding-Checklisten und Ausbildungsunterlagen. Bessere Qualität mit weniger Zeitaufwand.</p></div>
+    <div class="card"><div class="k">Ausbildung</div><h3>Übungsvorbereitung &amp; Jugendarbeit</h3><p>Theorieabende, Stationsausbildung und Lernkontrollen, Lehrunterlagen und Checklisten — alles aus aktuellen Quellen. Für bessere Qualität mit weniger Zeitaufwand, in der Einsatzabteilung genauso wie in der Jugendfeuerwehr.</p></div>
     <div class="card"><div class="k">Organisation</div><h3>Der Papierkram, der keiner sein muss</h3><p>Alarm- und Ausrückeordnung fortschreiben, satzungskonforme Tagesordnungen und Einladungen für Ausschuss und Hauptversammlung, Dienstpläne, Auswertungen und Berichte an die Gemeinde. Weniger Verwaltung, mehr Zeit für den Dienst.</p></div>
-    <div class="card"><div class="k">Einsatz</div><h3>Vor- und Nachbereitung mit Substanz</h3><p>Einsatzberichte sauber formulieren, Einsatzchecklisten, Rechercheunterstützung im Einsatz — inklusive integrierter Gefahrstoffdatenbank —, Kostenersatz direkt an Satzung und Feuerwehrgesetz prüfen. Die Erfahrung Ihrer Wehr, professionell dokumentiert.</p></div>
-    <div class="card"><div class="k">Integration</div><h3>Anbindung an bestehende Systeme</h3><p>Wissens- und Dokumentensysteme anbinden (Standard-Einsatzregeln, AAO, Objektpläne) — und unsere paragrafengenaue Rechtsquellen-Tiefe per API/MCP in Ihre eigene Infrastruktur holen.</p></div>
+    <div class="card"><div class="k">Einsatz</div><h3>Vor- und Nachbereitung mit Substanz</h3><p>Einsatzberichte sauber formulieren, Einsatzchecklisten, Rechercheunterstützung im Einsatz — inklusive integrierter Gefahrstoffdatenbank —, Kostenersatz direkt an Satzung und Feuerwehrgesetz prüfen. Möglich macht das paragrafengenaues Rechtsquellen-Retrieval, kombiniert mit einer kuratierten Feuerwehr-Bibliothek.</p></div>
+    <div class="card"><div class="k">Integration</div><h3>Anbindung an bestehende Systeme</h3><p>Keine „noch eine Feuerwehrsoftware": brandmeister.ai bindet Ihre bestehenden Wissens- und Dokumentensysteme an — Standard-Einsatzregeln, AAO, Objektpläne. Und umgekehrt holen Sie sich unsere paragrafengenaue Rechtsquellen-Tiefe per API/MCP in Ihre eigene Infrastruktur.</p></div>
   </div>
 </div></section>
 
@@ -613,12 +612,12 @@ a{color:inherit;text-decoration:none;} button{font:inherit;cursor:pointer;backgr
     <p class="sub">Alles eingerichtet, gepflegt und begleitet. Sie arbeiten damit, wir halten es sauber.</p></div>
   </div>
   <div class="sol reveal">
-    <div class="sol-item"><span class="s">01</span><div><b>Eigene Instanz in Deutschland</b><span class="t">Dediziert für Ihre Feuerwehr, auf deutschen Servern. Keine geteilten Datenbanken für Ihre Einsatz- und Personaldaten.</span></div></div>
+    <div class="sol-item"><span class="s">01</span><div><b>Eigene Instanz in Deutschland</b><span class="t">Dediziert für Ihre Feuerwehr, auf deutschen Servern. Ihre Einsatz- und Personaldaten auf Ihrer eigenen Instanz.</span></div></div>
     <div class="sol-item"><span class="s">02</span><div><b>Führende Modelle, intelligent geroutet</b><span class="t">Immer das beste Modell für die Aufgabe: Die Plattform erkennt personenbezogene Daten automatisch — vom Einsatzbericht bis zur Dienstliste — und routet sensible Anfragen an führende europäische Modelle in der EU. Durch unser Kontextmanagement leistungsgesteigert, rechtssicher und im Preis inbegriffen.</span></div></div>
-    <div class="sol-item"><span class="s">03</span><div><b>Kuratiertes Feuerwehrrecht &amp; Praxiswissen</b><span class="t">Bundesrecht (FwDV), Landes-Feuerwehrgesetz, Kreis- und Ortsrecht (Feuerwehr- und Kostenersatzsatzung), paragrafengenau und aktuell — dazu kuratierte Praxis-Skills für Einsatztaktik, Gefahrenabwehr und Ausbildung sowie eine integrierte Gefahrstoffdatenbank.</span></div></div>
-    <div class="sol-item"><span class="s">04</span><div><b>Compliance-Paket</b><span class="t">Komplettpaket für Ihre Datenschutz-Folgenabschätzung: geprüfter AVV, technische Verarbeitungsdokumentation (Datenflüsse, Löschfristen, Unterauftragsverarbeiter, TOMs) sowie Muster für Verarbeitungsverzeichnis, Nutzungsrichtlinie und die Vorstellung in Kommandantschaft und Hauptversammlung.</span></div></div>
+    <div class="sol-item"><span class="s">03</span><div><b>Kuratiertes Feuerwehrrecht &amp; Praxiswissen</b><span class="t">Bundesrecht (FwDV), Landes-Feuerwehrgesetz, Kreis- und Ortsrecht (Feuerwehr- und Kostenersatzsatzung), paragrafengenau und aktuell — dazu kuratierte Praxis-Skills für alle Bereiche des Feuerwehrdienstes sowie eine integrierte Gefahrstoffdatenbank.</span></div></div>
+    <div class="sol-item"><span class="s">04</span><div><b>Compliance-Paket</b><span class="t">Komplettpaket für Ihre Datenschutz-Folgenabschätzung: AVV, technische Verarbeitungsdokumentation (Datenflüsse, Löschfristen, Unterauftragsverarbeiter, TOMs), Nutzungsrichtlinie und Material für die Vorstellung und Unterweisung in Ihrer Feuerwehr.</span></div></div>
     <div class="sol-item"><span class="s">05</span><div><b>Betrieb &amp; Pflege</b><span class="t">Laufende Aktualisierung der Rechtsquellen — eine Satzungsänderung wird direkt eingepflegt. Dazu regelmäßige Produktupdates und neue Features sowie hochverfügbarer Serverbetrieb auf deutscher Infrastruktur mit Backups.</span></div></div>
-    <div class="sol-item"><span class="s">06</span><div><b>Zukunftsfähig &amp; anbieterunabhängig</b><span class="t">Etablierte, offene Technologie, modular aufgebaut — eine Plattform, die mit Ihren Anforderungen wächst. Kein Vendor-Lock-in: Sie verbauen sich nichts. Support-Modell über den Kreisfeuerwehrverband oder Ihren IT-Dienstleister möglich.</span></div></div>
+    <div class="sol-item"><span class="s">06</span><div><b>Zukunftsfähig &amp; anbieterunabhängig</b><span class="t">Etablierte, offene Technologie, modular aufgebaut — eine Plattform, die mit Ihren Anforderungen wächst. Kein Vendor-Lock-in: Sie verbauen sich nichts. Support-Modell über Ihren IT-Dienstleister möglich.</span></div></div>
   </div>
   <p class="vs-note reveal" style="margin-top:32px"><b>Teil der amtsschimmel.ai-Familie:</b> Nutzt Ihre Gemeinde bereits <a href="https://amtsschimmel.ai" target="_blank" rel="noopener">amtsschimmel.ai</a>, bekommt Ihre Feuerwehr brandmeister.ai automatisch als eigene, getrennte Instanz dazu. Ohne Gemeinde-Anbindung ist brandmeister.ai auch separat für Ihre Feuerwehr buchbar — zu vergleichbaren Konditionen.</p>
 </div></section>
